@@ -1,6 +1,6 @@
 {
 	"name": "silverstripe/siteconfig",
-	"description": "Site wide configuration panel.",
+	"description": "Site wide configuration administration.",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "siteconfig"],
 	"authors": [{
@@ -13,5 +13,8 @@
 	"extra": {
 		"installer-name": "siteconfig"
 	},
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"autoload": {
+		"classmap": ["tests/behat/"]
+	},
 }
