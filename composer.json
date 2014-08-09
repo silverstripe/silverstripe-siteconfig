@@ -1,6 +1,6 @@
 {
 	"name": "silverstripe/siteconfig",
-	"description": "Site wide configuration administration.",
+	"description": "Site wide settings administration.",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "siteconfig"],
 	"authors": [{
@@ -16,5 +16,5 @@
 	"minimum-stability": "dev",
 	"autoload": {
 		"classmap": ["tests/behat/"]
-	},
+	}
 }
