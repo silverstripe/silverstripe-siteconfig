@@ -34,12 +34,7 @@ class SiteConfigLeftAndMain extends LeftAndMain {
 	 * @var array
 	 */
 	private static $required_permission_codes = array('EDIT_SITECONFIG');
-	
-	public function init() {
-		parent::init();
 
-		Requirements::javascript(CMS_DIR . '/javascript/CMSMain.EditForm.js');
-	}
 
 	public function getResponseNegotiator() {
 		$neg = parent::getResponseNegotiator();
@@ -64,7 +59,8 @@ class SiteConfigLeftAndMain extends LeftAndMain {
 		$fields = $siteConfig->getCMSFields();
 
 		// Tell the CMS what URL the preview should show
-		$fields->push(new HiddenField('PreviewURL', 'Preview URL', RootURLController::get_homepage_link()));
+		$home = Director::absoluteBaseURL();
+		$fields->push(new HiddenField('PreviewURL', 'Preview URL', $home));
 
 		// Added in-line to the form, but plucked into different view by LeftAndMain.Preview.js upon load
 		$fields->push($navField = new LiteralField('SilverStripeNavigator', $this->getSilverStripeNavigator()));
@@ -124,12 +120,6 @@ class SiteConfigLeftAndMain extends LeftAndMain {
 		return $this->getResponseNegotiator()->respond($this->request);
 	}
 	
-	public function LinkPreview() {
-		$record = $this->getRecord($this->currentPageID());
-		$baseLink = ($record && $record instanceof Page) ? $record->Link('?stage=Stage') : Director::absoluteBaseURL();
-
-		return $baseLink;
-	}
 
 	public function Breadcrumbs($unlinked = false) {
 		$defaultTitle = self::menu_title_for_class(get_class($this));
