@@ -1,0 +1,17 @@
+{
+	"name": "silverstripe/siteconfig",
+	"description": "Site wide configuration panel.",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "siteconfig"],
+	"authors": [{
+		"name": "Will Rossiter",
+		"email": "will@fullscreen.io"
+	}],
+	"require": {
+		"silverstripe/framework": ">=3.2.0"
+	},
+	"extra": {
+		"installer-name": "siteconfig"
+	},
+	"minimum-stability": "dev"
+}
