@@ -1,0 +1,19 @@
+lt:
+  SiteConfig:
+    DEFAULTTHEME: '(Naudoti nutylimą temą)'
+    EDITHEADER: 'Kas gali redaguoti šį puslapį?'
+    EDIT_PERMISSION: 'Tvarkyti svetainės parametrus'
+    EDIT_PERMISSION_HELP: 'Galimybė tvarkyti globalias priėjimo, pagrindinio puslapio teises.'
+    PLURALNAME: 'Svetainės konfigūracijos'
+    SINGULARNAME: 'Svetainės konfigūracija'
+    SITENAMEDEFAULT: 'Jūsų Svetainės Pavadinimas'
+    SITETAGLINE: 'Svetainės šūkis'
+    SITETITLE: 'Svetainės pavadinimas'
+    TABACCESS: Prieiga
+    TABMAIN: Pagrindinis
+    TAGLINEDEFAULT: 'Čia gali būti Jūsų šūkis'
+    THEME: Išvaizda
+    TOPLEVELCREATE: 'Kas gali kurti puslapius pagrindiniame svetainės lygmenyje?'
+    VIEWHEADER: 'Kas gali matyti puslapius šioje svetainėje?'
+  CMSSettingsController:
+    MENUTITLE: Nustatymai

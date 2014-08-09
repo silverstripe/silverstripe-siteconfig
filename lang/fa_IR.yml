@@ -1,0 +1,12 @@
+fa_IR:
+  SiteConfig:
+    DEFAULTTHEME: '(استفاده از پوسته پیشفرض)'
+    EDITHEADER: 'چه کسی میتواند صفحات را در این سایت ویرایش کند؟'
+    EDIT_PERMISSION: 'مدیریت پیکربندی سایت'
+    SITENAMEDEFAULT: 'نام سایت شما'
+    SITETITLE: 'عنوان سایت'
+    TABACCESS: دسترسی
+    TABMAIN: اصلی
+    THEME: پوسته
+    TOPLEVELCREATE: 'چه کسی میتواند صفحه جدیدی در ریشه(root) سایت ایجاد کند؟'
+    VIEWHEADER: 'چه کسی میتواند صفحات سایت را مشاهده کند؟'
