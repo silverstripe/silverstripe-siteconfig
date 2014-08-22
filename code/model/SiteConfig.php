@@ -16,7 +16,7 @@
  *
  * @package siteconfig
  */
-class SiteConfig extends DataObject implements PermissionProvider {
+class SiteConfig extends DataObject implements PermissionProvider, TemplateGlobalProvider {
 
 	private static $db = array(
 		"Title" => "Varchar(255)",
@@ -354,5 +354,14 @@ class SiteConfig extends DataObject implements PermissionProvider {
 		
 
 		return false;
+	}
+
+	/**
+	 * Add $SiteConfig to all SSViewers
+	 */
+	public static function get_template_global_variables() {
+		return array(
+			'SiteConfig' => 'current_site_config',
+		);
 	}
 }
