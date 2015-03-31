@@ -16,5 +16,10 @@
 	"minimum-stability": "dev",
 	"autoload": {
 		"classmap": ["tests/behat/"]
+	},
+	"extra": {
+		"branch-alias": {
+			"3.x-dev": "3.2.x-dev"
+		}
 	}
 }
