@@ -32,6 +32,12 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 		"EditorGroups" => "Group",
 		"CreateTopLevelGroups" => "Group"
 	);
+
+	private static $defaults = array(
+		"CanViewType" => "Anyone",
+		"CanEditType" => "LoggedInUsers",
+		"CanCreateTopLevelType" => "LoggedInUsers",
+	);
 	
 	/**
 	 * @config
@@ -39,6 +45,14 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 	 * @var array
 	 */
 	private static $disabled_themes = array();
+
+	/**
+	 * Default permission to check for 'LoggedInUsers' to create or edit pages
+	 *
+	 * @var array
+	 * @config
+	 */
+	private static $required_permission = array('CMS_ACCESS_CMSMain', 'CMS_ACCESS_LeftAndMain');
 	
 
 	public function populateDefaults() {
@@ -229,78 +243,90 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 	}
 
 	/**
-	 * Can a user view pages on this site? This method is only called if a page 
-	 * is set to Inherit, but there is nothing to inherit from.
+	 * Can a user view this SiteConfig instance?
 	 *
-	 * @param mixed $member 
-	 *
+	 * @param Member $member
 	 * @return boolean
 	 */
 	public function canView($member = null) {
-		if(!$member) {
-			$member = Member::currentUserID();
-		}
+		if(!$member) $member = Member::currentUserID();
+ 		if($member && is_numeric($member)) $member = DataObject::get_by_id('Member', $member);
 
-		if (!$this->CanViewType || $this->CanViewType == 'Anyone') {
-			return true;
-		}
+		$extended = $this->extendedCan('canView', $member);
+		if($extended !== null) return $extended;
 
-		if($member && is_numeric($member)) {
-			$member = Member::get()->byId($member);
-		}
+		// Assuming all that can edit this object can also view it
+		return $this->canEdit($member);
+	}
 
-		if ($member && Permission::checkMember($member, "ADMIN")) {
-			return true;
-		}
+	/**
+	 * Can a user view pages on this site? This method is only
+	 * called if a page is set to Inherit, but there is nothing
+	 * to inherit from.
+	 *
+	 * @param Member $member
+	 * @return boolean
+	 */
+	public function canViewPages($member = null) {
+		if(!$member) $member = Member::currentUserID();
+		if($member && is_numeric($member)) $member = DataObject::get_by_id('Member', $member);
+
+		if ($member && Permission::checkMember($member, "ADMIN")) return true;
+
+		$extended = $this->extendedCan('canViewPages', $member);
+		if($extended !== null) return $extended;
+
+		if (!$this->CanViewType || $this->CanViewType == 'Anyone') return true;
 				
 		// check for any logged-in users
-		if($this->CanViewType == 'LoggedInUsers' && $member) {
+		if($this->CanViewType === 'LoggedInUsers' && $member) return true;
+
+		// check for specific groups
+		if($this->CanViewType === 'OnlyTheseUsers' && $member && $member->inGroups($this->ViewerGroups())) return true;
+		
+		return false;
+	}
+
+	/**
+	 * Can a user edit pages on this site? This method is only
+	 * called if a page is set to Inherit, but there is nothing
+	 * to inherit from, or on new records without a parent.
+	 *
+	 * @param Member $member
+	 * @return boolean
+	 */
+	public function canEditPages($member = null) {
+		if(!$member) $member = Member::currentUserID();
+		if($member && is_numeric($member)) $member = DataObject::get_by_id('Member', $member);
+
+		if ($member && Permission::checkMember($member, "ADMIN")) return true;
+
+		$extended = $this->extendedCan('canEditPages', $member);
+		if($extended !== null) return $extended;
+
+		// check for any logged-in users with CMS access
+		if( $this->CanEditType === 'LoggedInUsers'
+			&& Permission::checkMember($member, $this->config()->required_permission)
+		) {
 			return true;
 		}
 
 		// check for specific groups
-		if($this->CanViewType == 'OnlyTheseUsers' && $member && $member->inGroups($this->ViewerGroups())) {
+		if($this->CanEditType === 'OnlyTheseUsers' && $member && $member->inGroups($this->EditorGroups())) {
 			return true;
 		}
 		
 		return false;
 	}
-	
-	/**
-	 * Can a user edit pages on this site? This method is only called if a page 
-	 * is set to Inherit, but there is nothing to inherit from.
-	 *
-	 * @param mixed $member 
-	 * @return boolean
-	 */
+
 	public function canEdit($member = null) {
-		if(!$member) {
-			$member = Member::currentUserID();
-		}
-		
-		if($member && is_numeric($member)) {
-			$member = DataObject::get_by_id('Member', $member);
-		}
+		if(!$member) $member = Member::currentUserID();
+		if($member && is_numeric($member)) $member = DataObject::get_by_id('Member', $member);
 
-		if ($member && Permission::checkMember($member, "ADMIN")) {
-			return true;
-		}
+		$extended = $this->extendedCan('canEdit', $member);
+		if($extended !== null) return $extended;
 
-		// check for any logged-in users
-		if($member) {
-			if(!$this->CanEditType || $this->CanEditType == 'LoggedInUsers') {
-				return true;
-			}
-
-			// check for specific groups
-			if($this->CanEditType == 'OnlyTheseUsers') {
-				if($member->inGroups($this->EditorGroups())) {
-					return true;
-				}
-			}
-		}
-		
-		return false;
+		return Permission::checkMember($member, "EDIT_SITECONFIG");
 	}
 	
 	/**
