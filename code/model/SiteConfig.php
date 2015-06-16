@@ -32,7 +32,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 		"EditorGroups" => "Group",
 		"CreateTopLevelGroups" => "Group"
 	);
-
+	
 	private static $defaults = array(
 		"CanViewType" => "Anyone",
 		"CanEditType" => "LoggedInUsers",
@@ -45,7 +45,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 	 * @var array
 	 */
 	private static $disabled_themes = array();
-
+	
 	/**
 	 * Default permission to check for 'LoggedInUsers' to create or edit pages
 	 *
@@ -257,7 +257,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
 		// Assuming all that can edit this object can also view it
 		return $this->canEdit($member);
-	}
+		}
 
 	/**
 	 * Can a user view pages on this site? This method is only
@@ -286,7 +286,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 		
 		return false;
 	}
-
+	
 	/**
 	 * Can a user edit pages on this site? This method is only
 	 * called if a page is set to Inherit, but there is nothing
@@ -298,7 +298,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 	public function canEditPages($member = null) {
 		if(!$member) $member = Member::currentUserID();
 		if($member && is_numeric($member)) $member = DataObject::get_by_id('Member', $member);
-
+		
 		if ($member && Permission::checkMember($member, "ADMIN")) return true;
 
 		$extended = $this->extendedCan('canEditPages', $member);
@@ -308,16 +308,16 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 		if( $this->CanEditType === 'LoggedInUsers'
 			&& Permission::checkMember($member, $this->config()->required_permission)
 		) {
-			return true;
-		}
+				return true;
+			}
 
-		// check for specific groups
+			// check for specific groups
 		if($this->CanEditType === 'OnlyTheseUsers' && $member && $member->inGroups($this->EditorGroups())) {
-			return true;
-		}
+					return true;
+				}
 		
 		return false;
-	}
+			}
 
 	public function canEdit($member = null) {
 		if(!$member) $member = Member::currentUserID();
@@ -325,7 +325,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
 		$extended = $this->extendedCan('canEdit', $member);
 		if($extended !== null) return $extended;
-
+		
 		return Permission::checkMember($member, "EDIT_SITECONFIG");
 	}
 	
@@ -346,38 +346,32 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 	/**
 	 * Can a user create pages in the root of this site?
 	 *
-	 * @param mixed $member 
+	 * @param Member $member
 	 * @return boolean
 	 */
 	public function canCreateTopLevel($member = null) {
-		if(!$member || !(is_a($member, 'Member')) || is_numeric($member)) {
-			$member = Member::currentUserID();
-		}
+		if(!$member) $member = Member::currentUserID();
+		if($member && is_numeric($member)) $member = DataObject::get_by_id('Member', $member);
 		
-		if (Permission::check('ADMIN')) {
-			return true;
-		}
+		if ($member && Permission::checkMember($member, "ADMIN")) return true;
 
-		if ($member && Permission::checkMember($member, "ADMIN")) {
-			return true;
-		}
+		$extended = $this->extendedCan('canCreateTopLevel', $member);
+		if($extended !== null) return $extended;
 		
-		// check for any logged-in users
-		if($this->CanCreateTopLevelType == 'LoggedInUsers' && $member) {
+		// check for any logged-in users with CMS permission
+		if( $this->CanCreateTopLevelType === 'LoggedInUsers'
+			&& Permission::checkMember($member, $this->config()->required_permission)
+		) {
 			return true;
 		}
 		
 		// check for specific groups
-		if($member && is_numeric($member)) {
-			$member = Member::get()->byId($member);
-		}
-
-		if($this->CanCreateTopLevelType == 'OnlyTheseUsers') {
-			if($member && $member->inGroups($this->CreateTopLevelGroups())) {
+		if( $this->CanCreateTopLevelType === 'OnlyTheseUsers'
+			&& $member
+			&& $member->inGroups($this->CreateTopLevelGroups())
+		) {
 				return true;
 			}
-		}
-		
 
 		return false;
 	}
