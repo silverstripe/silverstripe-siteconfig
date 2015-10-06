@@ -1,4 +1,6 @@
 ru:
+  CMSSettingsController:
+    MENUTITLE: Настройки
   SiteConfig:
     DEFAULTTHEME: '(Использовать тему по умолчанию)'
     EDITHEADER: 'Кто может редактировать страницы на этом сайте?'
@@ -15,5 +17,3 @@ ru:
     THEME: Тема
     TOPLEVELCREATE: 'Кто может создавать страницы верхнего уровня на этом сайте?'
     VIEWHEADER: 'Кто может просматривать страницы на этом сайте?'
-  CMSSettingsController:
-    MENUTITLE: Настройки

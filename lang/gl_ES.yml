@@ -1,4 +1,6 @@
 gl_ES:
+  CMSSettingsController:
+    MENUTITLE: Configuracións
   SiteConfig:
     DEFAULTTHEME: '(Usar tema por defecto)'
     EDITHEADER: 'Quen pode editar neste sitio?'
@@ -12,5 +14,3 @@ gl_ES:
     THEME: Tema
     TOPLEVELCREATE: 'Quen pode crear as páxinas na raíz do sitio?'
     VIEWHEADER: 'Quen pode ver as páxinas neste sitio?'
-  CMSSettingsController:
-    MENUTITLE: Configuracións

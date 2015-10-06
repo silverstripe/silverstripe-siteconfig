@@ -1,4 +1,6 @@
 ro:
+  CMSSettingsController:
+    MENUTITLE: Setări
   SiteConfig:
     DEFAULTTHEME: '(Folosește tema default)'
     EDITHEADER: 'Cine poate edita pagini pe acest site?'
@@ -15,5 +17,3 @@ ro:
     THEME: Tema
     TOPLEVELCREATE: 'Cine poate crea pagini în rădăcina site-ului?'
     VIEWHEADER: 'Cine poate vizualiza paginile acestui site?'
-  CMSSettingsController:
-    MENUTITLE: Setări

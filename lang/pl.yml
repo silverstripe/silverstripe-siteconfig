@@ -1,4 +1,6 @@
 pl:
+  CMSSettingsController:
+    MENUTITLE: Ustawienia
   SiteConfig:
     DEFAULTTHEME: '(Użyj domyślnego szablonu)'
     EDITHEADER: 'Kto może edytować strony tego serwisu?'
@@ -15,5 +17,3 @@ pl:
     THEME: Szablon
     TOPLEVELCREATE: 'Kto może tworzyć strony w korzeniu serwisu?'
     VIEWHEADER: 'Kto może oglądać strony serwisu?'
-  CMSSettingsController:
-    MENUTITLE: Ustawienia

@@ -1,4 +1,6 @@
 da:
+  CMSSettingsController:
+    MENUTITLE: Indstillinger
   SiteConfig:
     DEFAULTTHEME: '(Brug standard tema)'
     EDITHEADER: 'Hvem kan redigere sider på dette websted ?'
@@ -13,5 +15,3 @@ da:
     THEME: Tema
     TOPLEVELCREATE: 'Hvem kan oprette sider i roden af dette websted ?'
     VIEWHEADER: 'Hvem kan se sider på dette websted?'
-  CMSSettingsController:
-    MENUTITLE: Indstillinger

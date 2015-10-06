@@ -1,4 +1,6 @@
 tr:
+  CMSSettingsController:
+    MENUTITLE: Ayarlar
   SiteConfig:
     DEFAULTTHEME: '(Varsayılan temayı kullan)'
     SITENAMEDEFAULT: 'Site Adınız'
@@ -6,5 +8,3 @@ tr:
     TABACCESS: Erişim
     TABMAIN: Ana
     THEME: Tema
-  CMSSettingsController:
-    MENUTITLE: Ayarlar

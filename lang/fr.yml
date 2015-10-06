@@ -1,4 +1,6 @@
 fr:
+  CMSSettingsController:
+    MENUTITLE: Paramètres
   SiteConfig:
     DEFAULTTHEME: '(Utiliser le thème par défaut)'
     EDITHEADER: 'Qui peut modifier les pages sur ce site?'
@@ -15,5 +17,3 @@ fr:
     THEME: Thème
     TOPLEVELCREATE: 'Qui peut créer des pages à la racine de ce site ?'
     VIEWHEADER: 'Qui peut consulter les pages sur ce site?'
-  CMSSettingsController:
-    MENUTITLE: Paramètres
