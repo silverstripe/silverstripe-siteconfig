@@ -1,4 +1,6 @@
 zh:
+  CMSSettingsController:
+    MENUTITLE: 设置
   SiteConfig:
     DEFAULTTHEME: '（使用默认主题）'
     EDITHEADER: '谁可以修改该站点的页面？'
@@ -15,5 +17,3 @@ zh:
     THEME: 主题
     TOPLEVELCREATE: '谁可以在站点的根路径创建页面？'
     VIEWHEADER: '谁可以查看该站点的页面？'
-  CMSSettingsController:
-    MENUTITLE: 设置

@@ -1,4 +1,6 @@
 pt:
+  CMSSettingsController:
+    MENUTITLE: Configurações
   SiteConfig:
     DEFAULTTHEME: '(Usar o tema por omissão)'
     EDITHEADER: 'Quem pode editar páginas neste site?'
@@ -15,5 +17,3 @@ pt:
     THEME: Tema
     TOPLEVELCREATE: 'Quem pode criar páginas na raiz do site?'
     VIEWHEADER: 'Quem pode ver páginas neste site?'
-  CMSSettingsController:
-    MENUTITLE: Configurações

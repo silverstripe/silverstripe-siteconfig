@@ -1,4 +1,6 @@
 uk:
+  CMSSettingsController:
+    MENUTITLE: Налаштування
   SiteConfig:
     DEFAULTTHEME: '(Використовувати тему за замовчуванням)'
     EDITHEADER: 'Хто може редагувати сторінки на цьому сайті?'
@@ -13,5 +15,3 @@ uk:
     THEME: Тема оформлення
     TOPLEVELCREATE: 'Хто може створювати сторінки верхнього рівня на сайті?'
     VIEWHEADER: 'Хто може переглядати сторінки на цьому сайті?'
-  CMSSettingsController:
-    MENUTITLE: Налаштування

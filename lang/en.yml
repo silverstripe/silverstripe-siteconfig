@@ -1,4 +1,6 @@
 en:
+  CMSSettingsController:
+    MENUTITLE: Settings
   SiteConfig:
     DEFAULTTHEME: '(Use default theme)'
     EDITHEADER: 'Who can edit pages on this site?'
@@ -15,5 +17,7 @@ en:
     THEME: Theme
     TOPLEVELCREATE: 'Who can create pages in the root of the site?'
     VIEWHEADER: 'Who can view pages on this site?'
-  CMSSettingsController:
+  SiteConfigLeftAndMain:
     MENUTITLE: Settings
+  SiteTree:
+    TOPLEVELCREATORGROUPS: 'Top level creators'

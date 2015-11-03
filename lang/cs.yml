@@ -1,4 +1,6 @@
 cs:
+  CMSSettingsController:
+    MENUTITLE: Možnosti
   SiteConfig:
     DEFAULTTHEME: '(Použít implicitní tému)'
     EDITHEADER: 'Kdo může editovat stránky tohoto webu?'
@@ -15,5 +17,3 @@ cs:
     THEME: Téma
     TOPLEVELCREATE: 'Kdo může vytvářet stránky v kořenu webu?'
     VIEWHEADER: 'Kdo může vidět stránky na tomto webu?'
-  CMSSettingsController:
-    MENUTITLE: Možnosti

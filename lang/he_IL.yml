@@ -1,4 +1,6 @@
 he_IL:
+  CMSSettingsController:
+    MENUTITLE: הגדרות
   SiteConfig:
     DEFAULTTHEME: '(שימוש בערכת העיצוב מבררת המחדל)'
     EDITHEADER: 'מי יכול לערוך עמודים באתר זה?'
@@ -15,5 +17,3 @@ he_IL:
     THEME: ערכת עיצוב
     TOPLEVELCREATE: 'מי יכול ליצור עמודים בראש האתר?'
     VIEWHEADER: 'מי יכול לצפות בעמודים באתר זה?'
-  CMSSettingsController:
-    MENUTITLE: הגדרות
