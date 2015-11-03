@@ -1,4 +1,6 @@
 nl:
+  CMSSettingsController:
+    MENUTITLE: Instellingen
   SiteConfig:
     DEFAULTTHEME: '(Gebruik standaard thema)'
     EDITHEADER: 'Wie kan pagina''s op de site wijzigen?'
@@ -15,5 +17,3 @@ nl:
     THEME: Thema
     TOPLEVELCREATE: 'Wie kunnen pagina''s in op het hoogste niveau van de site aanmaken?'
     VIEWHEADER: 'Wie kunnen pagina''s op de site bekijken?'
-  CMSSettingsController:
-    MENUTITLE: Instellingen

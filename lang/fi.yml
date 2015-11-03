@@ -1,4 +1,6 @@
 fi:
+  CMSSettingsController:
+    MENUTITLE: Asetukset
   SiteConfig:
     DEFAULTTHEME: '(Käytä oletusteemaa)'
     EDITHEADER: 'Kuka voi muokata sivuja tällä sivustolla?'
@@ -15,5 +17,3 @@ fi:
     THEME: Teema
     TOPLEVELCREATE: 'Kuka voi luoda sivuja sivuston juureen?'
     VIEWHEADER: 'Kuka voi nähdä sivuja tällä sivustolla?'
-  CMSSettingsController:
-    MENUTITLE: Asetukset

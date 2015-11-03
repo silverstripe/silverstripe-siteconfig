@@ -1,4 +1,6 @@
 sr:
+  CMSSettingsController:
+    MENUTITLE: Подешавања
   SiteConfig:
     DEFAULTTHEME: '(Користи подразумевану тему)'
     EDITHEADER: 'Ко може да мења странице на овом сајту?'
@@ -15,5 +17,3 @@ sr:
     THEME: Тема
     TOPLEVELCREATE: 'Ко може креирати странице вршног нивоа на сајту?'
     VIEWHEADER: 'Ко може да види странице овог сајта?'
-  CMSSettingsController:
-    MENUTITLE: Подешавања

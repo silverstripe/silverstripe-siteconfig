@@ -1,4 +1,6 @@
 ar:
+  CMSSettingsController:
+    MENUTITLE: الإعدادات
   SiteConfig:
     DEFAULTTHEME: '( استخدام الثيم الافتراضي )'
     EDITHEADER: 'من يستطيع تحرير الصفحات الموجودة على هذا الموقع؟'
@@ -15,5 +17,3 @@ ar:
     THEME: الثيم
     TOPLEVELCREATE: 'من يستطيع إنشاء صفحات في جذر الموقع؟'
     VIEWHEADER: 'من يستطيع عرض الصفحات على هذا الموقع؟...'
-  CMSSettingsController:
-    MENUTITLE: الإعدادات

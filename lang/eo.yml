@@ -1,4 +1,6 @@
 eo:
+  CMSSettingsController:
+    MENUTITLE: Agordoj
   SiteConfig:
     DEFAULTTHEME: '(Uzi aprioran etoson)'
     EDITHEADER: 'Kiu povas redakti paĝojn en ĉi tiu retejo?'
@@ -15,5 +17,7 @@ eo:
     THEME: Etoso
     TOPLEVELCREATE: 'Kiu povas krei paĝojn en la radiko de la retejo?'
     VIEWHEADER: 'Kiu povas vidigi paĝojn en ĉi tiu retejo?'
-  CMSSettingsController:
+  SiteConfigLeftAndMain:
     MENUTITLE: Agordoj
+  SiteTree:
+    TOPLEVELCREATORGROUPS: 'Supranivelaj kreintoj'

@@ -1,4 +1,6 @@
 ja:
+  CMSSettingsController:
+    MENUTITLE: 設定
   SiteConfig:
     DEFAULTTHEME: '(デフォルトのテーマを利用)'
     EDITHEADER: 'このサイト上でページを編集できる人'
@@ -15,5 +17,3 @@ ja:
     THEME: テーマ
     TOPLEVELCREATE: 'サイトのルートにおいてページを作成できる人'
     VIEWHEADER: 'このサイト上でページを閲覧できる人'
-  CMSSettingsController:
-    MENUTITLE: 設定

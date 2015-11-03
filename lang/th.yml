@@ -1,4 +1,6 @@
 th:
+  CMSSettingsController:
+    MENUTITLE: ตั้งค่า
   SiteConfig:
     DEFAULTTHEME: '(ใช้ชุดธีมเริ่มต้น)'
     EDITHEADER: 'ใครสามารถแก้ไขหน้าเว็บบนเว็บไซต์นี้ได้บ้าง?'
@@ -15,5 +17,3 @@ th:
     THEME: ชุดธีม
     TOPLEVELCREATE: 'ใครบ้างที่สามารถสร้างหน้าเว็บที่ตำแหน่ง root ของเว็บไซต์ได้?'
     VIEWHEADER: 'ใครบ้่างที่สามารถเปิดดูหน้าเว็บบนเว็บไซต์นี้ได้?'
-  CMSSettingsController:
-    MENUTITLE: ตั้งค่า
