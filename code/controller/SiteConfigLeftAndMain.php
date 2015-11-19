@@ -36,18 +36,6 @@ class SiteConfigLeftAndMain extends LeftAndMain {
 	private static $required_permission_codes = array('EDIT_SITECONFIG');
 
 
-	public function getResponseNegotiator() {
-		$neg = parent::getResponseNegotiator();
-
-		$controller = $this;
-
-		$neg->setCallback('CurrentForm', function() use(&$controller) {
-			return $controller->renderWith($controller->getTemplatesWithSuffix('_Content'));
-		});
-
-		return $neg;
-	}
-
 	/**
 	 * @param null $id Not used.
 	 * @param null $fields Not used.
@@ -66,13 +54,20 @@ class SiteConfigLeftAndMain extends LeftAndMain {
 		$fields->push($navField = new LiteralField('SilverStripeNavigator', $this->getSilverStripeNavigator()));
 		$navField->setAllowHTML(true);
 
+		// Retrieve validator, if one has been setup (e.g. via data extensions).
+		if ($siteConfig->hasMethod("getCMSValidator")) {
+			$validator = $siteConfig->getCMSValidator();
+		} else {
+			$validator = null;
+		}
+
 		$actions = $siteConfig->getCMSActions();
 		$form = CMSForm::create( 
-			$this, 'EditForm', $fields, $actions
+			$this, 'EditForm', $fields, $actions, $validator
 		)->setHTMLID('Form_EditForm');
 		$form->setResponseNegotiator($this->getResponseNegotiator());
 		$form->addExtraClass('cms-content center cms-edit-form');
-		// don't add data-pjax-fragment=CurrentForm, its added in the content template instead
+		$form->setAttribute('data-pjax-fragment', 'CurrentForm');
 
 		if($form->Fields()->hasTabset()) $form->Fields()->findOrMakeTab('Root')->setTemplate('CMSTabSet');
 		$form->setHTMLID('Form_EditForm');
@@ -117,7 +112,7 @@ class SiteConfigLeftAndMain extends LeftAndMain {
 		
 		$this->response->addHeader('X-Status', rawurlencode(_t('LeftAndMain.SAVEDUP', 'Saved.')));
 
-		return $this->getResponseNegotiator()->respond($this->request);
+		return $form->forTemplate();
 	}
 	
 
