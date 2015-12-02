@@ -8,7 +8,7 @@
 		"email": "will@fullscreen.io"
 	}],
 	"require": {
-		"silverstripe/framework": "*"
+		"silverstripe/framework": "^4.0"
 	},
 	"extra": {
 		"installer-name": "siteconfig"
