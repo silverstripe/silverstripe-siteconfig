@@ -1,6 +1,6 @@
 <?php
 
-namespace SilverStripe\Cms\Test\Behaviour;
+namespace SilverStripe\Siteconfig\Test\Behaviour;
 
 use SilverStripe\BehatExtension\Context\SilverStripeContext;
 use SilverStripe\BehatExtension\Context\BasicContext;
@@ -33,12 +33,15 @@ class FeatureContext extends \SilverStripe\Framework\Test\Behaviour\FeatureConte
         parent::__construct($parameters);
 
         // Override existing fixture context with more specific one
-        $fixtureContext = new \SilverStripe\Cms\Test\Behaviour\FixtureContext($parameters);
+        $fixtureContext = new \SilverStripe\Siteconfig\Test\Behaviour\FixtureContext($parameters);
         $fixtureContext->setFixtureFactory($this->getFixtureFactory());
         $this->useContext('FixtureContext', $fixtureContext);
 
         // Add extra contexts with more steps
-        $this->useContext('ThemeContext', new \SilverStripe\Cms\Test\Behaviour\ThemeContext($parameters));
+        $this->useContext('ThemeContext', new \SilverStripe\Siteconfig\Test\Behaviour\ThemeContext($parameters));
+        if(!class_exists('SiteTree')) {
+            return;
+        }
 
         // Use blueprints which auto-publish all subclasses of SiteTree
         $factory = $fixtureContext->getFixtureFactory();
