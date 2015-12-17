@@ -12,10 +12,10 @@ class SiteConfigTest extends SapphireTest
         'SiteTree' => array('SiteTreeSubsites')
     );
 
-    function setUpOnce()
+    public function setUpOnce()
     {
         // Fix issue with tests failing without CMS module
-        if(!class_exists('SiteTree')) {
+        if (!class_exists('SiteTree')) {
             unset($this->illegalExtensions['SiteTree']);
         }
 
