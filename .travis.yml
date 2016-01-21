@@ -27,11 +27,11 @@ matrix:
 before_script:
   - composer self-update || true
   - git clone git://github.com/silverstripe-labs/silverstripe-travis-support.git ~/travis-support
- - "if [ \"$BEHAT_TEST\" = \"\" ]; then php ~/travis-support/travis_setup.php --source `pwd` --target ~/builds/ss; fi"
- - "if [ \"$BEHAT_TEST\" = \"1\" ]; then php ~/travis-support/travis_setup.php --source `pwd` --target ~/builds/ss --require silverstripe/behat-extension; fi"
+  - "if [ \"$BEHAT_TEST\" = \"\" ]; then php ~/travis-support/travis_setup.php --source `pwd` --target ~/builds/ss; fi"
+  - "if [ \"$BEHAT_TEST\" = \"1\" ]; then php ~/travis-support/travis_setup.php --source `pwd` --target ~/builds/ss --require silverstripe/behat-extension; fi"
   - cd ~/builds/ss
   - composer install
 
 script:
- - "if [ \"$BEHAT_TEST\" = \"\" ]; then vendor/bin/phpunit siteconfig/tests; fi"
- - "if [ \"$BEHAT_TEST\" = \"1\" ]; then vendor/bin/behat @siteconfig; fi"
+  - "if [ \"$BEHAT_TEST\" = \"\" ]; then vendor/bin/phpunit siteconfig/tests; fi"
+  - "if [ \"$BEHAT_TEST\" = \"1\" ]; then vendor/bin/behat @siteconfig; fi"
