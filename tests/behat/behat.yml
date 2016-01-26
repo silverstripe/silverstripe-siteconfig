@@ -1,6 +1,6 @@
 default:
   context:
-    class: SilverStripe\Cms\Test\Behaviour\FeatureContext
+    class: SilverStripe\Siteconfig\Test\Behaviour\FeatureContext
   extensions:
     SilverStripe\BehatExtension\Extension: ~
     Behat\MinkExtension\Extension:
