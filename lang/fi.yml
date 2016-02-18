@@ -17,3 +17,7 @@ fi:
     THEME: Teema
     TOPLEVELCREATE: 'Kuka voi luoda sivuja sivuston juureen?'
     VIEWHEADER: 'Kuka voi nähdä sivuja tällä sivustolla?'
+  SiteConfigLeftAndMain:
+    MENUTITLE: Asetukset
+  SiteTree:
+    TOPLEVELCREATORGROUPS: 'Ylätason luojat'
