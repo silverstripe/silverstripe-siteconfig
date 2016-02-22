@@ -122,7 +122,7 @@ class SiteConfigLeftAndMain extends LeftAndMain {
 		return new ArrayList(array(
 			new ArrayData(array(
 				'Title' => _t("{$this->class}.MENUTITLE", $defaultTitle),
-				'Link' => false
+				'Link' => $this->Link()
 			))
 		));
 	}
