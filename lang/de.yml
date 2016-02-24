@@ -19,3 +19,5 @@ de:
     VIEWHEADER: 'Wer kann Seiten auf dieser Website sehen?'
   SiteConfigLeftAndMain:
     MENUTITLE: Einstellungen
+  SiteTree:
+    TOPLEVELCREATORGROUPS: 'Spitzen Ersteller'
