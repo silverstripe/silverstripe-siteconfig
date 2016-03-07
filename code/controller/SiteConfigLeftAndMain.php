@@ -63,10 +63,24 @@ class SiteConfigLeftAndMain extends LeftAndMain
 		}
 
 		$actions = $siteConfig->getCMSActions();
-		$form = CMSForm::create( 
+		$negotiator = $this->getResponseNegotiator();
+		/** @var Form $form */
+		$form = Form::create(
 			$this, 'EditForm', $fields, $actions, $validator
 		)->setHTMLID('Form_EditForm');
-		$form->setResponseNegotiator($this->getResponseNegotiator());
+		$form->setValidationResponseCallback(function() use ($negotiator, $form) {
+			$request = $this->getRequest();
+			if($request->isAjax() && $negotiator) {
+				$form->setupFormErrors();
+				$result = $form->forTemplate();
+
+				return $negotiator->respond($request, array(
+					'CurrentForm' => function() use($result) {
+						return $result;
+					}
+				));
+			}
+		});
 		$form->addExtraClass('cms-content center cms-edit-form');
 		$form->setAttribute('data-pjax-fragment', 'CurrentForm');
 

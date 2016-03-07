@@ -12,10 +12,6 @@ use Behat\Mink\Driver\Selenium2Driver;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 
-// PHPUnit
-require_once 'PHPUnit/Autoload.php';
-require_once 'PHPUnit/Framework/Assert/Functions.php';
-
 /**
  * Context used to create fixtures in the SilverStripe ORM.
  */
@@ -26,7 +22,7 @@ class ThemeContext extends BehatContext
 
     /**
      * Create a test theme
-     * 
+     *
      * @Given /^a theme "(?<theme>[^"]+)"/
      */
     public function stepCreateTheme($theme)
@@ -42,7 +38,7 @@ class ThemeContext extends BehatContext
 
     /**
      * Create a template within a test theme
-     * 
+     *
      * @Given /^a template "(?<template>[^"]+)" in theme "(?<theme>[^"]+)" with content "(?<content>[^"]+)"/
      */
     public function stepCreateTemplate($template, $theme, $content)
@@ -86,7 +82,7 @@ class ThemeContext extends BehatContext
 
     /**
      * Clean up any theme manipulation
-     * 
+     *
      * @AfterScenario
      */
     public function cleanThemesAfterScenario()

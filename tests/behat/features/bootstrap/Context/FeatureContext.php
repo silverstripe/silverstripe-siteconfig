@@ -6,13 +6,7 @@ use SilverStripe\BehatExtension\Context\SilverStripeContext;
 use SilverStripe\BehatExtension\Context\BasicContext;
 use SilverStripe\BehatExtension\Context\LoginContext;
 use SilverStripe\BehatExtension\Context\FixtureContext;
-use SilverStripe\Framework\Test\Behaviour\CmsFormsContext;
-use SilverStripe\Framework\Test\Behaviour\CmsUiContext;
 use SilverStripe\Cms\Test\Behaviour;
-
-// PHPUnit
-require_once 'PHPUnit/Autoload.php';
-require_once 'PHPUnit/Framework/Assert/Functions.php';
 
 /**
  * Features context
