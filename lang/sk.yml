@@ -17,3 +17,7 @@ sk:
     THEME: Téma
     TOPLEVELCREATE: 'Kto môže vytvárať koreňové stránky webu?'
     VIEWHEADER: 'Kto môže vidieť stránky na tomto webe?'
+  SiteConfigLeftAndMain:
+    MENUTITLE: Nastavenia
+  SiteTree:
+    TOPLEVELCREATORGROUPS: 'Tvorcovia najvyššej úrovne'
