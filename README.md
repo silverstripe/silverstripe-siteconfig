@@ -1,5 +1,7 @@
 # SiteConfig
 
+![helpfulrobot](https://helpfulrobot.io/silverstripe/siteconfig/badge)
+
 ## Introduction
 
 SiteConfig provides a `Settings` tab in the admin section allowing users to set
