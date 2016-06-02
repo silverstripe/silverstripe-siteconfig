@@ -1,9 +1,13 @@
 bg:
+  CMSSettingsController:
+    MENUTITLE: Настройки
   SiteConfig:
     DEFAULTTHEME: '(използвай тема по подразбиране)'
     EDITHEADER: 'Кой може да редактира страници по сайта?'
     EDIT_PERMISSION: 'Промяна на конфигурацията на сайта'
     EDIT_PERMISSION_HELP: 'Възможност за редакция на глобалните правила за достъп / правата на страниците, най-високо в йерархията'
+    PLURALNAME: 'Конфигурации на сайта'
+    SINGULARNAME: 'Конфигурация на сайта'
     SITENAMEDEFAULT: 'Име на сайта'
     SITETAGLINE: 'Подзаглавие на сайта'
     SITETITLE: 'Заглавие на сайта'
@@ -13,3 +17,7 @@ bg:
     THEME: Тема
     TOPLEVELCREATE: 'Кой може да създава най-високо ниво страници?'
     VIEWHEADER: 'Кой може да достъпи страницата?'
+  SiteConfigLeftAndMain:
+    MENUTITLE: Настройки
+  SiteTree:
+    TOPLEVELCREATORGROUPS: 'Създатели на страници от най-високо ниво'
