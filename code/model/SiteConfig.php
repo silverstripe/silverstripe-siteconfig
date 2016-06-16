@@ -3,6 +3,11 @@
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\ManyManyList;
+use SilverStripe\Security\Group;
+use SilverStripe\Security\Permission;
+use SilverStripe\Security\Member;
+use SilverStripe\Security\PermissionProvider;
+
 
 /**
  * SiteConfig
@@ -32,9 +37,9 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     );
 
     private static $many_many = array(
-        "ViewerGroups" => "Group",
-        "EditorGroups" => "Group",
-        "CreateTopLevelGroups" => "Group"
+        "ViewerGroups" => "SilverStripe\\Security\\Group",
+        "EditorGroups" => "SilverStripe\\Security\\Group",
+        "CreateTopLevelGroups" => "SilverStripe\\Security\\Group"
     );
 
     private static $defaults = array(
@@ -267,7 +272,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             $member = Member::currentUserID();
         }
         if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('Member', $member);
+            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
         }
 
         $extended = $this->extendedCan('canView', $member);
@@ -293,7 +298,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             $member = Member::currentUserID();
         }
         if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('Member', $member);
+            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
         }
 
         if ($member && Permission::checkMember($member, "ADMIN")) {
@@ -336,7 +341,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             $member = Member::currentUserID();
         }
         if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('Member', $member);
+            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
         }
 
         if ($member && Permission::checkMember($member, "ADMIN")) {
@@ -369,7 +374,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             $member = Member::currentUserID();
         }
         if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('Member', $member);
+            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
         }
 
         $extended = $this->extendedCan('canEdit', $member);
@@ -407,7 +412,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             $member = Member::currentUserID();
         }
         if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('Member', $member);
+            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
         }
 
         if ($member && Permission::checkMember($member, "ADMIN")) {
