@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\DB;
+use SilverStripe\ORM\ManyManyList;
+
 /**
  * SiteConfig
  *
@@ -26,26 +30,26 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         "CanEditType" => "Enum('LoggedInUsers, OnlyTheseUsers', 'LoggedInUsers')",
         "CanCreateTopLevelType" => "Enum('LoggedInUsers, OnlyTheseUsers', 'LoggedInUsers')",
     );
-    
+
     private static $many_many = array(
         "ViewerGroups" => "Group",
         "EditorGroups" => "Group",
         "CreateTopLevelGroups" => "Group"
     );
-    
+
     private static $defaults = array(
         "CanViewType" => "Anyone",
         "CanEditType" => "LoggedInUsers",
         "CanCreateTopLevelType" => "LoggedInUsers",
     );
-    
+
     /**
      * @config
      *
      * @var array
      */
     private static $disabled_themes = array();
-    
+
     /**
      * Default permission to check for 'LoggedInUsers' to create or edit pages
      *
@@ -53,19 +57,19 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      * @config
      */
     private static $required_permission = array('CMS_ACCESS_CMSMain', 'CMS_ACCESS_LeftAndMain');
-    
+
 
     public function populateDefaults()
     {
         $this->Title = _t('SiteConfig.SITENAMEDEFAULT', "Your Site Name");
         $this->Tagline = _t('SiteConfig.TAGLINEDEFAULT', "your tagline here");
-        
+
         // Allow these defaults to be overridden
         parent::populateDefaults();
     }
 
     /**
-     * Get the fields that are sent to the CMS. 
+     * Get the fields that are sent to the CMS.
      *
      * In your extensions: updateCMSFields($fields).
      *
@@ -122,14 +126,14 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         $viewersOptionsSource["LoggedInUsers"] = _t('SiteTree.ACCESSLOGGEDIN', "Logged-in users");
         $viewersOptionsSource["OnlyTheseUsers"] = _t('SiteTree.ACCESSONLYTHESE', "Only these people (choose from list)");
         $viewersOptionsField->setSource($viewersOptionsSource);
-        
+
         $editorsOptionsSource = array();
         $editorsOptionsSource["LoggedInUsers"] = _t('SiteTree.EDITANYONE', "Anyone who can log-in to the CMS");
         $editorsOptionsSource["OnlyTheseUsers"] = _t('SiteTree.EDITONLYTHESE', "Only these people (choose from list)");
         $editorsOptionsField->setSource($editorsOptionsSource);
-        
+
         $topLevelCreatorsOptionsField->setSource($editorsOptionsSource);
-        
+
         if (!Permission::check('EDIT_SITECONFIG')) {
             $fields->makeFieldReadonly($viewersOptionsField);
             $fields->makeFieldReadonly($viewerGroupsField);
@@ -147,11 +151,11 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                 "Warning: You should remove install.php from this SilverStripe install for security reasons.")
                 . "</p>"), "Title");
         }
-        
+
         $tabMain->setTitle(_t('SiteConfig.TABMAIN', "Main"));
         $tabAccess->setTitle(_t('SiteConfig.TABACCESS', "Access"));
         $this->extend('updateCMSFields', $fields);
-        
+
         return $fields;
     }
 
@@ -166,18 +170,18 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     {
         $themes = SSViewer::get_themes($baseDir);
         $disabled = (array)$this->config()->disabled_themes;
-    
+
         foreach ($disabled as $theme) {
             if (isset($themes[$theme])) {
                 unset($themes[$theme]);
             }
         }
-    
+
         return $themes;
     }
-    
+
     /**
-     * Get the actions that are sent to the CMS. 
+     * Get the actions that are sent to the CMS.
      *
      * In your extensions: updateEditFormActions($actions)
      *
@@ -193,9 +197,9 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         } else {
             $actions = new FieldList();
         }
-        
+
         $this->extend('updateCMSActions', $actions);
-        
+
         return $actions;
     }
 
@@ -206,9 +210,9 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     {
         return singleton('CMSSettingsController')->Link();
     }
-    
+
     /**
-     * Get the current sites SiteConfig, and creates a new one through 
+     * Get the current sites SiteConfig, and creates a new one through
      * {@link make_site_config()} if none is found.
      *
      * @return SiteConfig
@@ -218,7 +222,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         if ($siteConfig = DataObject::get_one('SiteConfig')) {
             return $siteConfig;
         }
-        
+
         return self::make_site_config();
     }
 
@@ -230,17 +234,17 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         parent::requireDefaultRecords();
 
         $config = DataObject::get_one('SiteConfig');
-        
+
         if (!$config) {
             self::make_site_config();
 
             DB::alteration_message("Added default site config", "created");
         }
     }
-    
+
     /**
      * Create SiteConfig with defaults from language file.
-     * 
+     *
      * @return SiteConfig
      */
     public static function make_site_config()
@@ -304,7 +308,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         if (!$this->CanViewType || $this->CanViewType == 'Anyone') {
             return true;
         }
-                
+
         // check for any logged-in users
         if ($this->CanViewType === 'LoggedInUsers' && $member) {
             return true;
@@ -314,10 +318,10 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         if ($this->CanViewType === 'OnlyTheseUsers' && $member && $member->inGroups($this->ViewerGroups())) {
             return true;
         }
-        
+
         return false;
     }
-    
+
     /**
      * Can a user edit pages on this site? This method is only
      * called if a page is set to Inherit, but there is nothing
@@ -334,7 +338,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         if ($member && is_numeric($member)) {
             $member = DataObject::get_by_id('Member', $member);
         }
-        
+
         if ($member && Permission::checkMember($member, "ADMIN")) {
             return true;
         }
@@ -355,7 +359,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         if ($this->CanEditType === 'OnlyTheseUsers' && $member && $member->inGroups($this->EditorGroups())) {
             return true;
         }
-        
+
         return false;
     }
 
@@ -372,12 +376,12 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         if ($extended !== null) {
             return $extended;
         }
-        
+
         return Permission::checkMember($member, "EDIT_SITECONFIG");
     }
-    
+
     /**
-     * @return void
+     * @return array
      */
     public function providePermissions()
     {
@@ -390,7 +394,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             )
         );
     }
-    
+
     /**
      * Can a user create pages in the root of this site?
      *
@@ -405,7 +409,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         if ($member && is_numeric($member)) {
             $member = DataObject::get_by_id('Member', $member);
         }
-        
+
         if ($member && Permission::checkMember($member, "ADMIN")) {
             return true;
         }
@@ -414,14 +418,14 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         if ($extended !== null) {
             return $extended;
         }
-        
+
         // check for any logged-in users with CMS permission
         if ($this->CanCreateTopLevelType === 'LoggedInUsers'
             && Permission::checkMember($member, $this->config()->required_permission)
         ) {
             return true;
         }
-        
+
         // check for specific groups
         if ($this->CanCreateTopLevelType === 'OnlyTheseUsers'
             && $member

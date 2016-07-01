@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\ORM\ValidationException;
+use SilverStripe\ORM\ArrayList;
+
 /**
  * @package siteconfig
  */
@@ -117,27 +120,27 @@ class SiteConfigLeftAndMain extends LeftAndMain
 	/**
 	 * Save the current sites {@link SiteConfig} into the database.
 	 *
-	 * @param array $data 
-	 * @param Form $form 
+	 * @param array $data
+	 * @param Form $form
 	 * @return String
 	 */
     public function save_siteconfig($data, $form)
     {
 		$siteConfig = SiteConfig::current_site_config();
 		$form->saveInto($siteConfig);
-		
+
 		try {
 			$siteConfig->write();
 		} catch(ValidationException $ex) {
 			$form->sessionMessage($ex->getResult()->message(), 'bad');
 			return $this->getResponseNegotiator()->respond($this->request);
 		}
-		
+
 		$this->response->addHeader('X-Status', rawurlencode(_t('LeftAndMain.SAVEDUP', 'Saved.')));
 
 		return $form->forTemplate();
 	}
-	
+
 
     public function Breadcrumbs($unlinked = false)
     {
