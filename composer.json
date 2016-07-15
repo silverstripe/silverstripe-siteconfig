@@ -10,14 +10,11 @@
 	"require": {
 		"silverstripe/framework": "*"
 	},
-	"extra": {
-		"installer-name": "siteconfig"
-	},
-	"minimum-stability": "dev",
 	"autoload": {
 		"classmap": ["tests/behat/"]
 	},
 	"extra": {
+		"installer-name": "siteconfig",
 		"branch-alias": {
 			"3.x-dev": "3.2.x-dev"
 		}
