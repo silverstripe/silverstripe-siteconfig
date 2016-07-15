@@ -13,11 +13,11 @@
 	"require-dev": {
 		"phpunit/PHPUnit": "~4.8"
 	},
-	"minimum-stability": "dev",
 	"autoload": {
 		"classmap": ["tests/behat/"]
 	},
 	"extra": {
+		"installer-name": "siteconfig",
 		"branch-alias": {
 			"dev-master": "4.0.x-dev"
 		}
