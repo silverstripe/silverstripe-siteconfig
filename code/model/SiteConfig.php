@@ -14,7 +14,6 @@ use SilverStripe\Security\PermissionProvider;
  *
  * @property string Title Title of the website.
  * @property string Tagline Tagline of the website.
- * @property string Theme Current theme.
  * @property string CanViewType Type of restriction used for view permissions.
  * @property string CanEditType Type of restriction used for edit permissions.
  * @property string CanCreateTopLevelType Type of restriction used for creation of root-level pages.
@@ -30,7 +29,6 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     private static $db = array(
         "Title" => "Varchar(255)",
         "Tagline" => "Varchar(255)",
-        "Theme" => "Varchar(255)",
         "CanViewType" => "Enum('Anyone, LoggedInUsers, OnlyTheseUsers', 'Anyone')",
         "CanEditType" => "Enum('LoggedInUsers, OnlyTheseUsers', 'LoggedInUsers')",
         "CanCreateTopLevelType" => "Enum('LoggedInUsers, OnlyTheseUsers', 'LoggedInUsers')",
@@ -47,13 +45,6 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         "CanEditType" => "LoggedInUsers",
         "CanCreateTopLevelType" => "LoggedInUsers",
     );
-
-    /**
-     * @config
-     *
-     * @var array
-     */
-    private static $disabled_themes = array();
 
     /**
      * Default permission to check for 'LoggedInUsers' to create or edit pages
@@ -94,8 +85,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             new TabSet("Root",
                 $tabMain = new Tab('Main',
                     $titleField = new TextField("Title", _t('SiteConfig.SITETITLE', "Site title")),
-                    $taglineField = new TextField("Tagline", _t('SiteConfig.SITETAGLINE', "Site Tagline/Slogan")),
-                    $themeDropdownField = new DropdownField("Theme", _t('SiteConfig.THEME', 'Theme'), $this->getAvailableThemes())
+                    $taglineField = new TextField("Tagline", _t('SiteConfig.SITETAGLINE', "Site Tagline/Slogan"))
                 ),
                 $tabAccess = new Tab('Access',
                     $viewersOptionsField = new OptionsetField("CanViewType", _t('SiteConfig.VIEWHEADER', "Who can view pages on this site?")),
@@ -123,8 +113,6 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             ),
             new HiddenField('ID')
         );
-
-        $themeDropdownField->setEmptyString(_t('SiteConfig.DEFAULTTHEME', '(Use default theme)'));
 
         $viewersOptionsSource = array();
         $viewersOptionsSource["Anyone"] = _t('SiteTree.ACCESSANYONE', "Anyone");
@@ -162,27 +150,6 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         $this->extend('updateCMSFields', $fields);
 
         return $fields;
-    }
-
-    /**
-     * Get all available themes that haven't been marked as disabled.
-     *
-     * @param string $baseDir Optional alternative theme base directory for testing
-     *
-     * @return array of theme directory names
-     */
-    public function getAvailableThemes($baseDir = null)
-    {
-        $themes = SSViewer::get_themes($baseDir);
-        $disabled = (array)$this->config()->disabled_themes;
-
-        foreach ($disabled as $theme) {
-            if (isset($themes[$theme])) {
-                unset($themes[$theme]);
-            }
-        }
-
-        return $themes;
     }
 
     /**
