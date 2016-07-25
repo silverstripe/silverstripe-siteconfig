@@ -114,7 +114,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
 	 */
     public function getSilverStripeNavigator()
     {
-		return $this->renderWith('CMSSettingsController_SilverStripeNavigator');
+		return $this->renderWith('Includes\CMSSettingsController_SilverStripeNavigator');
 	}
 
 	/**
