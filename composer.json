@@ -14,9 +14,6 @@
 		"classmap": ["tests/behat/"]
 	},
 	"extra": {
-		"installer-name": "siteconfig",
-		"branch-alias": {
-			"3.x-dev": "3.4.x-dev"
-		}
+		"installer-name": "siteconfig"
 	}
 }
