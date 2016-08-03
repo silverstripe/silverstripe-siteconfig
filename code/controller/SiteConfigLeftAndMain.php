@@ -35,6 +35,13 @@ class SiteConfigLeftAndMain extends LeftAndMain {
 	 */
 	private static $required_permission_codes = array('EDIT_SITECONFIG');
 
+	/**
+	 * Initialises the {@link SiteConfig} controller.
+	 */
+	public function init() {
+		parent::init();
+		Requirements::javascript(CMS_DIR . '/javascript/CMSMain.EditForm.js');
+	}
 
 	/**
 	 * @param null $id Not used.
