@@ -55,6 +55,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
 		$fields->push(new HiddenField('PreviewURL', 'Preview URL', $home));
 
 		// Added in-line to the form, but plucked into different view by LeftAndMain.Preview.js upon load
+        /** @skipUpgrade */
 		$fields->push($navField = new LiteralField('SilverStripeNavigator', $this->getSilverStripeNavigator()));
 		$navField->setAllowHTML(true);
 

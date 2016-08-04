@@ -33,13 +33,13 @@ class FeatureContext extends \SilverStripe\Framework\Test\Behaviour\FeatureConte
 
         // Add extra contexts with more steps
         $this->useContext('ThemeContext', new \SilverStripe\Siteconfig\Test\Behaviour\ThemeContext($parameters));
-        if(!class_exists('SiteTree')) {
+        if(!class_exists('SilverStripe\\CMS\\Model\\SiteTree')) {
             return;
         }
 
         // Use blueprints which auto-publish all subclasses of SiteTree
         $factory = $fixtureContext->getFixtureFactory();
-        foreach (\ClassInfo::subclassesFor('SiteTree') as $id => $class) {
+        foreach (\ClassInfo::subclassesFor('SilverStripe\\CMS\\Model\\SiteTree') as $id => $class) {
             $blueprint = \Injector::inst()->create('FixtureBlueprint', $class);
             $blueprint->addCallback('afterCreate', function ($obj, $identifier, &$data, &$fixtures) {
                 $obj->publish('Stage', 'Live');
