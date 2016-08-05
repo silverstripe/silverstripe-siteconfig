@@ -1,0 +1,23 @@
+hr:
+  CMSSettingsController:
+    MENUTITLE: Postavke
+  SiteConfig:
+    DEFAULTTHEME: '(koristi zadanu temu)'
+    EDITHEADER: 'Tko može uređivati stranice na ovom projektu?'
+    EDIT_PERMISSION: 'Upravljanje konfiguracijom projekta'
+    EDIT_PERMISSION_HELP: 'Mogućnost uređivanja globalnog pristupa postavki/dozvola vršnih stranica'
+    PLURALNAME: 'Konfiguracije projekta'
+    SINGULARNAME: 'Konfiguracija projekta'
+    SITENAMEDEFAULT: 'Vaš projekt'
+    SITETAGLINE: 'Slogan projekta'
+    SITETITLE: 'Naziv projekta'
+    TABACCESS: Pristup
+    TABMAIN: Glavni
+    TAGLINEDEFAULT: 'vaš slogan ovdje'
+    THEME: Teme
+    TOPLEVELCREATE: 'Tko može kreirati stranice na ovom projektu?'
+    VIEWHEADER: 'Tko može vidjeti stranice na ovom projektu?'
+  SiteConfigLeftAndMain:
+    MENUTITLE: Postavke
+  SiteTree:
+    TOPLEVELCREATORGROUPS: 'Glavni urednici'
