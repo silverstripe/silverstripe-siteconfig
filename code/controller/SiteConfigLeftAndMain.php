@@ -112,16 +112,6 @@ class SiteConfigLeftAndMain extends LeftAndMain
 	}
 
 	/**
-	 * Used for preview controls, mainly links which switch between different states of the page.
-	 *
-	 * @return ArrayData
-	 */
-    public function getSilverStripeNavigator()
-    {
-		return $this->renderWith('Includes\CMSSettingsController_SilverStripeNavigator');
-	}
-
-	/**
 	 * Save the current sites {@link SiteConfig} into the database.
 	 *
 	 * @param array $data
