@@ -17,3 +17,7 @@ ru:
     THEME: Тема
     TOPLEVELCREATE: 'Кто может создавать страницы верхнего уровня на этом сайте?'
     VIEWHEADER: 'Кто может просматривать страницы на этом сайте?'
+  SiteConfigLeftAndMain:
+    MENUTITLE: Настройки
+  SiteTree:
+    TOPLEVELCREATORGROUPS: 'Редакторы страниц корневого уровня'
