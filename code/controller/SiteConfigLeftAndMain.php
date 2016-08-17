@@ -2,6 +2,8 @@
 
 use SilverStripe\ORM\ValidationException;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\Admin\LeftAndMain;
+
 
 /**
  * @package siteconfig
@@ -88,7 +90,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
 		$form->addExtraClass('cms-content center cms-edit-form');
 		$form->setAttribute('data-pjax-fragment', 'CurrentForm');
 
-        if ($form->Fields()->hasTabset()) {
+        if ($form->Fields()->hasTabSet()) {
             $form->Fields()->findOrMakeTab('Root')->setTemplate('CMSTabSet');
         }
 		$form->setHTMLID('Form_EditForm');
@@ -98,6 +100,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
 		// Use <button> to allow full jQuery UI styling
 		$actions = $actions->dataFields();
         if ($actions) {
+            /** @var FormAction $action */
             foreach ($actions as $action) {
                 $action->setUseButtonTag(true);
             }
@@ -106,16 +109,6 @@ class SiteConfigLeftAndMain extends LeftAndMain
 		$this->extend('updateEditForm', $form);
 
 		return $form;
-	}
-
-	/**
-	 * Used for preview controls, mainly links which switch between different states of the page.
-	 *
-	 * @return ArrayData
-	 */
-    public function getSilverStripeNavigator()
-    {
-		return $this->renderWith('Includes\CMSSettingsController_SilverStripeNavigator');
 	}
 
 	/**
@@ -145,11 +138,9 @@ class SiteConfigLeftAndMain extends LeftAndMain
 
     public function Breadcrumbs($unlinked = false)
     {
-		$defaultTitle = self::menu_title_for_class(get_class($this));
-
 		return new ArrayList(array(
 			new ArrayData(array(
-				'Title' => _t("{$this->class}.MENUTITLE", $defaultTitle),
+				'Title' => static::menu_title(),
 				'Link' => $this->Link()
 			))
 		));
