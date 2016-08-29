@@ -1,5 +1,16 @@
 <?php
 
+namespace SilverStripe\SiteConfig;
+
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\ListboxField;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\FormAction;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DB;
 use SilverStripe\ORM\ManyManyList;
@@ -7,7 +18,7 @@ use SilverStripe\Security\Group;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\PermissionProvider;
-
+use SilverStripe\View\TemplateGlobalProvider;
 
 /**
  * SiteConfig
@@ -17,12 +28,9 @@ use SilverStripe\Security\PermissionProvider;
  * @property string CanViewType Type of restriction used for view permissions.
  * @property string CanEditType Type of restriction used for edit permissions.
  * @property string CanCreateTopLevelType Type of restriction used for creation of root-level pages.
- *
  * @method ManyManyList ViewerGroups() List of groups that can view SiteConfig.
  * @method ManyManyList EditorGroups() List of groups that can edit SiteConfig.
  * @method ManyManyList CreateTopLevelGroups() List of groups that can create root-level pages.
- *
- * @package siteconfig
  */
 class SiteConfig extends DataObject implements PermissionProvider, TemplateGlobalProvider
 {
@@ -45,6 +53,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         "CanEditType" => "LoggedInUsers",
         "CanCreateTopLevelType" => "LoggedInUsers",
     );
+
+    private static $table_name = 'SiteConfig';
 
     /**
      * Default permission to check for 'LoggedInUsers' to create or edit pages
@@ -191,7 +201,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      */
     public static function current_site_config()
     {
-        if ($siteConfig = DataObject::get_one('SiteConfig')) {
+        if ($siteConfig = DataObject::get_one('SilverStripe\\SiteConfig\\SiteConfig')) {
             return $siteConfig;
         }
 
@@ -205,7 +215,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     {
         parent::requireDefaultRecords();
 
-        $config = DataObject::get_one('SiteConfig');
+        $config = DataObject::get_one('SilverStripe\\SiteConfig\\SiteConfig');
 
         if (!$config) {
             self::make_site_config();

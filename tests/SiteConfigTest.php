@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Dev\SapphireTest;
+
 /**
  * @package siteconfig
  * @subpackage tests
@@ -24,7 +27,7 @@ class SiteConfigTest extends SapphireTest
 
     public function testCanCreateRootPages()
     {
-        $config = $this->objFromFixture('SiteConfig', 'default');
+        $config = $this->objFromFixture('SilverStripe\\SiteConfig\\SiteConfig', 'default');
 
         // Log in without pages admin access
         $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
@@ -38,13 +41,13 @@ class SiteConfigTest extends SapphireTest
 
     public function testCanViewPages()
     {
-        $config = $this->objFromFixture('SiteConfig', 'default');
+        $config = $this->objFromFixture('SilverStripe\\SiteConfig\\SiteConfig', 'default');
         $this->assertTrue($config->canViewPages());
     }
 
     public function testCanEdit()
     {
-        $config = $this->objFromFixture('SiteConfig', 'default');
+        $config = $this->objFromFixture('SilverStripe\\SiteConfig\\SiteConfig', 'default');
 
         // Unrelated permissions don't allow siteconfig
         $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
@@ -57,7 +60,7 @@ class SiteConfigTest extends SapphireTest
 
     public function testCanEditPages()
     {
-        $config = $this->objFromFixture('SiteConfig', 'default');
+        $config = $this->objFromFixture('SilverStripe\\SiteConfig\\SiteConfig', 'default');
 
         // Log in without pages admin access
         $this->logInWithPermission('CMS_ACCESS_AssetAdmin');

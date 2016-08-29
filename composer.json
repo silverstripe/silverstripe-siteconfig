@@ -1,26 +1,30 @@
 {
-	"name": "silverstripe/siteconfig",
-	"description": "Site wide settings administration.",
-	"type": "silverstripe-module",
-	"keywords": ["silverstripe", "siteconfig"],
-	"authors": [{
-		"name": "Will Rossiter",
-		"email": "will@fullscreen.io"
-	}],
-	"require": {
-		"silverstripe/framework": "^4.0"
-	},
-	"require-dev": {
-		"phpunit/PHPUnit": "~4.8"
-	},
-	"autoload": {
-		"classmap": ["tests/behat/"]
-	},
-	"extra": {
-		"installer-name": "siteconfig",
-		"branch-alias": {
-			"dev-master": "4.0.x-dev"
-		}
-	},
-	"license": "BSD-3-Clause"
+  "name": "silverstripe/siteconfig",
+  "description": "Site wide settings administration.",
+  "type": "silverstripe-module",
+  "keywords": ["silverstripe", "siteconfig"],
+  "authors": [{
+    "name": "Will Rossiter",
+    "email": "will@fullscreen.io"
+  }],
+  "require": {
+    "silverstripe/framework": "^4.0"
+  },
+  "require-dev": {
+    "phpunit/PHPUnit": "~4.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "SilverStripe\\SiteConfig\\": "code/"
+    },
+    "classmap": ["tests/behat/"]
+  },
+
+  "extra": {
+    "installer-name": "siteconfig",
+    "branch-alias": {
+      "dev-master": "4.0.x-dev"
+    }
+  },
+  "license": "BSD-3-Clause"
 }
