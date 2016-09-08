@@ -1,13 +1,17 @@
 <?php
 
+namespace SilverStripe\SiteConfig;
+
+use SilverStripe\Admin\LeftAndMain;
+use SilverStripe\Control\Director;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\Form;
 use SilverStripe\ORM\ValidationException;
 use SilverStripe\ORM\ArrayList;
-use SilverStripe\Admin\LeftAndMain;
+use SilverStripe\View\ArrayData;
 
-
-/**
- * @package siteconfig
- */
 class SiteConfigLeftAndMain extends LeftAndMain
 {
 	/**
@@ -33,7 +37,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
 	/**
 	 * @var string
 	 */
-	private static $tree_class = 'SiteConfig';
+	private static $tree_class = 'SilverStripe\\SiteConfig\\SiteConfig';
 
 	/**
 	 * @var array

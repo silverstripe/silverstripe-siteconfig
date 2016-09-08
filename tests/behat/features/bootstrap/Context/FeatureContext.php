@@ -7,6 +7,9 @@ use SilverStripe\BehatExtension\Context\BasicContext;
 use SilverStripe\BehatExtension\Context\LoginContext;
 use SilverStripe\BehatExtension\Context\FixtureContext;
 use SilverStripe\Cms\Test\Behaviour;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Core\Injector\Injector;
+
 
 /**
  * Features context
@@ -39,8 +42,8 @@ class FeatureContext extends \SilverStripe\Framework\Test\Behaviour\FeatureConte
 
         // Use blueprints which auto-publish all subclasses of SiteTree
         $factory = $fixtureContext->getFixtureFactory();
-        foreach (\ClassInfo::subclassesFor('SilverStripe\\CMS\\Model\\SiteTree') as $id => $class) {
-            $blueprint = \Injector::inst()->create('FixtureBlueprint', $class);
+        foreach (ClassInfo::subclassesFor('SilverStripe\\CMS\\Model\\SiteTree') as $id => $class) {
+            $blueprint = Injector::inst()->create('SilverStripe\\Dev\\FixtureBlueprint', $class);
             $blueprint->addCallback('afterCreate', function ($obj, $identifier, &$data, &$fixtures) {
                 $obj->publish('Stage', 'Live');
             });

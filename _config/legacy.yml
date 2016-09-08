@@ -1,0 +1,6 @@
+---
+Name: siteconfiglegacy
+---
+SilverStripe\ORM\DatabaseAdmin:
+  classname_value_remapping:
+    SiteConfig: SilverStripe\SiteConfig\SiteConfig

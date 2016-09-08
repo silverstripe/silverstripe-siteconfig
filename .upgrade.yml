@@ -1,0 +1,3 @@
+mappings:
+  SiteConfig: SilverStripe\SiteConfig\SiteConfig
+  SiteConfigLeftAndMain: SilverStripe\SiteConfig\SiteConfigLeftAndMain
