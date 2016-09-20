@@ -95,7 +95,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
 		$form->setAttribute('data-pjax-fragment', 'CurrentForm');
 
         if ($form->Fields()->hasTabSet()) {
-            $form->Fields()->findOrMakeTab('Root')->setTemplate('CMSTabSet');
+            $form->Fields()->findOrMakeTab('Root')->setTemplate('SilverStripe\\Forms\\CMSTabSet');
         }
 		$form->setHTMLID('Form_EditForm');
 		$form->loadDataFrom($siteConfig);
