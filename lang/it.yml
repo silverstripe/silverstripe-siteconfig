@@ -17,5 +17,7 @@ it:
     THEME: Tema
     TOPLEVELCREATE: 'Chi può creare pagine di primo livello?'
     VIEWHEADER: 'Chi può vedere le pagine in questo sito?'
+  SiteConfigLeftAndMain:
+    MENUTITLE: Impostazioni
   SiteTree:
     TOPLEVELCREATORGROUPS: 'Creatori di primo livello'
