@@ -91,7 +91,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
 				));
 			}
 		});
-		$form->addExtraClass('cms-content center cms-edit-form');
+		$form->addExtraClass('cms-content center cms-edit-form fill-height flexbox-area-grow');
 		$form->setAttribute('data-pjax-fragment', 'CurrentForm');
 
         if ($form->Fields()->hasTabSet()) {
