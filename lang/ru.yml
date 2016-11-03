@@ -1,6 +1,13 @@
 ru:
   CMSSettingsController:
     MENUTITLE: Настройки
+  SilverStripeNavigator:
+    Edit: Изменить
+  SilverStripe\SiteConfig\SiteConfig:
+    PLURALNAME: 'Настройки Сайта'
+    SINGULARNAME: 'Настройки Сайта'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Настройки
   SiteConfig:
     DEFAULTTHEME: '(Использовать тему по умолчанию)'
     EDITHEADER: 'Кто может редактировать страницы на этом сайте?'

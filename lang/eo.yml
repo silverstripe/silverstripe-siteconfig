@@ -1,6 +1,13 @@
 eo:
   CMSSettingsController:
     MENUTITLE: Agordoj
+  SilverStripeNavigator:
+    Edit: Redakti
+  SilverStripe\SiteConfig\SiteConfig:
+    PLURALNAME: 'Retejaj agordaroj'
+    SINGULARNAME: 'Reteja agordaro'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Agordoj
   SiteConfig:
     DEFAULTTHEME: '(Uzi aprioran etoson)'
     EDITHEADER: 'Kiu povas redakti paĝojn en ĉi tiu retejo?'
