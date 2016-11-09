@@ -1,6 +1,13 @@
 de:
   CMSSettingsController:
     MENUTITLE: Einstellungen
+  SilverStripeNavigator:
+    Edit: Bearbeiten
+  SilverStripe\SiteConfig\SiteConfig:
+    PLURALNAME: 'Seitenkonfigurationen'
+    SINGULARNAME: 'Seitenkonfiguration'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Einstellungen
   SiteConfig:
     DEFAULTTHEME: '(Standardtheme verwenden)'
     EDITHEADER: 'Wer kann Seiten auf dieser Website bearbeiten?'
