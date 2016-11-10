@@ -11,6 +11,7 @@ use SilverStripe\Forms\Form;
 use SilverStripe\ORM\ValidationException;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use SilverStripe\View\Requirements;
 
 class SiteConfigLeftAndMain extends LeftAndMain
 {
@@ -44,6 +45,13 @@ class SiteConfigLeftAndMain extends LeftAndMain
 	 */
 	private static $required_permission_codes = array('EDIT_SITECONFIG');
 
+	/**
+	 * Initialises the {@link SiteConfig} controller.
+	 */
+	public function init() {
+		parent::init();
+		Requirements::javascript(CMS_DIR . '/client/dist/js/bundle.js');
+	}
 
 	/**
 	 * @param null $id Not used.
