@@ -10,6 +10,7 @@ use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\Form;
 use SilverStripe\ORM\ValidationException;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\ValidationResult;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 
@@ -88,12 +89,10 @@ class SiteConfigLeftAndMain extends LeftAndMain
 		$form = Form::create(
 			$this, 'EditForm', $fields, $actions, $validator
 		)->setHTMLID('Form_EditForm');
-		$form->setValidationResponseCallback(function() use ($negotiator, $form) {
+		$form->setValidationResponseCallback(function(ValidationResult $errors) use ($negotiator, $form) {
 			$request = $this->getRequest();
 			if($request->isAjax() && $negotiator) {
-				$form->setupFormErrors();
 				$result = $form->forTemplate();
-
 				return $negotiator->respond($request, array(
 					'CurrentForm' => function() use($result) {
 						return $result;
@@ -136,16 +135,8 @@ class SiteConfigLeftAndMain extends LeftAndMain
     {
 		$siteConfig = SiteConfig::current_site_config();
 		$form->saveInto($siteConfig);
-
-		try {
-			$siteConfig->write();
-		} catch(ValidationException $ex) {
-			$form->sessionMessage($ex->getResult()->message(), 'bad');
-			return $this->getResponseNegotiator()->respond($this->request);
-		}
-
+		$siteConfig->write();
 		$this->response->addHeader('X-Status', rawurlencode(_t('LeftAndMain.SAVEDUP', 'Saved.')));
-
 		return $form->forTemplate();
 	}
 
