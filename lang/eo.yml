@@ -4,27 +4,27 @@ eo:
   SilverStripeNavigator:
     Edit: Redakti
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Retejaj agordaroj'
-    SINGULARNAME: 'Reteja agordaro'
+    PLURALNAME: "Retejaj agordaroj"
+    SINGULARNAME: "Reteja agordaro"
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Agordoj
   SiteConfig:
-    DEFAULTTHEME: '(Uzi aprioran etoson)'
-    EDITHEADER: 'Kiu povas redakti paĝojn en ĉi tiu retejo?'
-    EDIT_PERMISSION: 'Agordi konfiguron de retejo'
-    EDIT_PERMISSION_HELP: 'Eblo agordi ĉieajn alirajn agordojn/supronivelajn paĝajn permesojn.'
-    PLURALNAME: 'Retejaj agordaroj'
-    SINGULARNAME: 'Agordi retejon'
-    SITENAMEDEFAULT: 'Nomo de via retejo'
-    SITETAGLINE: 'Slogano de retejo'
-    SITETITLE: 'Titolo de retejo'
+    DEFAULTTHEME: "(Uzi aprioran etoson)"
+    EDITHEADER: "Kiu povas redakti paĝojn en ĉi tiu retejo?"
+    EDIT_PERMISSION: "Agordi konfiguron de retejo"
+    EDIT_PERMISSION_HELP: "Eblo agordi ĉieajn alirajn agordojn/supronivelajn paĝajn permesojn."
+    PLURALNAME: "Retejaj agordaroj"
+    SINGULARNAME: "Agordi retejon"
+    SITENAMEDEFAULT: "Nomo de via retejo"
+    SITETAGLINE: "Slogano de retejo"
+    SITETITLE: "Titolo de retejo"
     TABACCESS: Aliro
     TABMAIN: Ĉefa
-    TAGLINEDEFAULT: 'jen via slogano'
+    TAGLINEDEFAULT: "jen via slogano"
     THEME: Etoso
-    TOPLEVELCREATE: 'Kiu povas krei paĝojn en la radiko de la retejo?'
-    VIEWHEADER: 'Kiu povas vidigi paĝojn en ĉi tiu retejo?'
+    TOPLEVELCREATE: "Kiu povas krei paĝojn en la radiko de la retejo?"
+    VIEWHEADER: "Kiu povas vidigi paĝojn en ĉi tiu retejo?"
   SiteConfigLeftAndMain:
     MENUTITLE: Agordoj
   SiteTree:
-    TOPLEVELCREATORGROUPS: 'Supranivelaj kreintoj'
+    TOPLEVELCREATORGROUPS: "Supranivelaj kreintoj"
