@@ -50,7 +50,9 @@ class SiteConfigLeftAndMain extends LeftAndMain
 	 */
 	public function init() {
 		parent::init();
-		Requirements::javascript(CMS_DIR . '/client/dist/js/bundle.js');
+        if (defined('CMS_DIR')) {
+            Requirements::javascript(CMS_DIR . '/client/dist/js/bundle.js');
+        }
 	}
 
 	/**
