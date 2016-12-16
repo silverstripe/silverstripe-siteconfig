@@ -1,6 +1,13 @@
 fi:
   CMSSettingsController:
     MENUTITLE: Asetukset
+  SilverStripeNavigator:
+    Edit: Muokkaa
+  SilverStripe\SiteConfig\SiteConfig:
+    PLURALNAME: "Sivuston asetukset"
+    SINGULARNAME: "Sivuston asetukset"
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Asetukset
   SiteConfig:
     DEFAULTTHEME: "(Käytä oletusteemaa)"
     EDITHEADER: "Kuka voi muokata sivuja tällä sivustolla?"
