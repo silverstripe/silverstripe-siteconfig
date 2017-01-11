@@ -39,6 +39,11 @@ class SiteConfigLeftAndMain extends LeftAndMain
 	/**
 	 * @var string
 	 */
+	private static $menu_icon_class = 'font-icon-cog';
+
+	/**
+	 * @var string
+	 */
 	private static $tree_class = 'SilverStripe\\SiteConfig\\SiteConfig';
 
 	/**
