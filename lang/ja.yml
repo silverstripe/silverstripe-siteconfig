@@ -13,7 +13,7 @@ ja:
     SITETITLE: サイトタイトル
     TABACCESS: アクセス権限
     TABMAIN: メイン
-    TAGLINEDEFAULT: サイトのキャッチフレーズをここに入力
+    TAGLINEDEFAULT: 'サイトのキャッチフレーズをここに入力'
     THEME: テーマ
     TOPLEVELCREATE: サイトのルートにおいてページを作成できる人
     VIEWHEADER: このサイト上でページを閲覧できる人
