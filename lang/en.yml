@@ -5,6 +5,9 @@ en:
     Edit: Edit
   SilverStripe\SiteConfig\SiteConfig:
     PLURALNAME: 'Site Configs'
+    PLURALS:
+      one: 'A Site Config'
+      other: '{count} Site Configs'
     SINGULARNAME: 'Site Config'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Settings
