@@ -1,10 +1,13 @@
 en:
-  CMSSettingsController:
-    MENUTITLE: Settings
+  Permissions:
+    PERMISSIONS_CATEGORY: 'Roles and access permissions'
   SilverStripeNavigator:
     Edit: Edit
   SilverStripe\SiteConfig\SiteConfig:
     PLURALNAME: 'Site Configs'
+    PLURALS:
+      one: 'A Site Config'
+      other: '{count} Site Configs'
     SINGULARNAME: 'Site Config'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Settings
