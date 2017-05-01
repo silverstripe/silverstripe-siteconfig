@@ -1,14 +1,9 @@
 ru:
   CMSSettingsController:
     MENUTITLE: Настройки
-  SilverStripeNavigator:
+  SilverStripe\CMS\Controllers\SilverStripeNavigator:
     Edit: Изменить
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Настройки Сайта'
-    SINGULARNAME: 'Настройки Сайта'
-  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
-    MENUTITLE: Настройки
-  SiteConfig:
     DEFAULTTHEME: '(Использовать тему по умолчанию)'
     EDITHEADER: 'Кто может редактировать страницы на этом сайте?'
     EDIT_PERMISSION: 'Управление конфигурацией сайта'
@@ -24,7 +19,7 @@ ru:
     THEME: Тема
     TOPLEVELCREATE: 'Кто может создавать страницы верхнего уровня на этом сайте?'
     VIEWHEADER: 'Кто может просматривать страницы на этом сайте?'
-  SiteConfigLeftAndMain:
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Настройки
-  SiteTree:
+  SilverStripe\CMS\Model\SiteTree:
     TOPLEVELCREATORGROUPS: 'Редакторы страниц корневого уровня'

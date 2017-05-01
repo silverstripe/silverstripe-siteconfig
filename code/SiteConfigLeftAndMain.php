@@ -141,7 +141,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
 		$siteConfig = SiteConfig::current_site_config();
 		$form->saveInto($siteConfig);
 		$siteConfig->write();
-		$this->response->addHeader('X-Status', rawurlencode(_t('LeftAndMain.SAVEDUP', 'Saved.')));
+		$this->response->addHeader('X-Status', rawurlencode(_t('SilverStripe\\Admin\\LeftAndMain.SAVEDUP', 'Saved.')));
 		return $form->forTemplate();
 	}
 

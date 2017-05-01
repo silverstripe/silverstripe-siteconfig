@@ -1,7 +1,7 @@
 pl:
   CMSSettingsController:
     MENUTITLE: Ustawienia
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Użyj domyślnego szablonu)'
     EDITHEADER: 'Kto może edytować strony tego serwisu?'
     EDIT_PERMISSION: 'Zarządzanie konfiguracją serwisu'

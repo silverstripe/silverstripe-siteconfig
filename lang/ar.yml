@@ -1,7 +1,7 @@
 ar:
   CMSSettingsController:
     MENUTITLE: الإعدادات
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '( استخدام الثيم الافتراضي )'
     EDITHEADER: 'من يستطيع تحرير الصفحات الموجودة على هذا الموقع؟'
     EDIT_PERMISSION: 'إدارة إعدادات الموقع'

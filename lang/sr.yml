@@ -1,7 +1,7 @@
 sr:
   CMSSettingsController:
     MENUTITLE: Подешавања
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Користи подразумевану тему)'
     EDITHEADER: 'Ко може да мења странице на овом сајту?'
     EDIT_PERMISSION: 'Управљање конфигурацијом сајта'

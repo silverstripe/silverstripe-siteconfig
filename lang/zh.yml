@@ -1,7 +1,7 @@
 zh:
   CMSSettingsController:
     MENUTITLE: 设置
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: （使用默认主题）
     EDITHEADER: 谁可以修改该站点的页面？
     EDIT_PERMISSION: '管理站点配置'

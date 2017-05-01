@@ -1,5 +1,5 @@
 id:
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     SITENAMEDEFAULT: 'Nama Situs'
     SITETAGLINE: 'Slogan Situs'
     SITETITLE: 'Judul Situs'

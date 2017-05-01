@@ -1,7 +1,7 @@
 he_IL:
   CMSSettingsController:
     MENUTITLE: הגדרות
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(שימוש בערכת העיצוב מבררת המחדל)'
     EDITHEADER: 'מי יכול לערוך עמודים באתר זה?'
     EDIT_PERMISSION: 'ניהול תצורת האתר'

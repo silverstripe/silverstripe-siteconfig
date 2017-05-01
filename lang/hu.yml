@@ -1,5 +1,5 @@
 hu:
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Alap téma használata)'
     PLURALNAME: 'Oldal konfigurációk'
     SINGULARNAME: 'Oldal konfiguráció'

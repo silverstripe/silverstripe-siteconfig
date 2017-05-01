@@ -1,7 +1,7 @@
 pt:
   CMSSettingsController:
     MENUTITLE: Configurações
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Usar o tema por omissão)'
     EDITHEADER: 'Quem pode editar páginas neste site?'
     EDIT_PERMISSION: 'Gerir configuração do site'

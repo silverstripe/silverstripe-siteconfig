@@ -1,5 +1,5 @@
 az:
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Susmaya görə olan şablon)'
     EDITHEADER: 'Bu saytda səhifələri kim redaktə edə bilər?'
     EDIT_PERMISSION: 'Sayt konfigurasiyasını sazla'

@@ -1,7 +1,7 @@
 ro:
   CMSSettingsController:
     MENUTITLE: Setări
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Folosește tema default)'
     EDITHEADER: 'Cine poate edita pagini pe acest site?'
     EDIT_PERMISSION: 'Administrează configurații site'

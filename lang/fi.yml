@@ -1,14 +1,9 @@
 fi:
   CMSSettingsController:
     MENUTITLE: Asetukset
-  SilverStripeNavigator:
+  SilverStripe\CMS\Controllers\SilverStripeNavigator:
     Edit: Muokkaa
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Sivuston asetukset'
-    SINGULARNAME: 'Sivuston asetukset'
-  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
-    MENUTITLE: Asetukset
-  SiteConfig:
     DEFAULTTHEME: '(Käytä oletusteemaa)'
     EDITHEADER: 'Kuka voi muokata sivuja tällä sivustolla?'
     EDIT_PERMISSION: 'Hallinnoi sivun kokoonpanoa'
@@ -24,7 +19,7 @@ fi:
     THEME: Teema
     TOPLEVELCREATE: 'Kuka voi luoda sivuja sivuston juureen?'
     VIEWHEADER: 'Kuka voi nähdä sivuja tällä sivustolla?'
-  SiteConfigLeftAndMain:
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Asetukset
-  SiteTree:
+  SilverStripe\CMS\Model\SiteTree:
     TOPLEVELCREATORGROUPS: 'Ylätason luojat'

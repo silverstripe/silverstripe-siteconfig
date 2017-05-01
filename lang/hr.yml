@@ -1,7 +1,7 @@
 hr:
   CMSSettingsController:
     MENUTITLE: Postavke
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(koristi zadanu temu)'
     EDITHEADER: 'Tko može uređivati stranice na ovom projektu?'
     EDIT_PERMISSION: 'Upravljanje konfiguracijom projekta'
@@ -17,7 +17,7 @@ hr:
     THEME: Teme
     TOPLEVELCREATE: 'Tko može kreirati stranice na ovom projektu?'
     VIEWHEADER: 'Tko može vidjeti stranice na ovom projektu?'
-  SiteConfigLeftAndMain:
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Postavke
-  SiteTree:
+  SilverStripe\CMS\Model\SiteTree:
     TOPLEVELCREATORGROUPS: 'Glavni urednici'

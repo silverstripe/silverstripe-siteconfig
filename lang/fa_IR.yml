@@ -1,14 +1,9 @@
 fa_IR:
   CMSSettingsController:
     MENUTITLE: 'تنظیمات'
-  SilverStripeNavigator:
+  SilverStripe\CMS\Controllers\SilverStripeNavigator:
     Edit: ویرایش
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'تنظیمات سایت'
-    SINGULARNAME: 'تنظیم سایت'
-  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
-    MENUTITLE: 'تنظیمات'
-  SiteConfig:
     DEFAULTTHEME: '(استفاده از پوسته پیشفرض)'
     EDITHEADER: 'چه کسی میتواند صفحات را در این سایت ویرایش کند؟'
     EDIT_PERMISSION: 'مدیریت پیکربندی سایت'
@@ -24,7 +19,7 @@ fa_IR:
     THEME: پوسته
     TOPLEVELCREATE: 'چه کسی میتواند صفحه جدیدی در ریشه(root) سایت ایجاد کند؟'
     VIEWHEADER: 'چه کسی میتواند صفحات سایت را مشاهده کند؟'
-  SiteConfigLeftAndMain:
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: 'تنظیمات'
-  SiteTree:
+  SilverStripe\CMS\Model\SiteTree:
     TOPLEVELCREATORGROUPS: 'خالقین بالاترین سطح'
