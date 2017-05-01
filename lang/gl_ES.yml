@@ -1,8 +1,5 @@
 gl_ES:
-  CMSSettingsController:
-    MENUTITLE: Configuracións
   SilverStripe\SiteConfig\SiteConfig:
-    DEFAULTTHEME: '(Usar tema por defecto)'
     EDITHEADER: 'Quen pode editar neste sitio?'
     EDIT_PERMISSION: 'Xestionar a configuración do sitio'
     SITENAMEDEFAULT: 'O nome do teu Sitio'
@@ -11,6 +8,5 @@ gl_ES:
     TABACCESS: Acceder
     TABMAIN: Principal
     TAGLINEDEFAULT: 'o teu eslogan aquí'
-    THEME: Tema
     TOPLEVELCREATE: 'Quen pode crear as páxinas na raíz do sitio?'
     VIEWHEADER: 'Quen pode ver as páxinas neste sitio?'

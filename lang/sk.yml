@@ -1,8 +1,7 @@
 sk:
-  CMSSettingsController:
-    MENUTITLE: Nastavenia
+  SilverStripe\CMS\Model\SiteTree:
+    TOPLEVELCREATORGROUPS: 'Tvorcovia najvyššej úrovne'
   SilverStripe\SiteConfig\SiteConfig:
-    DEFAULTTHEME: '(Použi predvolenú tému)'
     EDITHEADER: 'Kto môže editovať stránky na tomto webe?'
     EDIT_PERMISSION: 'Spravovať konfiguráciu webu'
     EDIT_PERMISSION_HELP: 'Možnosť meniť globálne prístupové nastavenia/právomoci pre hlavné stránky.'
@@ -14,10 +13,7 @@ sk:
     TABACCESS: Prístup
     TABMAIN: Hlavné
     TAGLINEDEFAULT: 'váš citát sem'
-    THEME: Téma
     TOPLEVELCREATE: 'Kto môže vytvárať koreňové stránky webu?'
     VIEWHEADER: 'Kto môže vidieť stránky na tomto webe?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Nastavenia
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Tvorcovia najvyššej úrovne'

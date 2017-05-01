@@ -1,6 +1,5 @@
 es_MX:
   SilverStripe\SiteConfig\SiteConfig:
-    DEFAULTTHEME: '(Usar tema predeterminado)'
     EDITHEADER: '¿Quién puede editar páginas en este sitio?'
     EDIT_PERMISSION: 'Administrar la configuración del sitio'
     SITENAMEDEFAULT: 'Nombre de su sitio'
@@ -9,5 +8,4 @@ es_MX:
     TABACCESS: Acceso
     TABMAIN: Principal
     TAGLINEDEFAULT: 'su lema aquí'
-    THEME: Tema
     VIEWHEADER: '¿Quién puede ver las páginas en este sitio?'

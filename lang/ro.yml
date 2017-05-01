@@ -1,8 +1,5 @@
 ro:
-  CMSSettingsController:
-    MENUTITLE: Setări
   SilverStripe\SiteConfig\SiteConfig:
-    DEFAULTTHEME: '(Folosește tema default)'
     EDITHEADER: 'Cine poate edita pagini pe acest site?'
     EDIT_PERMISSION: 'Administrează configurații site'
     EDIT_PERMISSION_HELP: 'Abilitatea de a edita setări de acces general/permisiuni de pagini nivel-top'
@@ -14,6 +11,5 @@ ro:
     TABACCESS: Acces
     TABMAIN: Principal
     TAGLINEDEFAULT: 'sloganul tău aici'
-    THEME: Tema
     TOPLEVELCREATE: 'Cine poate crea pagini în rădăcina site-ului?'
     VIEWHEADER: 'Cine poate vizualiza paginile acestui site?'

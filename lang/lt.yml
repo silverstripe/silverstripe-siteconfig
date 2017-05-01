@@ -1,8 +1,7 @@
 lt:
-  CMSSettingsController:
-    MENUTITLE: Nustatymai
+  SilverStripe\CMS\Model\SiteTree:
+    TOPLEVELCREATORGROUPS: 'Gali kurti pagrindiniame lygmenyje'
   SilverStripe\SiteConfig\SiteConfig:
-    DEFAULTTHEME: '(Naudoti temą pagal nutylėjimą)'
     EDITHEADER: 'Kas gali redaguoti šį puslapį?'
     EDIT_PERMISSION: 'Tvarkyti svetainės nustatymus'
     EDIT_PERMISSION_HELP: 'Galimybė tvarkyti globalias priėjimo, pagrindinio puslapio teises.'
@@ -14,10 +13,7 @@ lt:
     TABACCESS: Prieiga
     TABMAIN: Pagrindinis
     TAGLINEDEFAULT: 'Čia gali būti Jūsų šūkis'
-    THEME: Tema
     TOPLEVELCREATE: 'Kas gali kurti puslapius pagrindiniame svetainės lygmenyje?'
     VIEWHEADER: 'Kas gali matyti puslapius šioje svetainėje?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Nustatymai
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Gali kurti pagrindiniame lygmenyje'

@@ -1,12 +1,12 @@
 sv:
-  CMSSettingsController:
-    MENUTITLE: Inställningar
   SilverStripe\SiteConfig\SiteConfig:
-    DEFAULTTHEME: '(Använd standardtema)'
     EDITHEADER: 'Vem kan redigera sidor på den här sajten?'
     EDIT_PERMISSION: 'Redigera sajtkonfiguration'
     EDIT_PERMISSION_HELP: 'Möjlighet att ändra den globala åtkomstinställningar / toppnivåbehörigheter.'
     PLURALNAME: 'Sajt inställningar'
+    PLURALS:
+      one: 'En sajtinställning'
+      other: '{count} Sajtinställningar'
     SINGULARNAME: 'Sajt inställning'
     SITENAMEDEFAULT: 'Din Sajts Namn'
     SITETAGLINE: 'Din sajts Slogan'
@@ -14,6 +14,7 @@ sv:
     TABACCESS: Tillgång
     TABMAIN: Allmänt
     TAGLINEDEFAULT: 'din underrubrik här'
-    THEME: Tema
     TOPLEVELCREATE: 'Vem kan skapa sidor i sajtroten?'
     VIEWHEADER: 'Vem kan se sidor på den här sajten?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Inställningar

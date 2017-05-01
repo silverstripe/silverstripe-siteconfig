@@ -1,10 +1,9 @@
 eo:
-  CMSSettingsController:
-    MENUTITLE: Agordoj
   SilverStripe\CMS\Controllers\SilverStripeNavigator:
     Edit: Redakti
+  SilverStripe\CMS\Model\SiteTree:
+    TOPLEVELCREATORGROUPS: 'Supranivelaj kreintoj'
   SilverStripe\SiteConfig\SiteConfig:
-    DEFAULTTHEME: '(Uzi aprioran etoson)'
     EDITHEADER: 'Kiu povas redakti paĝojn en ĉi tiu retejo?'
     EDIT_PERMISSION: 'Agordi konfiguron de retejo'
     EDIT_PERMISSION_HELP: 'Eblo agordi ĉieajn alirajn agordojn/supronivelajn paĝajn permesojn.'
@@ -16,10 +15,7 @@ eo:
     TABACCESS: Aliro
     TABMAIN: Ĉefa
     TAGLINEDEFAULT: 'jen via slogano'
-    THEME: Etoso
     TOPLEVELCREATE: 'Kiu povas krei paĝojn en la radiko de la retejo?'
     VIEWHEADER: 'Kiu povas vidigi paĝojn en ĉi tiu retejo?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Agordoj
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Supranivelaj kreintoj'

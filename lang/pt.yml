@@ -1,8 +1,5 @@
 pt:
-  CMSSettingsController:
-    MENUTITLE: Configurações
   SilverStripe\SiteConfig\SiteConfig:
-    DEFAULTTHEME: '(Usar o tema por omissão)'
     EDITHEADER: 'Quem pode editar páginas neste site?'
     EDIT_PERMISSION: 'Gerir configuração do site'
     EDIT_PERMISSION_HELP: 'Capacidade de editar as configurações de acesso global / permissões da página.'
@@ -14,6 +11,5 @@ pt:
     TABACCESS: Acesso
     TABMAIN: Principal
     TAGLINEDEFAULT: 'seu slogan aqui'
-    THEME: Tema
     TOPLEVELCREATE: 'Quem pode criar páginas na raiz do site?'
     VIEWHEADER: 'Quem pode ver páginas neste site?'

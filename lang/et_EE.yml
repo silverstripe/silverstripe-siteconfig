@@ -1,8 +1,5 @@
 et_EE:
-  CMSSettingsController:
-    MENUTITLE: Seaded
   SilverStripe\SiteConfig\SiteConfig:
-    DEFAULTTHEME: '(Kasuta vaikekujundust)'
     EDITHEADER: 'Kes saavad sellel saidil lehti redigeerida?'
     EDIT_PERMISSION: 'Saidi konfiguratsiooni haldamine'
     EDIT_PERMISSION_HELP: 'Võimalus redigeerida üldiseid juurdepääsuseadeid / kõrgema taseme lehe õigusi.'
@@ -14,6 +11,5 @@ et_EE:
     TABACCESS: Juurdepääs
     TABMAIN: Sisu
     TAGLINEDEFAULT: 'teie reklaamlause siin'
-    THEME: Kujundus
     TOPLEVELCREATE: 'Kes saavad luua lehti saidi juurtasandil?'
     VIEWHEADER: 'Kes saavad sellel saidil olevaid lehti vaadata?'

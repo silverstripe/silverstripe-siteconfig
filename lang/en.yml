@@ -1,5 +1,5 @@
 en:
-  SilverStripe\CMS\Controllers\SilverStripeNavigator:
+  SilverStripeNavigator:
     Edit: Edit
   SilverStripe\Admin\LeftAndMain:
     SAVEDUP: Saved.
