@@ -1,5 +1,5 @@
 mi:
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Whakamahia te kaupapa taunoa)'
     EDITHEADER: 'Mā wai ngā whārangi i tēnei pae e whakatika?'
     EDIT_PERMISSION: 'Whakahaeretia te whirihora pae'

@@ -1,7 +1,7 @@
 th:
   CMSSettingsController:
     MENUTITLE: ตั้งค่า
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: (ใช้ชุดธีมเริ่มต้น)
     EDITHEADER: 'ใครสามารถแก้ไขหน้าเว็บบนเว็บไซต์นี้ได้บ้าง?'
     EDIT_PERMISSION: การจัดการการกำหนดค่าของเว็บไซต์

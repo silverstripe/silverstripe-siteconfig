@@ -1,5 +1,5 @@
 sl:
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Uporabi privzeto temo)'
     EDITHEADER: 'Kdo lahko ureja strani na tem spletnem mestu?'
     EDIT_PERMISSION: 'Upravljanje nastavitev spletnega mesta'

@@ -1,14 +1,9 @@
 it:
   CMSSettingsController:
     MENUTITLE: Impostazioni
-  SilverStripeNavigator:
+  SilverStripe\CMS\Controllers\SilverStripeNavigator:
     Edit: Modifica
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Configurazioni sito'
-    SINGULARNAME: 'Configurazione sito'
-  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
-    MENUTITLE: Impostazioni
-  SiteConfig:
     DEFAULTTHEME: '(Usa il tema predefinito)'
     EDITHEADER: 'Chi può modificare le pagine in questo sito?'
     EDIT_PERMISSION: 'Gestisci la configurazione del sito'
@@ -24,7 +19,7 @@ it:
     THEME: Tema
     TOPLEVELCREATE: 'Chi può creare pagine di primo livello?'
     VIEWHEADER: 'Chi può vedere le pagine in questo sito?'
-  SiteConfigLeftAndMain:
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Impostazioni
-  SiteTree:
+  SilverStripe\CMS\Model\SiteTree:
     TOPLEVELCREATORGROUPS: 'Creatori di primo livello'

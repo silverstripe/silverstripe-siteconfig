@@ -1,7 +1,7 @@
 cs:
   CMSSettingsController:
     MENUTITLE: Možnosti
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Použít implicitní tému)'
     EDITHEADER: 'Kdo může editovat stránky tohoto webu?'
     EDIT_PERMISSION: 'Správa konfigurace webu'

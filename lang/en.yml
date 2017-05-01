@@ -1,20 +1,19 @@
 en:
-  Permissions:
-    PERMISSIONS_CATEGORY: 'Roles and access permissions'
-  SilverStripeNavigator:
+  SilverStripe\CMS\Controllers\SilverStripeNavigator:
     Edit: Edit
+  SilverStripe\Admin\LeftAndMain:
+    SAVEDUP: Saved.
+  SilverStripe\CMS\Model\SiteTree:
+    TOPLEVELCREATORGROUPS: 'Top level creators'
   SilverStripe\SiteConfig\SiteConfig:
+    EDITHEADER: 'Who can edit pages on this site?'
+    EDIT_PERMISSION: 'Manage site configuration'
+    EDIT_PERMISSION_HELP: 'Ability to edit global access settings/top-level page permissions.'
     PLURALNAME: 'Site Configs'
     PLURALS:
       one: 'A Site Config'
       other: '{count} Site Configs'
     SINGULARNAME: 'Site Config'
-  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
-    MENUTITLE: Settings
-  SiteConfig:
-    EDITHEADER: 'Who can edit pages on this site?'
-    EDIT_PERMISSION: 'Manage site configuration'
-    EDIT_PERMISSION_HELP: 'Ability to edit global access settings/top-level page permissions.'
     SITENAMEDEFAULT: 'Your Site Name'
     SITETAGLINE: 'Site Tagline/Slogan'
     SITETITLE: 'Site title'
@@ -23,5 +22,5 @@ en:
     TAGLINEDEFAULT: 'your tagline here'
     TOPLEVELCREATE: 'Who can create pages in the root of the site?'
     VIEWHEADER: 'Who can view pages on this site?'
-  SiteTree:
-    TOPLEVELCREATORGROUPS: 'Top level creators'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Settings

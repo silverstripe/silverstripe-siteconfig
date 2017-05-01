@@ -1,7 +1,7 @@
 ja:
   CMSSettingsController:
     MENUTITLE: 設定
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: (デフォルトのテーマを利用)
     EDITHEADER: このサイト上でページを編集できる人
     EDIT_PERMISSION: サイト設定の管理

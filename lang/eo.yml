@@ -1,14 +1,9 @@
 eo:
   CMSSettingsController:
     MENUTITLE: Agordoj
-  SilverStripeNavigator:
+  SilverStripe\CMS\Controllers\SilverStripeNavigator:
     Edit: Redakti
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Retejaj agordaroj'
-    SINGULARNAME: 'Reteja agordaro'
-  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
-    MENUTITLE: Agordoj
-  SiteConfig:
     DEFAULTTHEME: '(Uzi aprioran etoson)'
     EDITHEADER: 'Kiu povas redakti paĝojn en ĉi tiu retejo?'
     EDIT_PERMISSION: 'Agordi konfiguron de retejo'
@@ -24,7 +19,7 @@ eo:
     THEME: Etoso
     TOPLEVELCREATE: 'Kiu povas krei paĝojn en la radiko de la retejo?'
     VIEWHEADER: 'Kiu povas vidigi paĝojn en ĉi tiu retejo?'
-  SiteConfigLeftAndMain:
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Agordoj
-  SiteTree:
+  SilverStripe\CMS\Model\SiteTree:
     TOPLEVELCREATORGROUPS: 'Supranivelaj kreintoj'

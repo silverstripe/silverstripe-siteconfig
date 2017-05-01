@@ -1,7 +1,7 @@
 et_EE:
   CMSSettingsController:
     MENUTITLE: Seaded
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Kasuta vaikekujundust)'
     EDITHEADER: 'Kes saavad sellel saidil lehti redigeerida?'
     EDIT_PERMISSION: 'Saidi konfiguratsiooni haldamine'

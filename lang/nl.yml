@@ -1,7 +1,7 @@
 nl:
   CMSSettingsController:
     MENUTITLE: Instellingen
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Gebruik standaard thema)'
     EDITHEADER: 'Wie kan pagina''s op de site wijzigen?'
     EDIT_PERMISSION: 'Aanpassen site configuratie'

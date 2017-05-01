@@ -1,7 +1,7 @@
 sv:
   CMSSettingsController:
     MENUTITLE: Inställningar
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Använd standardtema)'
     EDITHEADER: 'Vem kan redigera sidor på den här sajten?'
     EDIT_PERMISSION: 'Redigera sajtkonfiguration'

@@ -1,5 +1,5 @@
 es_AR:
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Usar tema por defecto)'
     EDITHEADER: '¿Quien puede editar páginas en este sitio?'
     EDIT_PERMISSION: 'Administrar la configuración del sitio'

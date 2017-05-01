@@ -1,7 +1,7 @@
 gl_ES:
   CMSSettingsController:
     MENUTITLE: Configuracións
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Usar tema por defecto)'
     EDITHEADER: 'Quen pode editar neste sitio?'
     EDIT_PERMISSION: 'Xestionar a configuración do sitio'

@@ -1,7 +1,7 @@
 uk:
   CMSSettingsController:
     MENUTITLE: Налаштування
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Використовувати тему за замовчуванням)'
     EDITHEADER: 'Хто може редагувати сторінки на цьому сайті?'
     EDIT_PERMISSION: 'Керувати конфігурацією сайту'

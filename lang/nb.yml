@@ -1,7 +1,7 @@
 nb:
   CMSSettingsController:
     MENUTITLE: Innstillinger
-  SiteConfig:
+  SilverStripe\SiteConfig\SiteConfig:
     DEFAULTTHEME: '(Bruk standard utseende)'
     EDITHEADER: 'Hvem kan redigere sider på dette nettstedet?'
     EDIT_PERMISSION: 'Behandle nettstedskonfigurasjon'
