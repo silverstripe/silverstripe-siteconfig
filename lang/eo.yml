@@ -1,8 +1,4 @@
 eo:
-  SilverStripe\CMS\Controllers\SilverStripeNavigator:
-    Edit: Redakti
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Supranivelaj kreintoj'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Kiu povas redakti paĝojn en ĉi tiu retejo?'
     EDIT_PERMISSION: 'Agordi konfiguron de retejo'

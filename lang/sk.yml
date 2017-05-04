@@ -1,6 +1,4 @@
 sk:
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Tvorcovia najvyššej úrovne'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Kto môže editovať stránky na tomto webe?'
     EDIT_PERMISSION: 'Spravovať konfiguráciu webu'

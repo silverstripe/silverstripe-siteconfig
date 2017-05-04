@@ -1,8 +1,4 @@
 fi:
-  SilverStripe\CMS\Controllers\SilverStripeNavigator:
-    Edit: Muokkaa
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Ylätason luojat'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Kuka voi muokata sivuja tällä sivustolla?'
     EDIT_PERMISSION: 'Hallinnoi sivun kokoonpanoa'

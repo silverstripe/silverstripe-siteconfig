@@ -1,10 +1,4 @@
 en:
-  SilverStripeNavigator:
-    Edit: Edit
-  SilverStripe\Admin\LeftAndMain:
-    SAVEDUP: Saved.
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Top level creators'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Who can edit pages on this site?'
     EDIT_PERMISSION: 'Manage site configuration'

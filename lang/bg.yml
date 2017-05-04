@@ -1,6 +1,4 @@
 bg:
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Създатели на страници от най-високо ниво'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Кой може да редактира страници по сайта?'
     EDIT_PERMISSION: 'Промяна на конфигурацията на сайта'
