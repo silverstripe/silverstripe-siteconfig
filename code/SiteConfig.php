@@ -113,7 +113,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                             _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
                         ),
                     $topLevelCreatorsOptionsField = new OptionsetField("CanCreateTopLevelType", _t('SilverStripe\\SiteConfig\\SiteConfig.TOPLEVELCREATE', "Who can create pages in the root of the site?")),
-                    $topLevelCreatorsGroupsField = ListboxField::create("CreateTopLevelGroups", _t('SilverStripe\\CMS\\Model\\SiteTree.TOPLEVELCREATORGROUPS', "Top level creators"))
+                    $topLevelCreatorsGroupsField = ListboxField::create("CreateTopLevelGroups", _t(__CLASS__.'.TOPLEVELCREATORGROUPS', "Top level creators"))
                         ->setSource($groupsMap)
                         ->setAttribute(
                             'data-placeholder',
