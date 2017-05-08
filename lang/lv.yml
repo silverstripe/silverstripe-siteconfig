@@ -6,8 +6,8 @@ lv:
     SITENAMEDEFAULT: 'Jūsu vietnes nosaukums'
     SITETAGLINE: 'Vietnes apakšvirsraksts/sauklis'
     SITETITLE: 'Vietnes nosaukums'
-    TABACCESS: 'Piekļuves tiesības'
+    TABACCESS: Piekļuves tiesības
     TABMAIN: Sākums
-    TAGLINEDEFAULT: Apakšvirsraksts/sauklis
+    TAGLINEDEFAULT: 'Apakšvirsraksts/sauklis'
     TOPLEVELCREATE: 'Kurš drīkst izveidot lapas vietnes saknes direktorijā?'
     VIEWHEADER: 'Kurš drīkst aplūkot lapas šajā vietnē?'

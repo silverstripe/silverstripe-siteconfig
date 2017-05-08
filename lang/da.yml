@@ -5,7 +5,7 @@ da:
     EDIT_PERMISSION_HELP: 'Mulighed for at ændre indstillingerne for global adgang / topniveauside tilladelser.'
     SITENAMEDEFAULT: 'Dit sidenavn'
     SITETAGLINE: 'Webstedets Tagline/Slogan'
-    SITETITLE: Sidetitel
+    SITETITLE: 'Sidetitel'
     TABACCESS: Adgang
     TABMAIN: Primær
     TAGLINEDEFAULT: 'din tagline her'

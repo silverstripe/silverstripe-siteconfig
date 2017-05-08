@@ -10,7 +10,7 @@ bg:
     SITETITLE: 'Заглавие на сайта'
     TABACCESS: Достъп
     TABMAIN: Съдържание
-    TAGLINEDEFAULT: Подзаглавие
+    TAGLINEDEFAULT: 'Подзаглавие'
     TOPLEVELCREATE: 'Кой може да създава най-високо ниво страници?'
     VIEWHEADER: 'Кой може да достъпи страницата?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:

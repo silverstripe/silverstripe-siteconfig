@@ -3,8 +3,8 @@ de:
     EDITHEADER: 'Wer kann Seiten auf dieser Website bearbeiten?'
     EDIT_PERMISSION: 'Websiteeinstellungen editieren'
     EDIT_PERMISSION_HELP: 'Möglichkeit, die globalen Zugrifsseinstellungen sowie die Berechtigungen für die Hauptebene zu editieren.'
-    PLURALNAME: Seitenkonfigurationen
-    SINGULARNAME: Seitenkonfiguration
+    PLURALNAME: 'Seitenkonfigurationen'
+    SINGULARNAME: 'Seitenkonfiguration'
     SITENAMEDEFAULT: 'Name Ihrer Website'
     SITETAGLINE: 'Ihr Websiteslogan'
     SITETITLE: 'Titel der Site'

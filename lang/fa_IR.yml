@@ -14,4 +14,4 @@ fa_IR:
     TOPLEVELCREATE: 'چه کسی میتواند صفحه جدیدی در ریشه(root) سایت ایجاد کند؟'
     VIEWHEADER: 'چه کسی میتواند صفحات سایت را مشاهده کند؟'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
-    MENUTITLE: 'تنظیمات'
+    MENUTITLE: تنظیمات

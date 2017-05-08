@@ -4,12 +4,15 @@ fi:
     EDIT_PERMISSION: 'Hallinnoi sivun kokoonpanoa'
     EDIT_PERMISSION_HELP: 'Kyky muokata maailmanlaajuisia käyttöoikeusasetuksia/ ylätason sivujen käyttöoikeuksia.'
     PLURALNAME: 'Sivuston asetuksia'
+    PLURALS:
+      one: 'Sivuston asetukset'
+      other: '{count} Sivuston asetukset'
     SINGULARNAME: 'Sivuston asetukset'
     SITENAMEDEFAULT: 'Sivustosi nimi'
     SITETAGLINE: 'Sivuston mainoslause/slogan'
     SITETITLE: 'Sivuston otsikko'
     TABACCESS: Oikeudet
-    TABMAIN: 'Yleiset asetukset'
+    TABMAIN: Yleiset asetukset
     TAGLINEDEFAULT: 'sinun mainoslauseesi tähän'
     TOPLEVELCREATE: 'Kuka voi luoda sivuja sivuston juureen?'
     VIEWHEADER: 'Kuka voi nähdä sivuja tällä sivustolla?'
