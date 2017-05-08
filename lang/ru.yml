@@ -1,8 +1,4 @@
 ru:
-  SilverStripe\CMS\Controllers\SilverStripeNavigator:
-    Edit: Изменить
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Редакторы страниц корневого уровня'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Кто может редактировать страницы на этом сайте?'
     EDIT_PERMISSION: 'Управление конфигурацией сайта'

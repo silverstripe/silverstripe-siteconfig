@@ -1,6 +1,4 @@
 hr:
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Glavni urednici'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Tko može uređivati stranice na ovom projektu?'
     EDIT_PERMISSION: 'Upravljanje konfiguracijom projekta'

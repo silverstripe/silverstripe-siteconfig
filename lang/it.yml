@@ -1,8 +1,4 @@
 it:
-  SilverStripe\CMS\Controllers\SilverStripeNavigator:
-    Edit: Modifica
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Creatori di primo livello'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Chi può modificare le pagine in questo sito?'
     EDIT_PERMISSION: 'Gestisci la configurazione del sito'

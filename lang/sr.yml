@@ -6,7 +6,7 @@ sr:
     PLURALNAME: 'Конфигурације сајта'
     SINGULARNAME: 'Конфигурација сајта'
     SITENAMEDEFAULT: 'Назив сајта'
-    SITETAGLINE: Слоган
+    SITETAGLINE: 'Слоган'
     SITETITLE: 'Наслов сајта'
     TABACCESS: Приступ
     TABMAIN: Главно

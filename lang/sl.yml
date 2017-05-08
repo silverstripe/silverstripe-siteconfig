@@ -4,7 +4,7 @@ sl:
     EDIT_PERMISSION: 'Upravljanje nastavitev spletnega mesta'
     EDIT_PERMISSION_HELP: 'Možnost upravljanja z dostopom na najvišji ravni'
     SITENAMEDEFAULT: 'Naziv vašega spletnega mesta'
-    SITETAGLINE: Slogan
+    SITETAGLINE: 'Slogan'
     SITETITLE: 'Naslov spletnega mesta (title)'
     TABACCESS: Dostop
     TABMAIN: Domov

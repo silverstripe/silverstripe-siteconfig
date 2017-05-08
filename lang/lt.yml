@@ -1,6 +1,4 @@
 lt:
-  SilverStripe\CMS\Model\SiteTree:
-    TOPLEVELCREATORGROUPS: 'Gali kurti pagrindiniame lygmenyje'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Kas gali redaguoti šį puslapį?'
     EDIT_PERMISSION: 'Tvarkyti svetainės nustatymus'
