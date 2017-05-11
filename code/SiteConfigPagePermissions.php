@@ -3,12 +3,12 @@
 namespace SilverStripe\SiteConfig;
 
 use SilverStripe\Security\Member;
-use SilverStripe\Security\RootPermissions;
+use SilverStripe\Security\DefaultPermissionChecker;
 
 /**
  * Root permission provider for pages in the SiteTree root
  */
-class SiteConfigPagePermissions implements RootPermissions
+class SiteConfigPagePermissions implements DefaultPermissionChecker
 {
     /**
      * Can root be edited?
