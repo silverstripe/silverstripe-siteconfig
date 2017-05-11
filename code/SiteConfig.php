@@ -92,12 +92,15 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         asort($groupsMap);
 
         $fields = new FieldList(
-            new TabSet("Root",
-                $tabMain = new Tab('Main',
+            new TabSet(
+                "Root",
+                $tabMain = new Tab(
+                    'Main',
                     $titleField = new TextField("Title", _t('SilverStripe\\SiteConfig\\SiteConfig.SITETITLE', "Site title")),
                     $taglineField = new TextField("Tagline", _t('SilverStripe\\SiteConfig\\SiteConfig.SITETAGLINE', "Site Tagline/Slogan"))
                 ),
-                $tabAccess = new Tab('Access',
+                $tabAccess = new Tab(
+                    'Access',
                     $viewersOptionsField = new OptionsetField("CanViewType", _t('SilverStripe\\SiteConfig\\SiteConfig.VIEWHEADER', "Who can view pages on this site?")),
                     $viewerGroupsField = ListboxField::create("ViewerGroups", _t('SilverStripe\\CMS\\Model\\SiteTree.VIEWERGROUPS', "Viewer Groups"))
                         ->setSource($groupsMap)
@@ -149,10 +152,17 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         }
 
         if (file_exists(BASE_PATH . '/install.php')) {
-            $fields->addFieldToTab("Root.Main", new LiteralField("InstallWarningHeader",
-                "<p class=\"message warning\">" . _t("SilverStripe\\CMS\\Model\\SiteTree.REMOVE_INSTALL_WARNING",
-                "Warning: You should remove install.php from this SilverStripe install for security reasons.")
-                . "</p>"), "Title");
+            $fields->addFieldToTab(
+                "Root.Main",
+                new LiteralField(
+                    "InstallWarningHeader",
+                    "<p class=\"message warning\">" . _t(
+                        "SilverStripe\\CMS\\Model\\SiteTree.REMOVE_INSTALL_WARNING",
+                        "Warning: You should remove install.php from this SilverStripe install for security reasons."
+                    ) . "</p>"
+                ),
+                "Title"
+            );
         }
 
         $tabMain->setTitle(_t('SilverStripe\\SiteConfig\\SiteConfig.TABMAIN', "Main"));
@@ -173,7 +183,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     {
         if (Permission::check('ADMIN') || Permission::check('EDIT_SITECONFIG')) {
             $actions = new FieldList(
-                FormAction::create('save_siteconfig',
+                FormAction::create(
+                    'save_siteconfig',
                     _t('SilverStripe\\CMS\\Controllers\\CMSMain.SAVE', 'Save')
                 )->addExtraClass('btn-primary font-icon-save')
             );
@@ -202,7 +213,9 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      */
     public static function current_site_config()
     {
-        if ($siteConfig = DataObject::get_one('SilverStripe\\SiteConfig\\SiteConfig')) {
+        /** @var SiteConfig $siteConfig */
+        $siteConfig = DataObject::get_one(SiteConfig::class);
+        if ($siteConfig) {
             return $siteConfig;
         }
 
@@ -216,7 +229,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     {
         parent::requireDefaultRecords();
 
-        $config = DataObject::get_one('SilverStripe\\SiteConfig\\SiteConfig');
+        $config = DataObject::get_one(SiteConfig::class);
 
         if (!$config) {
             self::make_site_config();
@@ -247,10 +260,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canView($member = null)
     {
         if (!$member) {
-            $member = Member::currentUserID();
-        }
-        if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
+            $member = Member::currentUser();
         }
 
         $extended = $this->extendedCan('canView', $member);
@@ -273,10 +283,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canViewPages($member = null)
     {
         if (!$member) {
-            $member = Member::currentUserID();
-        }
-        if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
+            $member = Member::currentUser();
         }
 
         if ($member && Permission::checkMember($member, "ADMIN")) {
@@ -316,10 +323,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canEditPages($member = null)
     {
         if (!$member) {
-            $member = Member::currentUserID();
-        }
-        if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
+            $member = Member::currentUser();
         }
 
         if ($member && Permission::checkMember($member, "ADMIN")) {
@@ -333,7 +337,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
         // check for any logged-in users with CMS access
         if ($this->CanEditType === 'LoggedInUsers'
-            && Permission::checkMember($member, $this->config()->required_permission)
+            && Permission::checkMember($member, $this->config()->get('required_permission'))
         ) {
             return true;
         }
@@ -349,10 +353,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canEdit($member = null)
     {
         if (!$member) {
-            $member = Member::currentUserID();
-        }
-        if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
+            $member = Member::currentUser();
         }
 
         $extended = $this->extendedCan('canEdit', $member);
@@ -387,10 +388,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canCreateTopLevel($member = null)
     {
         if (!$member) {
-            $member = Member::currentUserID();
-        }
-        if ($member && is_numeric($member)) {
-            $member = DataObject::get_by_id('SilverStripe\\Security\\Member', $member);
+            $member = Member::currentUser();
         }
 
         if ($member && Permission::checkMember($member, "ADMIN")) {
@@ -404,7 +402,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
         // check for any logged-in users with CMS permission
         if ($this->CanCreateTopLevelType === 'LoggedInUsers'
-            && Permission::checkMember($member, $this->config()->required_permission)
+            && Permission::checkMember($member, $this->config()->get('required_permission'))
         ) {
             return true;
         }
