@@ -24,7 +24,7 @@
 			<% end_loop %>
 			<% if $Controller.LinkPreview %>
 				<a href="$Controller.LinkPreview" class="cms-preview-toggle-link ss-ui-button" data-icon="preview">
-					<% _t('SilverStripe\Admin\LeftAndMain.PreviewButton', 'Preview') %> &raquo;
+					<%t SilverStripe\Admin\LeftAndMain.PreviewButton 'Preview' %> &raquo;
 				</a>
 			<% end_if %>
 		</div>
