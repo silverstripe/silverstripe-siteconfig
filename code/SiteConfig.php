@@ -83,13 +83,18 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      */
     public function getCMSFields()
     {
-        $groupsMap = array();
-
-        foreach (Group::get() as $group) {
-            // Listboxfield values are escaped, use ASCII char instead of &raquo;
-            $groupsMap[$group->ID] = $group->getBreadcrumbs(' > ');
-        }
-        asort($groupsMap);
+        $mapFn = function ($groups = []) {
+            $map = [];
+            foreach ($groups as $group) {
+                // Listboxfield values are escaped, use ASCII char instead of &raquo;
+                $map[$group->ID] = $group->getBreadcrumbs(' > ');
+            }
+            asort($map);
+            return $map;
+        };
+        $groupsMap = $mapFn(Group::get());
+        $viewAllGroupsMap = $mapFn(Permission::get_groups_by_permission(['SITETREE_VIEW_ALL', 'ADMIN']));
+        $editAllGroupsMap = $mapFn(Permission::get_groups_by_permission(['SITETREE_EDIT_ALL', 'ADMIN']));
 
         $fields = new FieldList(
             new TabSet(
@@ -132,6 +137,22 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         $viewersOptionsSource["LoggedInUsers"] = _t('SilverStripe\\CMS\\Model\\SiteTree.ACCESSLOGGEDIN', "Logged-in users");
         $viewersOptionsSource["OnlyTheseUsers"] = _t('SilverStripe\\CMS\\Model\\SiteTree.ACCESSONLYTHESE', "Only these people (choose from list)");
         $viewersOptionsField->setSource($viewersOptionsSource);
+
+        if ($viewAllGroupsMap) {
+            $viewerGroupsField->setDescription(_t(
+                'SilverStripe\\CMS\\Model\\SiteTree.VIEWER_GROUPS_FIELD_DESC',
+                'Groups with global view permissions: {groupList}',
+                ['groupList' => implode(', ', array_values($viewAllGroupsMap))]
+            ));
+        }
+
+        if ($editAllGroupsMap) {
+            $editorGroupsField->setDescription(_t(
+                'SilverStripe\\CMS\\Model\\SiteTree.EDITOR_GROUPS_FIELD_DESC',
+                'Groups with global edit permissions: {groupList}',
+                ['groupList' => implode(', ', array_values($editAllGroupsMap))]
+            ));
+        }
 
         $editorsOptionsSource = array();
         $editorsOptionsSource["LoggedInUsers"] = _t('SilverStripe\\CMS\\Model\\SiteTree.EDITANYONE', "Anyone who can log-in to the CMS");
