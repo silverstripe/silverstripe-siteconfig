@@ -18,6 +18,7 @@ use SilverStripe\Security\Group;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\PermissionProvider;
+use SilverStripe\Security\Security;
 use SilverStripe\View\TemplateGlobalProvider;
 
 /**
@@ -281,7 +282,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canView($member = null)
     {
         if (!$member) {
-            $member = Member::currentUser();
+            $member = Security::getCurrentUser();
         }
 
         $extended = $this->extendedCan('canView', $member);
@@ -304,7 +305,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canViewPages($member = null)
     {
         if (!$member) {
-            $member = Member::currentUser();
+            $member = Security::getCurrentUser();
         }
 
         if ($member && Permission::checkMember($member, "ADMIN")) {
@@ -344,7 +345,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canEditPages($member = null)
     {
         if (!$member) {
-            $member = Member::currentUser();
+            $member = Security::getCurrentUser();
         }
 
         if ($member && Permission::checkMember($member, "ADMIN")) {
@@ -374,7 +375,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canEdit($member = null)
     {
         if (!$member) {
-            $member = Member::currentUser();
+            $member = Security::getCurrentUser();
         }
 
         $extended = $this->extendedCan('canEdit', $member);
@@ -409,7 +410,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function canCreateTopLevel($member = null)
     {
         if (!$member) {
-            $member = Member::currentUser();
+            $member = Security::getCurrentUser();
         }
 
         if ($member && Permission::checkMember($member, "ADMIN")) {
