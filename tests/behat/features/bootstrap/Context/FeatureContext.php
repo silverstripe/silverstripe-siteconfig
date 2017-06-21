@@ -10,7 +10,6 @@ use SilverStripe\Cms\Test\Behaviour;
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\Core\Injector\Injector;
 
-
 /**
  * Features context
  *
@@ -36,7 +35,7 @@ class FeatureContext extends \SilverStripe\Framework\Test\Behaviour\FeatureConte
 
         // Add extra contexts with more steps
         $this->useContext('ThemeContext', new \SilverStripe\Siteconfig\Test\Behaviour\ThemeContext($parameters));
-        if(!class_exists('SilverStripe\\CMS\\Model\\SiteTree')) {
+        if (!class_exists('SilverStripe\\CMS\\Model\\SiteTree')) {
             return;
         }
 

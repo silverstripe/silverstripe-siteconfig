@@ -12,15 +12,19 @@
     "silverstripe/admin": "^1.0@dev"
   },
   "require-dev": {
-    "phpunit/PHPUnit": "~4.8"
+    "phpunit/phpunit": "^5.7"
   },
   "autoload": {
     "psr-4": {
-      "SilverStripe\\SiteConfig\\": "code/"
+      "SilverStripe\\SiteConfig\\": "code/",
+      "SilverStripe\\SiteConfig\\Tests\\": "tests/php/"
     },
     "classmap": ["tests/behat/"]
   },
-
+  "scripts": {
+    "lint": "phpcs code/ tests/",
+    "lint-clean": "phpcbf code/ tests/"
+  },
   "extra": {
     "installer-name": "siteconfig",
     "branch-alias": {
