@@ -1,5 +1,8 @@
 <?php
 
+namespace SilverStripe\SiteConfig\Tests;
+
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Dev\SapphireTest;
 
@@ -12,32 +15,34 @@ class SiteConfigTest extends SapphireTest
     protected static $fixture_file = 'SiteConfigTest.yml';
 
     protected static $illegal_extensions = array(
-        'SilverStripe\\CMS\\Model\\SiteTree' => array('SiteTreeSubsites'),
+        SiteTree::class => array('SiteTreeSubsites'),
     );
 
     public function testCanCreateRootPages()
     {
-        $config = $this->objFromFixture('SilverStripe\\SiteConfig\\SiteConfig', 'default');
+        /** @var SiteConfig $config */
+        $config = $this->objFromFixture(SiteConfig::class, 'default');
 
         // Log in without pages admin access
         $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
         $this->assertFalse($config->canCreateTopLevel());
 
         // Login with necessary edit permission
-        $perms = SiteConfig::config()->required_permission;
+        $perms = SiteConfig::config()->get('required_permission');
         $this->logInWithPermission(reset($perms));
         $this->assertTrue($config->canCreateTopLevel());
     }
 
     public function testCanViewPages()
     {
-        $config = $this->objFromFixture('SilverStripe\\SiteConfig\\SiteConfig', 'default');
+        /** @var SiteConfig $config */
+        $config = $this->objFromFixture(SiteConfig::class, 'default');
         $this->assertTrue($config->canViewPages());
     }
 
     public function testCanEdit()
     {
-        $config = $this->objFromFixture('SilverStripe\\SiteConfig\\SiteConfig', 'default');
+        $config = $this->objFromFixture(SiteConfig::class, 'default');
 
         // Unrelated permissions don't allow siteconfig
         $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
@@ -50,14 +55,15 @@ class SiteConfigTest extends SapphireTest
 
     public function testCanEditPages()
     {
-        $config = $this->objFromFixture('SilverStripe\\SiteConfig\\SiteConfig', 'default');
+        /** @var SiteConfig $config */
+        $config = $this->objFromFixture(SiteConfig::class, 'default');
 
         // Log in without pages admin access
         $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
         $this->assertFalse($config->canEditPages());
 
         // Login with necessary edit permission
-        $perms = SiteConfig::config()->required_permission;
+        $perms = SiteConfig::config()->get('required_permission');
         $this->logInWithPermission(reset($perms));
         $this->assertTrue($config->canEditPages());
     }

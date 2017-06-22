@@ -4,11 +4,10 @@ namespace SilverStripe\SiteConfig;
 
 use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\Control\Director;
+use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\LiteralField;
-use SilverStripe\Forms\Form;
-use SilverStripe\ORM\ValidationException;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\ValidationResult;
 use SilverStripe\View\ArrayData;
@@ -16,107 +15,112 @@ use SilverStripe\View\Requirements;
 
 class SiteConfigLeftAndMain extends LeftAndMain
 {
-	/**
-	 * @var string
-	 */
-	private static $url_segment = 'settings';
+    /**
+     * @var string
+     */
+    private static $url_segment = 'settings';
 
-	/**
-	 * @var string
-	 */
-	private static $url_rule = '/$Action/$ID/$OtherID';
+    /**
+     * @var string
+     */
+    private static $url_rule = '/$Action/$ID/$OtherID';
 
-	/**
-	 * @var int
-	 */
-	private static $menu_priority = -1;
+    /**
+     * @var int
+     */
+    private static $menu_priority = -1;
 
-	/**
-	 * @var string
-	 */
-	private static $menu_title = 'Settings';
+    /**
+     * @var string
+     */
+    private static $menu_title = 'Settings';
 
-	/**
-	 * @var string
-	 */
-	private static $menu_icon_class = 'font-icon-cog';
+    /**
+     * @var string
+     */
+    private static $menu_icon_class = 'font-icon-cog';
 
-	/**
-	 * @var string
-	 */
-	private static $tree_class = 'SilverStripe\\SiteConfig\\SiteConfig';
+    /**
+     * @var string
+     */
+    private static $tree_class = 'SilverStripe\\SiteConfig\\SiteConfig';
 
-	/**
-	 * @var array
-	 */
-	private static $required_permission_codes = array('EDIT_SITECONFIG');
+    /**
+     * @var array
+     */
+    private static $required_permission_codes = array('EDIT_SITECONFIG');
 
-	/**
-	 * Initialises the {@link SiteConfig} controller.
-	 */
-	public function init() {
-		parent::init();
+    /**
+     * Initialises the {@link SiteConfig} controller.
+     */
+    public function init()
+    {
+        parent::init();
         if (defined('CMS_DIR')) {
             Requirements::javascript(CMS_DIR . '/client/dist/js/bundle.js');
         }
-	}
+    }
 
-	/**
-	 * @param null $id Not used.
-	 * @param null $fields Not used.
-	 *
-	 * @return Form
-	 */
+    /**
+     * @param null $id Not used.
+     * @param null $fields Not used.
+     *
+     * @return Form
+     */
     public function getEditForm($id = null, $fields = null)
     {
-		$siteConfig = SiteConfig::current_site_config();
-		$fields = $siteConfig->getCMSFields();
+        $siteConfig = SiteConfig::current_site_config();
+        $fields = $siteConfig->getCMSFields();
 
-		// Tell the CMS what URL the preview should show
-		$home = Director::absoluteBaseURL();
-		$fields->push(new HiddenField('PreviewURL', 'Preview URL', $home));
+        // Tell the CMS what URL the preview should show
+        $home = Director::absoluteBaseURL();
+        $fields->push(new HiddenField('PreviewURL', 'Preview URL', $home));
 
-		// Added in-line to the form, but plucked into different view by LeftAndMain.Preview.js upon load
+        // Added in-line to the form, but plucked into different view by LeftAndMain.Preview.js upon load
         /** @skipUpgrade */
-		$fields->push($navField = new LiteralField('SilverStripeNavigator', $this->getSilverStripeNavigator()));
-		$navField->setAllowHTML(true);
+        $fields->push($navField = new LiteralField('SilverStripeNavigator', $this->getSilverStripeNavigator()));
+        $navField->setAllowHTML(true);
 
-		// Retrieve validator, if one has been setup (e.g. via data extensions).
-		if ($siteConfig->hasMethod("getCMSValidator")) {
-			$validator = $siteConfig->getCMSValidator();
-		} else {
-			$validator = null;
-		}
+        // Retrieve validator, if one has been setup (e.g. via data extensions).
+        if ($siteConfig->hasMethod("getCMSValidator")) {
+            $validator = $siteConfig->getCMSValidator();
+        } else {
+            $validator = null;
+        }
 
-		$actions = $siteConfig->getCMSActions();
-		$negotiator = $this->getResponseNegotiator();
-		/** @var Form $form */
-		$form = Form::create(
-			$this, 'EditForm', $fields, $actions, $validator
-		)->setHTMLID('Form_EditForm');
-		$form->setValidationResponseCallback(function(ValidationResult $errors) use ($negotiator, $form) {
-			$request = $this->getRequest();
-			if($request->isAjax() && $negotiator) {
-				$result = $form->forTemplate();
-				return $negotiator->respond($request, array(
-					'CurrentForm' => function() use($result) {
-						return $result;
-					}
-				));
-			}
-		});
-		$form->addExtraClass('flexbox-area-grow fill-height cms-content cms-edit-form');
-		$form->setAttribute('data-pjax-fragment', 'CurrentForm');
+        $actions = $siteConfig->getCMSActions();
+        $negotiator = $this->getResponseNegotiator();
+        /** @var Form $form */
+        $form = Form::create(
+            $this,
+            'EditForm',
+            $fields,
+            $actions,
+            $validator
+        )->setHTMLID('Form_EditForm');
+        $form->setValidationResponseCallback(function (ValidationResult $errors) use ($negotiator, $form) {
+            $request = $this->getRequest();
+            if ($request->isAjax() && $negotiator) {
+                $result = $form->forTemplate();
+                return $negotiator->respond($request, array(
+                    'CurrentForm' => function () use ($result) {
+                        return $result;
+                    }
+                ));
+            }
+        });
+        $form->addExtraClass('flexbox-area-grow fill-height cms-content cms-edit-form');
+        $form->setAttribute('data-pjax-fragment', 'CurrentForm');
 
         if ($form->Fields()->hasTabSet()) {
             $form->Fields()->findOrMakeTab('Root')->setTemplate('SilverStripe\\Forms\\CMSTabSet');
         }
-		$form->setHTMLID('Form_EditForm');
-		$form->loadDataFrom($siteConfig);
-		$form->setTemplate($this->getTemplatesWithSuffix('_EditForm'));
+        $form->setHTMLID('Form_EditForm');
+        $form->loadDataFrom($siteConfig);
+        $form->setTemplate($this->getTemplatesWithSuffix('_EditForm'));
 
-		// Use <button> to allow full jQuery UI styling
-		$actions = $actions->dataFields();
+        // Use <button> to allow full jQuery UI styling
+        $actions = $actions->dataFields();
         if ($actions) {
             /** @var FormAction $action */
             foreach ($actions as $action) {
@@ -124,35 +128,35 @@ class SiteConfigLeftAndMain extends LeftAndMain
             }
         }
 
-		$this->extend('updateEditForm', $form);
+        $this->extend('updateEditForm', $form);
 
-		return $form;
-	}
+        return $form;
+    }
 
-	/**
-	 * Save the current sites {@link SiteConfig} into the database.
-	 *
-	 * @param array $data
-	 * @param Form $form
-	 * @return String
-	 */
+    /**
+     * Save the current sites {@link SiteConfig} into the database.
+     *
+     * @param array $data
+     * @param Form $form
+     * @return String
+     */
     public function save_siteconfig($data, $form)
     {
-		$siteConfig = SiteConfig::current_site_config();
-		$form->saveInto($siteConfig);
-		$siteConfig->write();
-		$this->response->addHeader('X-Status', rawurlencode(_t('SilverStripe\\Admin\\LeftAndMain.SAVEDUP', 'Saved.')));
-		return $form->forTemplate();
-	}
+        $siteConfig = SiteConfig::current_site_config();
+        $form->saveInto($siteConfig);
+        $siteConfig->write();
+        $this->response->addHeader('X-Status', rawurlencode(_t('SilverStripe\\Admin\\LeftAndMain.SAVEDUP', 'Saved.')));
+        return $form->forTemplate();
+    }
 
 
     public function Breadcrumbs($unlinked = false)
     {
-		return new ArrayList(array(
-			new ArrayData(array(
-				'Title' => static::menu_title(),
-				'Link' => $this->Link()
-			))
-		));
-	}
+        return new ArrayList(array(
+            new ArrayData(array(
+                'Title' => static::menu_title(),
+                'Link' => $this->Link()
+            ))
+        ));
+    }
 }
