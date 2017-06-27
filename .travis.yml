@@ -1,4 +1,4 @@
-# See https://github.com/silverstripe-labs/silverstripe-travis-support for setup details
+# See https://github.com/silverstripe/silverstripe-travis-support for setup details
 
 sudo: false
 
