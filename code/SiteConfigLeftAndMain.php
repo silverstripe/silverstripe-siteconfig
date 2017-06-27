@@ -51,7 +51,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
     private static $required_permission_codes = array('EDIT_SITECONFIG');
 
     /**
-     * Initialises the {@link SiteConfig} controller.
+     * Initialises the {@link SilverStripe\SiteConfig\SiteConfig} controller.
      */
     public function init()
     {
@@ -134,7 +134,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
     }
 
     /**
-     * Save the current sites {@link SiteConfig} into the database.
+     * Save the current sites {@link SilverStripe\SiteConfig\SiteConfig} into the database.
      *
      * @param array $data
      * @param Form $form
