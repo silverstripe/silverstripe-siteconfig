@@ -3,6 +3,7 @@
 namespace SilverStripe\SiteConfig;
 
 use SilverStripe\Admin\LeftAndMain;
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
@@ -56,8 +57,8 @@ class SiteConfigLeftAndMain extends LeftAndMain
     public function init()
     {
         parent::init();
-        if (defined('CMS_DIR')) {
-            Requirements::javascript(CMS_DIR . '/client/dist/js/bundle.js');
+        if (class_exists(SiteTree::class)) {
+            Requirements::javascript('silverstripe/cms: client/dist/js/bundle.js');
         }
     }
 
