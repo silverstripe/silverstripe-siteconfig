@@ -1,4 +1,7 @@
 en:
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Anyone who can log-in to the CMS'
+    EDITONLYTHESE: 'Only these people (choose from list)'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Who can edit pages on this site?'
     EDIT_PERMISSION: 'Manage site configuration'

@@ -12,7 +12,7 @@ fi:
     SITETAGLINE: 'Sivuston mainoslause/slogan'
     SITETITLE: 'Sivuston otsikko'
     TABACCESS: Oikeudet
-    TABMAIN: Yleiset asetukset
+    TABMAIN: 'Yleiset asetukset'
     TAGLINEDEFAULT: 'sinun mainoslauseesi tähän'
     TOPLEVELCREATE: 'Kuka voi luoda sivuja sivuston juureen?'
     VIEWHEADER: 'Kuka voi nähdä sivuja tällä sivustolla?'
