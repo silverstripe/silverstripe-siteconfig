@@ -2,11 +2,16 @@
   "name": "silverstripe/siteconfig",
   "description": "Site wide settings administration.",
   "type": "silverstripe-module",
-  "keywords": ["silverstripe", "siteconfig"],
-  "authors": [{
-    "name": "Will Rossiter",
-    "email": "will@fullscreen.io"
-  }],
+  "keywords": [
+    "silverstripe",
+    "siteconfig"
+  ],
+  "authors": [
+    {
+      "name": "Will Rossiter",
+      "email": "will@fullscreen.io"
+    }
+  ],
   "require": {
     "silverstripe/framework": "^4.0@dev",
     "silverstripe/admin": "^1.0@dev"
@@ -19,7 +24,9 @@
       "SilverStripe\\SiteConfig\\": "code/",
       "SilverStripe\\SiteConfig\\Tests\\": "tests/php/"
     },
-    "classmap": ["tests/behat/"]
+    "classmap": [
+      "tests/behat/"
+    ]
   },
   "scripts": {
     "lint": "phpcs code/ tests/",
@@ -28,7 +35,7 @@
   "extra": {
     "installer-name": "siteconfig",
     "branch-alias": {
-      "dev-master": "4.0.x-dev"
+      "dev-master": "4.1.x-dev"
     }
   },
   "license": "BSD-3-Clause"
