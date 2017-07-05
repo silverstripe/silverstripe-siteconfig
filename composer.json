@@ -33,6 +33,10 @@
         "lint-clean": "phpcbf code/ tests/"
     },
     "extra": {
+        "branch-alias": {
+            "4.x-dev": "4.0.x-dev",
+            "dev-master": "5.x-dev"
+        },
         "installer-name": "siteconfig"
     },
     "license": "BSD-3-Clause"
