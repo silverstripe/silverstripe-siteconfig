@@ -157,7 +157,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
         $editorsOptionsSource = array();
         $editorsOptionsSource["LoggedInUsers"] = _t('SilverStripe\\CMS\\Model\\SiteTree.EDITANYONE', "Anyone who can log-in to the CMS");
-        $editorsOptionsSource["OnlyTheseUsers"] = _t('SilverStripe\\CMS\\Model\\SiteTree.EDITONLYTHESE', "Only these people (choose from list)");
+        $editorsOptionsSource["OnlyTheseUsers"] = _t('SilverStripe\\CMS\\Model\\SiteTree.EDITONLYTHESE', "Only these groups (choose from list)");
         $editorsOptionsField->setSource($editorsOptionsSource);
 
         $topLevelCreatorsOptionsField->setSource($editorsOptionsSource);
