@@ -39,14 +39,14 @@ before_script:
 
 # Install composer dependencies
   - composer install --prefer-dist
-  - composer require --prefer-dist --no-update symfony/config:^3.2 silverstripe/framework:4.0.x-dev silverstripe/cms:4.0.x-dev silverstripe/siteconfig:4.0.x-dev silverstripe/config:1.0.x-dev silverstripe/admin:1.0.x-dev silverstripe/assets:1.0.x-dev silverstripe/versioned:1.0.x-dev
+  - composer require --prefer-dist --no-update symfony/config:^3.2 silverstripe/framework:4.0.x-dev silverstripe/cms:4.0.x-dev silverstripe/siteconfig:4.0.x-dev silverstripe/config:1.0.x-dev silverstripe/admin:1.0.x-dev silverstripe/assets:1.0.x-dev silverstripe/versioned:1.0.x-dev silverstripe-themes/simple:~3.2.0
   - composer update
 
   - if [[ $DB == PGSQL ]]; then composer require silverstripe/postgresql:2.0.x-dev --prefer-dist; fi
   - if [[ $DB == SQLITE ]]; then composer require silverstripe/sqlite3:2.0.x-dev --prefer-dist; fi
 
 # Bootstrap cms / mysite folder
-  - php ./cms/tests/bootstrap/mysite.php
+  - php ./tests/bootstrap/mysite.php
 
 # Behat bootstrapping
   - if [[ $BEHAT_TEST ]]; then echo "" >> .env && echo "SS_BASE_URL=http://localhost:8080/" >> .env; fi
