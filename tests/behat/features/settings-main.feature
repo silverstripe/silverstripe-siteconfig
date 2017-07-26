@@ -18,7 +18,7 @@ Feature: Edit site wide settings
 		And I fill in "Tagline" with "Site is under construction"
 		And I press the "Save" button
 		And I reload the page
-		Then I should see "Test Site" in the ".cms-logo" element
+		Then I should see "Test Site" in the ".cms-sitename__title" element
 
 		When I go to "/home"
 		Then I should see "Test Site"

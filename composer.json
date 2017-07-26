@@ -1,43 +1,47 @@
 {
-  "name": "silverstripe/siteconfig",
-  "description": "Site wide settings administration.",
-  "type": "silverstripe-module",
-  "keywords": [
-    "silverstripe",
-    "siteconfig"
-  ],
-  "authors": [
-    {
-      "name": "Will Rossiter",
-      "email": "will@fullscreen.io"
-    }
-  ],
-  "require": {
-    "silverstripe/framework": "^4.0@dev",
-    "silverstripe/admin": "^1.0@dev"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^5.7"
-  },
-  "autoload": {
-    "psr-4": {
-      "SilverStripe\\SiteConfig\\": "code/",
-      "SilverStripe\\SiteConfig\\Tests\\": "tests/php/"
+    "name": "silverstripe/siteconfig",
+    "description": "Site wide settings administration.",
+    "type": "silverstripe-module",
+    "keywords": [
+        "silverstripe",
+        "siteconfig"
+    ],
+    "authors": [
+        {
+            "name": "Will Rossiter",
+            "email": "will@fullscreen.io"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "^4.0@dev",
+        "silverstripe/admin": "^1.0@dev"
     },
-    "classmap": [
-      "tests/behat/"
-    ]
-  },
-  "scripts": {
-    "lint": "phpcs code/ tests/",
-    "lint-clean": "phpcbf code/ tests/"
-  },
-  "extra": {
-    "installer-name": "siteconfig",
-    "branch-alias": {
-      "4.x-dev": "4.0.x-dev",
-      "dev-master": "5.x-dev"
-    }
-  },
-  "license": "BSD-3-Clause"
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "silverstripe/behat-extension": "^3@dev",
+        "silverstripe/serve": "dev-master",
+        "se/selenium-server-standalone": "2.41.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SilverStripe\\SiteConfig\\": "code/",
+            "SilverStripe\\SiteConfig\\Tests\\": "tests/php/"
+        },
+        "classmap": [
+            "tests/behat/"
+        ]
+    },
+    "scripts": {
+        "lint": "phpcs code/ tests/",
+        "lint-clean": "phpcbf code/ tests/"
+    },
+    "extra": {
+        "branch-alias": {
+            "4.x-dev": "4.0.x-dev",
+            "dev-master": "5.x-dev"
+        }
+    },
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
