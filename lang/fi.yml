@@ -1,4 +1,7 @@
 fi:
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Kuka tahansa, joka voi kirjautua CMS-järjestelmään'
+    EDITONLYTHESE: 'Vain nämä käyttäjät (valitse listalta)'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Kuka voi muokata sivuja tällä sivustolla?'
     EDIT_PERMISSION: 'Hallinnoi sivun kokoonpanoa'
@@ -15,6 +18,9 @@ fi:
     TABMAIN: 'Yleiset asetukset'
     TAGLINEDEFAULT: 'sinun mainoslauseesi tähän'
     TOPLEVELCREATE: 'Kuka voi luoda sivuja sivuston juureen?'
+    TOPLEVELCREATORGROUPS: 'Ylätason luojat'
     VIEWHEADER: 'Kuka voi nähdä sivuja tällä sivustolla?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Asetukset
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: Muokkaa
