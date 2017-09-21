@@ -136,7 +136,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         $viewersOptionsSource = array();
         $viewersOptionsSource["Anyone"] = _t('SilverStripe\\CMS\\Model\\SiteTree.ACCESSANYONE', "Anyone");
         $viewersOptionsSource["LoggedInUsers"] = _t('SilverStripe\\CMS\\Model\\SiteTree.ACCESSLOGGEDIN', "Logged-in users");
-        $viewersOptionsSource["OnlyTheseUsers"] = _t('SilverStripe\\CMS\\Model\\SiteTree.ACCESSONLYTHESE', "Only these people (choose from list)");
+        $viewersOptionsSource["OnlyTheseUsers"] = _t('SilverStripe\\CMS\\Model\\SiteTree.ACCESSONLYTHESE', "Only these groups (choose from list)");
         $viewersOptionsField->setSource($viewersOptionsSource);
 
         if ($viewAllGroupsMap) {
