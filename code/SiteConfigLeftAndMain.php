@@ -44,7 +44,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
     /**
      * @var string
      */
-    private static $tree_class = 'SilverStripe\\SiteConfig\\SiteConfig';
+    private static $tree_class = SiteConfig::class;
 
     /**
      * @var array
@@ -146,7 +146,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
         $siteConfig = SiteConfig::current_site_config();
         $form->saveInto($siteConfig);
         $siteConfig->write();
-        $this->response->addHeader('X-Status', rawurlencode(_t('SilverStripe\\Admin\\LeftAndMain.SAVEDUP', 'Saved.')));
+        $this->response->addHeader('X-Status', rawurlencode(_t(LeftAndMain::class . '.SAVEDUP', 'Saved.')));
         return $form->forTemplate();
     }
 

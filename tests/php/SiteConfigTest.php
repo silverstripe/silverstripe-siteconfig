@@ -16,7 +16,7 @@ class SiteConfigTest extends SapphireTest
     protected static $fixture_file = 'SiteConfigTest.yml';
 
     protected static $illegal_extensions = array(
-        SiteTree::class => array('SiteTreeSubsites'),
+        SiteTree::class => ['SiteTreeSubsites'],
     );
 
     public function testCanCreateRootPages()
@@ -25,26 +25,31 @@ class SiteConfigTest extends SapphireTest
         $config = $this->objFromFixture(SiteConfig::class, 'default');
 
         // Admin trumps all
-        $this->logInWithPermission('ADMIN');
-        $this->assertTrue($config->canCreateTopLevel());
+        $this->actWithPermission('ADMIN', function () use ($config) {
+            $this->assertTrue($config->canCreateTopLevel());
+        });
 
         // Log in without pages admin access
-        $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
-        $this->assertFalse($config->canCreateTopLevel());
+        $this->actWithPermission('CMS_ACCESS_AssetAdmin', function () use ($config) {
+            $this->assertFalse($config->canCreateTopLevel());
+        });
 
         // Login with necessary edit permission
         $perms = SiteConfig::config()->get('required_permission');
-        $this->logInWithPermission(reset($perms));
-        $this->assertTrue($config->canCreateTopLevel());
+        $this->actWithPermission(reset($perms), function () use ($config) {
+            $this->assertTrue($config->canCreateTopLevel());
+        });
 
         // "OnlyTheseUsers" restricts to the correct groups
         $config->CanCreateTopLevelType = 'OnlyTheseUsers';
-        $this->logInWithPermission('ADMIN');
-        $this->assertTrue($config->canCreateTopLevel());
-        $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
-        $this->assertFalse($config->canCreateTopLevel());
-        $config->CreateTopLevelGroups()->add(Security::getCurrentUser()->Groups()->First());
-        $this->assertTrue($config->canCreateTopLevel());
+        $this->actWithPermission('ADMIN', function () use ($config) {
+            $this->assertTrue($config->canCreateTopLevel());
+        });
+        $this->actWithPermission('CMS_ACCESS_AssetAdmin', function () use ($config) {
+            $this->assertFalse($config->canCreateTopLevel());
+            $config->CreateTopLevelGroups()->add(Security::getCurrentUser()->Groups()->First());
+            $this->assertTrue($config->canCreateTopLevel());
+        });
     }
 
     public function testCanViewPages()
@@ -53,10 +58,12 @@ class SiteConfigTest extends SapphireTest
         $config = $this->objFromFixture(SiteConfig::class, 'default');
 
         // "Anyone" can view
-        $this->logInWithPermission('ADMIN');
-        $this->assertTrue($config->canViewPages());
-        $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
-        $this->assertTrue($config->canViewPages());
+        $this->actWithPermission('ADMIN', function () use ($config) {
+            $this->assertTrue($config->canViewPages());
+        });
+        $this->actWithPermission('CMS_ACCESS_AssetAdmin', function () use ($config) {
+            $this->assertTrue($config->canViewPages());
+        });
 
         // "LoggedInUsers" can view
         $config->CanViewType = 'LoggedInUsers';
@@ -65,12 +72,14 @@ class SiteConfigTest extends SapphireTest
 
         // "OnlyTheseUsers" restricts to the correct groups
         $config->CanViewType = 'OnlyTheseUsers';
-        $this->logInWithPermission('ADMIN');
-        $this->assertTrue($config->canViewPages());
-        $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
-        $this->assertFalse($config->canViewPages());
-        $config->ViewerGroups()->add(Security::getCurrentUser()->Groups()->First());
-        $this->assertTrue($config->canViewPages());
+        $this->actWithPermission('ADMIN', function () use ($config) {
+            $this->assertTrue($config->canViewPages());
+        });
+        $this->actWithPermission('CMS_ACCESS_AssetAdmin', function () use ($config) {
+            $this->assertFalse($config->canViewPages());
+            $config->ViewerGroups()->add(Security::getCurrentUser()->Groups()->First());
+            $this->assertTrue($config->canViewPages());
+        });
     }
 
     public function testCanEdit()
@@ -78,12 +87,14 @@ class SiteConfigTest extends SapphireTest
         $config = $this->objFromFixture(SiteConfig::class, 'default');
 
         // Unrelated permissions don't allow siteconfig
-        $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
-        $this->assertFalse($config->canEdit());
+        $this->actWithPermission('CMS_ACCESS_AssetAdmin', function () use ($config) {
+            $this->assertFalse($config->canEdit());
+        });
 
         // Only those with edit permission can do this
-        $this->logInWithPermission('EDIT_SITECONFIG');
-        $this->assertTrue($config->canEdit());
+        $this->actWithPermission('EDIT_SITECONFIG', function () use ($config) {
+            $this->assertTrue($config->canEdit());
+        });
     }
 
     public function testCanEditPages()
@@ -91,26 +102,31 @@ class SiteConfigTest extends SapphireTest
         /** @var SiteConfig $config */
         $config = $this->objFromFixture(SiteConfig::class, 'default');
 
-        // Admin can alway edit
-        $this->logInWithPermission('ADMIN');
-        $this->assertTrue($config->canEditPages());
+        // Admin can always edit
+        $this->actWithPermission('ADMIN', function () use ($config) {
+            $this->assertTrue($config->canEditPages());
+        });
 
         // Log in without pages admin access
-        $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
-        $this->assertFalse($config->canEditPages());
+        $this->actWithPermission('CMS_ACCESS_AssetAdmin', function () use ($config) {
+            $this->assertFalse($config->canEditPages());
+        });
 
         // Login with necessary edit permission
         $perms = SiteConfig::config()->get('required_permission');
-        $this->logInWithPermission(reset($perms));
-        $this->assertTrue($config->canEditPages());
+        $this->actWithPermission(reset($perms), function () use ($config) {
+            $this->assertTrue($config->canEditPages());
+        });
 
         // "OnlyTheseUsers" restricts to the correct groups
         $config->CanEditType = 'OnlyTheseUsers';
-        $this->logInWithPermission('ADMIN');
-        $this->assertTrue($config->canEditPages());
-        $this->logInWithPermission('CMS_ACCESS_AssetAdmin');
-        $this->assertFalse($config->canEditPages());
-        $config->EditorGroups()->add(Security::getCurrentUser()->Groups()->First());
-        $this->assertTrue($config->canEditPages());
+        $this->actWithPermission('ADMIN', function () use ($config) {
+            $this->assertTrue($config->canEditPages());
+        });
+        $this->actWithPermission('CMS_ACCESS_AssetAdmin', function () use ($config) {
+            $this->assertFalse($config->canEditPages());
+            $config->EditorGroups()->add(Security::getCurrentUser()->Groups()->First());
+            $this->assertTrue($config->canEditPages());
+        });
     }
 }

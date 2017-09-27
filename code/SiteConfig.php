@@ -2,24 +2,26 @@
 
 namespace SilverStripe\SiteConfig;
 
-use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\Tab;
-use SilverStripe\Forms\OptionsetField;
-use SilverStripe\Forms\ListboxField;
-use SilverStripe\Forms\TabSet;
-use SilverStripe\Forms\HiddenField;
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\FormAction;
-use SilverStripe\ORM\DataObject;
+use SilverStripe\Forms\HiddenField;
+use SilverStripe\Forms\ListboxField;
+use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DB;
+use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ManyManyList;
 use SilverStripe\Security\Group;
-use SilverStripe\Security\Permission;
 use SilverStripe\Security\Member;
+use SilverStripe\Security\Permission;
 use SilverStripe\Security\PermissionProvider;
 use SilverStripe\Security\Security;
 use SilverStripe\View\TemplateGlobalProvider;
+use SilverStripe\CMS\Controllers\CMSMain;
 
 /**
  * SiteConfig
@@ -35,25 +37,25 @@ use SilverStripe\View\TemplateGlobalProvider;
  */
 class SiteConfig extends DataObject implements PermissionProvider, TemplateGlobalProvider
 {
-    private static $db = array(
+    private static $db = [
         "Title" => "Varchar(255)",
         "Tagline" => "Varchar(255)",
         "CanViewType" => "Enum('Anyone, LoggedInUsers, OnlyTheseUsers', 'Anyone')",
         "CanEditType" => "Enum('LoggedInUsers, OnlyTheseUsers', 'LoggedInUsers')",
         "CanCreateTopLevelType" => "Enum('LoggedInUsers, OnlyTheseUsers', 'LoggedInUsers')",
-    );
+    ];
 
-    private static $many_many = array(
-        "ViewerGroups" => "SilverStripe\\Security\\Group",
-        "EditorGroups" => "SilverStripe\\Security\\Group",
-        "CreateTopLevelGroups" => "SilverStripe\\Security\\Group"
-    );
+    private static $many_many = [
+        "ViewerGroups" => Group::class,
+        "EditorGroups" => Group::class,
+        "CreateTopLevelGroups" => Group::class,
+    ];
 
-    private static $defaults = array(
+    private static $defaults = [
         "CanViewType" => "Anyone",
         "CanEditType" => "LoggedInUsers",
         "CanCreateTopLevelType" => "LoggedInUsers",
-    );
+    ];
 
     private static $table_name = 'SiteConfig';
 
@@ -63,8 +65,10 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      * @var array
      * @config
      */
-    private static $required_permission = array('CMS_ACCESS_CMSMain', 'CMS_ACCESS_LeftAndMain');
-
+    private static $required_permission = [
+        'CMS_ACCESS_CMSMain',
+        'CMS_ACCESS_LeftAndMain'
+    ];
 
     public function populateDefaults()
     {
@@ -113,12 +117,12 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                     ),
                     $viewerGroupsField = ListboxField::create(
                         "ViewerGroups",
-                        _t('SilverStripe\\CMS\\Model\\SiteTree.VIEWERGROUPS', "Viewer Groups")
+                        _t(SiteTree::class . '.VIEWERGROUPS', "Viewer Groups")
                     )
                         ->setSource($groupsMap)
                         ->setAttribute(
                             'data-placeholder',
-                            _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
+                            _t(SiteTree::class . '.GroupPlaceholder', 'Click to select group')
                         ),
                     $editorsOptionsField = new OptionsetField(
                         "CanEditType",
@@ -126,12 +130,12 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                     ),
                     $editorGroupsField = ListboxField::create(
                         "EditorGroups",
-                        _t('SilverStripe\\CMS\\Model\\SiteTree.EDITORGROUPS', "Editor Groups")
+                        _t(SiteTree::class . '.EDITORGROUPS', "Editor Groups")
                     )
                         ->setSource($groupsMap)
                         ->setAttribute(
                             'data-placeholder',
-                            _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
+                            _t(SiteTree::class . '.GroupPlaceholder', 'Click to select group')
                         ),
                     $topLevelCreatorsOptionsField = new OptionsetField(
                         "CanCreateTopLevelType",
@@ -144,28 +148,28 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         ->setSource($groupsMap)
                         ->setAttribute(
                             'data-placeholder',
-                            _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
+                            _t(SiteTree::class . '.GroupPlaceholder', 'Click to select group')
                         )
                 )
             ),
             new HiddenField('ID')
         );
 
-        $viewersOptionsSource = array();
-        $viewersOptionsSource["Anyone"] = _t('SilverStripe\\CMS\\Model\\SiteTree.ACCESSANYONE', "Anyone");
+        $viewersOptionsSource = [];
+        $viewersOptionsSource["Anyone"] = _t(SiteTree::class . '.ACCESSANYONE', "Anyone");
         $viewersOptionsSource["LoggedInUsers"] = _t(
-            'SilverStripe\\CMS\\Model\\SiteTree.ACCESSLOGGEDIN',
+            SiteTree::class . '.ACCESSLOGGEDIN',
             "Logged-in users"
         );
         $viewersOptionsSource["OnlyTheseUsers"] = _t(
-            'SilverStripe\\CMS\\Model\\SiteTree.ACCESSONLYTHESE',
+            SiteTree::class . '.ACCESSONLYTHESE',
             "Only these people (choose from list)"
         );
         $viewersOptionsField->setSource($viewersOptionsSource);
 
         if ($viewAllGroupsMap) {
             $viewerGroupsField->setDescription(_t(
-                'SilverStripe\\CMS\\Model\\SiteTree.VIEWER_GROUPS_FIELD_DESC',
+                SiteTree::class . '.VIEWER_GROUPS_FIELD_DESC',
                 'Groups with global view permissions: {groupList}',
                 ['groupList' => implode(', ', array_values($viewAllGroupsMap))]
             ));
@@ -173,19 +177,19 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
         if ($editAllGroupsMap) {
             $editorGroupsField->setDescription(_t(
-                'SilverStripe\\CMS\\Model\\SiteTree.EDITOR_GROUPS_FIELD_DESC',
+                SiteTree::class . '.EDITOR_GROUPS_FIELD_DESC',
                 'Groups with global edit permissions: {groupList}',
                 ['groupList' => implode(', ', array_values($editAllGroupsMap))]
             ));
         }
 
-        $editorsOptionsSource = array();
+        $editorsOptionsSource = [];
         $editorsOptionsSource["LoggedInUsers"] = _t(
-            'SilverStripe\\CMS\\Model\\SiteTree.EDITANYONE',
+            SiteTree::class . '.EDITANYONE',
             "Anyone who can log-in to the CMS"
         );
         $editorsOptionsSource["OnlyTheseUsers"] = _t(
-            'SilverStripe\\CMS\\Model\\SiteTree.EDITONLYTHESE',
+            SiteTree::class . '.EDITONLYTHESE',
             "Only these groups (choose from list)"
         );
         $editorsOptionsField->setSource($editorsOptionsSource);
@@ -209,8 +213,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                 new LiteralField(
                     "InstallWarningHeader",
                     "<p class=\"message warning\">" . _t(
-                        "SilverStripe\\CMS\\Model\\SiteTree.REMOVE_INSTALL_WARNING",
-                        "Warning: You should remove install.php from this SilverStripe install for security reasons."
+                        SiteTree::class . 'REMOVE_INSTALL_WARNING',
+                        'Warning: You should remove install.php from this SilverStripe install for security reasons.'
                     ) . "</p>"
                 ),
                 "Title"
@@ -237,7 +241,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             $actions = new FieldList(
                 FormAction::create(
                     'save_siteconfig',
-                    _t('SilverStripe\\CMS\\Controllers\\CMSMain.SAVE', 'Save')
+                    _t(CMSMain::class . '.SAVE', 'Save')
                 )->addExtraClass('btn-primary font-icon-save')
             );
         } else {
@@ -421,17 +425,17 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      */
     public function providePermissions()
     {
-        return array(
-            'EDIT_SITECONFIG' => array(
+        return [
+            'EDIT_SITECONFIG' => [
                 'name' => _t(__CLASS__ . '.EDIT_PERMISSION', 'Manage site configuration'),
-                'category' => _t('Permissions.PERMISSIONS_SUBSITE', 'Subsite permissions'),
+                'category' => _t(Permission::class . '.PERMISSIONS_CATEGORY', 'Roles and access permissions'),
                 'help' => _t(
                     __CLASS__ . '.EDIT_PERMISSION_HELP',
                     'Ability to edit global access settings/top-level page permissions.'
                 ),
                 'sort' => 400
-            )
-        );
+            ]
+        ];
     }
 
     /**
@@ -478,8 +482,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      */
     public static function get_template_global_variables()
     {
-        return array(
+        return [
             'SiteConfig' => 'current_site_config',
-        );
+        ];
     }
 }
