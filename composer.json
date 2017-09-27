@@ -1,7 +1,7 @@
 {
     "name": "silverstripe/siteconfig",
     "description": "Site wide settings administration.",
-    "type": "silverstripe-module",
+    "type": "silverstripe-vendormodule",
     "keywords": [
         "silverstripe",
         "siteconfig"
@@ -14,7 +14,8 @@
     ],
     "require": {
         "silverstripe/framework": "^4.0@dev",
-        "silverstripe/admin": "^1.0@dev"
+        "silverstripe/admin": "^1.0@dev",
+        "silverstripe/vendor-plugin": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
