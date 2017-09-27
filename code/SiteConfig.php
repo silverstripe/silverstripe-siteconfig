@@ -253,7 +253,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
         $config = DataObject::get_one(SiteConfig::class);
 
-        if (!$config) {
+        if (!$config && $this->config()->create_default_pages) {
             self::make_site_config();
 
             DB::alteration_message("Added default site config", "created");
