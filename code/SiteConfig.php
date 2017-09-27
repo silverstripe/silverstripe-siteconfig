@@ -72,8 +72,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
     public function populateDefaults()
     {
-        $this->Title = _t(__CLASS__ . '.SITENAMEDEFAULT', "Your Site Name");
-        $this->Tagline = _t(__CLASS__ . '.TAGLINEDEFAULT', "your tagline here");
+        $this->Title = _t(self::class . '.SITENAMEDEFAULT', "Your Site Name");
+        $this->Tagline = _t(self::class . '.TAGLINEDEFAULT', "your tagline here");
 
         // Allow these defaults to be overridden
         parent::populateDefaults();
@@ -106,14 +106,14 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                 "Root",
                 $tabMain = new Tab(
                     'Main',
-                    $titleField = new TextField("Title", _t(__CLASS__ . '.SITETITLE', "Site title")),
-                    $taglineField = new TextField("Tagline", _t(__CLASS__ . '.SITETAGLINE', "Site Tagline/Slogan"))
+                    $titleField = new TextField("Title", _t(self::class . '.SITETITLE', "Site title")),
+                    $taglineField = new TextField("Tagline", _t(self::class . '.SITETAGLINE', "Site Tagline/Slogan"))
                 ),
                 $tabAccess = new Tab(
                     'Access',
                     $viewersOptionsField = new OptionsetField(
                         "CanViewType",
-                        _t(__CLASS__ . '.VIEWHEADER', "Who can view pages on this site?")
+                        _t(self::class . '.VIEWHEADER', "Who can view pages on this site?")
                     ),
                     $viewerGroupsField = ListboxField::create(
                         "ViewerGroups",
@@ -126,7 +126,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         ),
                     $editorsOptionsField = new OptionsetField(
                         "CanEditType",
-                        _t(__CLASS__ . '.EDITHEADER', "Who can edit pages on this site?")
+                        _t(self::class . '.EDITHEADER', "Who can edit pages on this site?")
                     ),
                     $editorGroupsField = ListboxField::create(
                         "EditorGroups",
@@ -139,11 +139,11 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         ),
                     $topLevelCreatorsOptionsField = new OptionsetField(
                         "CanCreateTopLevelType",
-                        _t(__CLASS__ . '.TOPLEVELCREATE', "Who can create pages in the root of the site?")
+                        _t(self::class . '.TOPLEVELCREATE', "Who can create pages in the root of the site?")
                     ),
                     $topLevelCreatorsGroupsField = ListboxField::create(
                         "CreateTopLevelGroups",
-                        _t(__CLASS__ . '.TOPLEVELCREATORGROUPS', "Top level creators")
+                        _t(self::class . '.TOPLEVELCREATORGROUPS', "Top level creators")
                     )
                         ->setSource($groupsMap)
                         ->setAttribute(
@@ -163,7 +163,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         );
         $viewersOptionsSource["OnlyTheseUsers"] = _t(
             SiteTree::class . '.ACCESSONLYTHESE',
-            "Only these people (choose from list)"
+            "Only these groups (choose from list)"
         );
         $viewersOptionsField->setSource($viewersOptionsSource);
 
@@ -221,8 +221,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             );
         }
 
-        $tabMain->setTitle(_t(__CLASS__ . '.TABMAIN', "Main"));
-        $tabAccess->setTitle(_t(__CLASS__ . '.TABACCESS', "Access"));
+        $tabMain->setTitle(_t(self::class . '.TABMAIN', "Main"));
+        $tabAccess->setTitle(_t(self::class . '.TABACCESS', "Access"));
         $this->extend('updateCMSFields', $fields);
 
         return $fields;
@@ -427,10 +427,10 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     {
         return [
             'EDIT_SITECONFIG' => [
-                'name' => _t(__CLASS__ . '.EDIT_PERMISSION', 'Manage site configuration'),
+                'name' => _t(self::class . '.EDIT_PERMISSION', 'Manage site configuration'),
                 'category' => _t(Permission::class . '.PERMISSIONS_CATEGORY', 'Roles and access permissions'),
                 'help' => _t(
-                    __CLASS__ . '.EDIT_PERMISSION_HELP',
+                    self::class . '.EDIT_PERMISSION_HELP',
                     'Ability to edit global access settings/top-level page permissions.'
                 ),
                 'sort' => 400
