@@ -4,6 +4,7 @@ namespace SilverStripe\SiteConfig;
 
 use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
@@ -27,6 +28,8 @@ class SiteConfigLeftAndMain extends LeftAndMain
      * @var string
      */
     private static $url_rule = '/$Action/$ID/$OtherID';
+
+    private static $url_priority = 40;
 
     /**
      * @var int
@@ -115,9 +118,6 @@ class SiteConfigLeftAndMain extends LeftAndMain
         $form->addExtraClass('flexbox-area-grow fill-height cms-content cms-edit-form');
         $form->setAttribute('data-pjax-fragment', 'CurrentForm');
 
-        if ($form->Fields()->hasTabSet()) {
-            $form->Fields()->findOrMakeTab('Root')->setTemplate('SilverStripe\\Forms\\CMSTabSet');
-        }
         $form->setHTMLID('Form_EditForm');
         $form->loadDataFrom($siteConfig);
         $form->setTemplate($this->getTemplatesWithSuffix('_EditForm'));
@@ -159,7 +159,6 @@ class SiteConfigLeftAndMain extends LeftAndMain
         return $form->forTemplate();
     }
 
-
     public function Breadcrumbs($unlinked = false)
     {
         return new ArrayList(array(
@@ -168,5 +167,23 @@ class SiteConfigLeftAndMain extends LeftAndMain
                 'Link' => $this->Link()
             ))
         ));
+    }
+
+    public function LinkSiteConfigEdit()
+    {
+        return Controller::join_links(SiteConfigLeftAndMain::singleton()->Link('show'));
+    }
+
+    public function LinkSiteConfigHistory()
+    {
+        if ($id = SiteConfig::current_site_config()->ID) {
+            return Controller::join_links(
+                SiteConfigHistoryController::singleton()->Link('show'),
+                $id,
+                SiteConfig::current_site_config()->Version
+            );
+        } else {
+            return null;
+        }
     }
 }

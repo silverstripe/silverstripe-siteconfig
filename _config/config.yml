@@ -1,0 +1,8 @@
+---
+Name: siteconfig
+After:
+ - 'versionied/*'
+---
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - SilverStripe\Versioned\Versioned
