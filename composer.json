@@ -11,7 +11,7 @@
 		"silverstripe/framework": "*"
 	},
 	"autoload": {
-		"classmap": ["tests/behat/"]
+		"classmap": ["tests/behat/", "code"]
 	},
 	"extra": {
 		"installer-name": "siteconfig",
