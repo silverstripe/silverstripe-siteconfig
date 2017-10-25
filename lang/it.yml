@@ -1,25 +1,10 @@
 it:
-  SilverStripe\CMS\Model\SiteTree:
-    EDITANYONE: 'Chiunque possa accedere al CMS'
-    EDITONLYTHESE: 'Solo questi gruppi (scegliere dalla lista)'
   SilverStripe\SiteConfig\SiteConfig:
-    EDITHEADER: 'Chi può modificare le pagine in questo sito?'
-    EDIT_PERMISSION: 'Gestione della configurazione del sito'
-    EDIT_PERMISSION_HELP: 'Capacità di modificare le impostazioni globali di accesso/permessi pagina primo livello'
     PLURALNAME: 'Configurazioni Sito'
     PLURALS:
       one: 'Una Configurazione Sito'
       other: '{count} Configurazioni Sito'
     SINGULARNAME: 'Configurazione sito'
-    SITENAMEDEFAULT: 'Nome del sito'
-    SITETAGLINE: 'Motto/Slogan del sito'
-    SITETITLE: 'Titolo del sito'
-    TABACCESS: Accesso
-    TABMAIN: Principale
-    TAGLINEDEFAULT: 'lo slogan qui'
-    TOPLEVELCREATE: 'Chi può creare pagine di primo livello?'
-    TOPLEVELCREATORGROUPS: 'Creatori di primo livello'
-    VIEWHEADER: 'Chi può vedere le pagine in questo sito?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Impostazioni
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
