@@ -3,4 +3,4 @@ fa_IR:
     PLURALNAME: 'تنظیمات سایت'
     SINGULARNAME: 'تنظیم سایت'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
-    MENUTITLE: 'تنظیمات'
+    MENUTITLE: تنظیمات
