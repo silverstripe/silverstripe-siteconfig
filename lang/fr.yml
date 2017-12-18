@@ -1,4 +1,11 @@
 fr:
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Configurations du site'
-    SINGULARNAME: 'Configuration du site'
+    PLURALNAME: 'Config. du site'
+    PLURALS:
+      one: 'Une config. du site'
+      other: '{count} config. du site'
+    SINGULARNAME: 'Config. du site'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Réglages
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: Editer
