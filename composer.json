@@ -27,10 +27,7 @@
         "psr-4": {
             "SilverStripe\\SiteConfig\\": "code/",
             "SilverStripe\\SiteConfig\\Tests\\": "tests/php/"
-        },
-        "classmap": [
-            "tests/behat/"
-        ]
+        }
     },
     "scripts": {
         "lint": "phpcs code/ tests/",
