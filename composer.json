@@ -20,17 +20,14 @@
     "require-dev": {
         "phpunit/phpunit": "^5.7",
         "silverstripe/behat-extension": "^3@dev",
-        "silverstripe/serve": "^2",
+        "silverstripe/serve": "^2@dev",
         "se/selenium-server-standalone": "2.41.0"
     },
     "autoload": {
         "psr-4": {
             "SilverStripe\\SiteConfig\\": "code/",
             "SilverStripe\\SiteConfig\\Tests\\": "tests/php/"
-        },
-        "classmap": [
-            "tests/behat/"
-        ]
+        }
     },
     "scripts": {
         "lint": "phpcs code/ tests/",
