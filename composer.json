@@ -13,24 +13,21 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "^4",
-        "silverstripe/admin": "^1",
-        "silverstripe/vendor-plugin": "^1"
+        "silverstripe/framework": "^4.0@dev",
+        "silverstripe/admin": "^1.0@dev",
+        "silverstripe/vendor-plugin": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
-        "silverstripe/behat-extension": "^3",
-        "silverstripe/serve": "^2",
+        "silverstripe/behat-extension": "^3@dev",
+        "silverstripe/serve": "^2@dev",
         "se/selenium-server-standalone": "2.41.0"
     },
     "autoload": {
         "psr-4": {
             "SilverStripe\\SiteConfig\\": "code/",
             "SilverStripe\\SiteConfig\\Tests\\": "tests/php/"
-        },
-        "classmap": [
-            "tests/behat/"
-        ]
+        }
     },
     "scripts": {
         "lint": "phpcs code/ tests/",
