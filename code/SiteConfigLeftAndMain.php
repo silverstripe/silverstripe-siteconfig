@@ -145,7 +145,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
     public function save_siteconfig($data, $form)
     {
         $data = $form->getData();
-        $siteConfig = DataObject::get_one(SiteConfig::class, ['ID' => $data['ID']]);
+        $siteConfig = DataObject::get_by_id(SiteConfig::class, $data['ID']);
         $form->saveInto($siteConfig);
         $siteConfig->write();
         $this->response->addHeader('X-Status', rawurlencode(_t(LeftAndMain::class . '.SAVEDUP', 'Saved.')));
