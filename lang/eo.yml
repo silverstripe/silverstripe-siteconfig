@@ -1,10 +1,22 @@
 eo:
   SilverStripe\SiteConfig\SiteConfig:
+    EDITHEADER: 'Kiu povas redakti paĝojn en ĉi tiu retejo?'
+    EDIT_PERMISSION: 'Agordi konfiguron de la retejo'
+    EDIT_PERMISSION_HELP: 'Eblo agordi ĉieajn alirajn agordojn/supronivelajn paĝajn permesojn.'
     PLURALNAME: 'Retejaj agordaroj'
     PLURALS:
       one: 'Unu reteja agordo'
       other: '{count} retejaj agordoj'
     SINGULARNAME: 'Agordi retejon'
+    SITENAMEDEFAULT: 'Nomo de via retejo'
+    SITETAGLINE: 'Slogano de la retejo'
+    SITETITLE: 'Titolo de la retejo'
+    TABACCESS: Aliro
+    TABMAIN: Ĉefa
+    TAGLINEDEFAULT: 'jen via slogano'
+    TOPLEVELCREATE: 'Kiu povas krei paĝojn en la radiko de la retejo?'
+    TOPLEVELCREATORGROUPS: 'Supranivelaj kreintoj'
+    VIEWHEADER: 'Kiu povas vidigi paĝojn en ĉi tiu retejo?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Agordoj
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
