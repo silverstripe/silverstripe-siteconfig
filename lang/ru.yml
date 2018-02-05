@@ -1,5 +1,8 @@
 ru:
   SilverStripe\SiteConfig\SiteConfig:
+    EDITHEADER: 'Кто может редактировать страницы на этом сайте?'
+    EDIT_PERMISSION: 'Управление конфигурацией сайта'
+    EDIT_PERMISSION_HELP: 'Права на редактирование глобальных настроек доступа и страниц верхнего уровня.'
     PLURALNAME: 'Конфигурации сайта'
     PLURALS:
       one: 'Конфигурация сайта'
@@ -7,6 +10,13 @@ ru:
       many: '{count} конфигураций сайта'
       other: '{count} конфигураций сайта'
     SINGULARNAME: 'Конфигурация сайта'
+    SITENAMEDEFAULT: 'Название сайта'
+    SITETAGLINE: Слоган
+    SITETITLE: 'Название сайта'
+    TABACCESS: Доступ
+    TABMAIN: Основное
+    TOPLEVELCREATE: 'Кто может создавать страницы в корне сайта?'
+    VIEWHEADER: 'Кто может просматривать страницы на этом сайте?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Настройки
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
