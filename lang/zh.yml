@@ -1,4 +1,22 @@
 zh:
   SilverStripe\SiteConfig\SiteConfig:
+    EDITHEADER: 谁可以修改该站点的页面？
+    EDIT_PERMISSION: 管理站点配置
+    EDIT_PERMISSION_HELP: 能够编辑全局访问设置/顶层页面权限。
     PLURALNAME: 站点设置
+    PLURALS:
+      other: '{count} 站点设置'
     SINGULARNAME: 站点设置
+    SITENAMEDEFAULT: 你的站点名称
+    SITETAGLINE: 站点标语/口号
+    SITETITLE: 站点标题
+    TABACCESS: 访问
+    TABMAIN: 主要
+    TAGLINEDEFAULT: 这是你的标语
+    TOPLEVELCREATE: 谁能创建站点根目录？
+    TOPLEVELCREATORGROUPS: 顶级创建者
+    VIEWHEADER: 谁能查看当前站点页面？
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: 设置
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: 编辑

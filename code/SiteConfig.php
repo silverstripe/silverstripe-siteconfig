@@ -209,15 +209,15 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
         if (file_exists(BASE_PATH . '/install.php')) {
             $fields->addFieldToTab(
-                "Root.Main",
-                new LiteralField(
-                    "InstallWarningHeader",
-                    "<p class=\"message warning\">" . _t(
-                        SiteTree::class . 'REMOVE_INSTALL_WARNING',
+                'Root.Main',
+                LiteralField::create(
+                    'InstallWarningHeader',
+                    '<div class="alert alert-warning">' . _t(
+                        'SilverStripe\\CMS\\Model\\SiteTree.REMOVE_INSTALL_WARNING',
                         'Warning: You should remove install.php from this SilverStripe install for security reasons.'
-                    ) . "</p>"
+                    ) . '</div>'
                 ),
-                "Title"
+                'Title'
             );
         }
 

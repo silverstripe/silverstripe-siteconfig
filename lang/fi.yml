@@ -1,10 +1,22 @@
 fi:
   SilverStripe\SiteConfig\SiteConfig:
+    EDITHEADER: 'Kuka voi muokata sivuja tällä sivustolla?'
+    EDIT_PERMISSION: 'Hallinnoi sivuston asetuksia'
+    EDIT_PERMISSION_HELP: 'Mahdollisuus muokata koko sivuston käyttöoikeusasetuksia / ylätason sivujen käyttöoikeuksia.'
     PLURALNAME: 'Sivuston asetuksia'
     PLURALS:
       one: 'Sivuston asetukset'
       other: '{count} Sivuston asetukset'
     SINGULARNAME: 'Sivuston asetukset'
+    SITENAMEDEFAULT: 'Sivustosi nimi'
+    SITETAGLINE: 'Sivuston mainoslause/slogan'
+    SITETITLE: 'Sivuston otsikko'
+    TABACCESS: Pääsy
+    TABMAIN: Yleiset
+    TAGLINEDEFAULT: 'sinun mainoslauseesi tähän'
+    TOPLEVELCREATE: 'Kuka voi luoda sivuja sivuston juureen?'
+    TOPLEVELCREATORGROUPS: 'Ylätason sisällöntuottajat'
+    VIEWHEADER: 'Kuka voi nähdä sivuja tällä sivustolla?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Asetukset
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
