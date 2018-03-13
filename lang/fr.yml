@@ -1,10 +1,22 @@
 fr:
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Config. du site'
+    EDITHEADER: 'Qui peut modifier les pages sur ce site ?'
+    EDIT_PERMISSION: 'Configuration du site'
+    EDIT_PERMISSION_HELP: 'Capacité d''édition des paramètres d''accès global et permissions des pages de premier niveau.'
+    PLURALNAME: 'Configurations du site'
     PLURALS:
       one: 'Une config. du site'
-      other: '{count} config. du site'
-    SINGULARNAME: 'Config. du site'
+      other: '{count} Configurations du site'
+    SINGULARNAME: 'Configuration du site'
+    SITENAMEDEFAULT: 'Nom du site'
+    SITETAGLINE: 'Slogan ou devise du site'
+    SITETITLE: 'Titre du site'
+    TABACCESS: Accès
+    TABMAIN: Principal
+    TAGLINEDEFAULT: 'votre slogan ici'
+    TOPLEVELCREATE: 'Qui peut créer des pages à la racine de ce site ?'
+    TOPLEVELCREATORGROUPS: 'Créateurs de pages racine'
+    VIEWHEADER: 'Qui peut consulter les pages sur ce site ?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Réglages
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
