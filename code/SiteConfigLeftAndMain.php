@@ -12,6 +12,7 @@ use SilverStripe\Forms\LiteralField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ValidationResult;
+use SilverStripe\Versioned\RecursivePublishable;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 
