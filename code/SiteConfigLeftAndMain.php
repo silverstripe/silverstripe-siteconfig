@@ -12,6 +12,7 @@ use SilverStripe\Forms\LiteralField;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ValidationResult;
+use SilverStripe\Versioned\RecursivePublishable;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 
@@ -147,7 +148,11 @@ class SiteConfigLeftAndMain extends LeftAndMain
         $data = $form->getData();
         $siteConfig = DataObject::get_by_id(SiteConfig::class, $data['ID']);
         $form->saveInto($siteConfig);
-        $siteConfig->write();
+        if ($siteConfig->hasExtension(RecursivePublishable::class)) {
+            $siteConfig->publishRecursive();
+        } else {
+            $siteConfig->write();
+        };
         $this->response->addHeader('X-Status', rawurlencode(_t(LeftAndMain::class . '.SAVEDUP', 'Saved.')));
         return $form->forTemplate();
     }
