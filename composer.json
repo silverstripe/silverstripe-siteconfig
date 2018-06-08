@@ -1,25 +1,29 @@
 {
-	"name": "silverstripe/siteconfig",
-	"description": "Site wide settings administration.",
-	"type": "silverstripe-module",
-	"keywords": ["silverstripe", "siteconfig"],
-	"authors": [{
-		"name": "Will Rossiter",
-		"email": "will@fullscreen.io"
-	}],
-	"require": {
-		"silverstripe/framework": "*"
-	},
-	"require-dev": {
-		"phpunit/phpunit": "^3 || ^4 || ^5"
-	},
-	"autoload": {
-		"classmap": ["code"]
-	},
-	"extra": {
-		"installer-name": "siteconfig",
-		"branch-alias": {
-			"3.x-dev": "3.7.x-dev"
-		}
-	}
+    "name": "silverstripe/siteconfig",
+    "description": "Site wide settings administration.",
+    "type": "silverstripe-module",
+    "keywords": [
+        "silverstripe",
+        "siteconfig"
+    ],
+    "authors": [
+        {
+            "name": "Will Rossiter",
+            "email": "will@fullscreen.io"
+        }
+    ],
+    "require": {
+        "silverstripe/framework": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^3 || ^4 || ^5"
+    },
+    "autoload": {
+        "classmap": [
+            "code"
+        ]
+    },
+    "extra": {
+        "installer-name": "siteconfig"
+    }
 }
