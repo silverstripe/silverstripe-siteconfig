@@ -19,7 +19,7 @@
 	"extra": {
 		"installer-name": "siteconfig",
 		"branch-alias": {
-			"3.x-dev": "3.7.x-dev"
+			"3.x-dev": "3.8.x-dev"
 		}
 	}
 }
