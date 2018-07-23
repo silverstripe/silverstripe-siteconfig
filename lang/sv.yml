@@ -1,9 +1,20 @@
 sv:
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Sajt inställningar'
+    EDITHEADER: 'Vem kan editera sidor på den här webbplatsen?'
+    EDIT_PERMISSION: 'Hantera webbplats-inställningar'
+    EDIT_PERMISSION_HELP: 'Möjlighet att ändra globala åtkomstinställningar/behörighet för sidor i roten'
+    PLURALNAME: Webbplats-inställningar
     PLURALS:
       one: 'En sajtinställning'
-      other: '{count} Sajtinställningar'
-    SINGULARNAME: 'Sajt inställning'
+      other: '{count} Webbplats-inställningar'
+    SINGULARNAME: Webbplats-inställning
+    SITENAMEDEFAULT: 'Webbplatsens namn'
+    SITETAGLINE: 'Webbplatsens undertitel/slogan'
+    SITETITLE: 'Webbplatsens titel'
+    TABACCESS: Behörighet
+    TOPLEVELCREATE: 'Vem kan skapa sidor i roten på webbplatsen?'
+    VIEWHEADER: 'Vem kan se sidor på den här webbplasen?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Inställningar
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: Ändra

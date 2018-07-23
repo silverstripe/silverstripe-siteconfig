@@ -148,11 +148,10 @@ class SiteConfigLeftAndMain extends LeftAndMain
         $data = $form->getData();
         $siteConfig = DataObject::get_by_id(SiteConfig::class, $data['ID']);
         $form->saveInto($siteConfig);
+        $siteConfig->write();
         if ($siteConfig->hasExtension(RecursivePublishable::class)) {
             $siteConfig->publishRecursive();
-        } else {
-            $siteConfig->write();
-        };
+        }
         $this->response->addHeader('X-Status', rawurlencode(_t(LeftAndMain::class . '.SAVEDUP', 'Saved.')));
         return $form->forTemplate();
     }
