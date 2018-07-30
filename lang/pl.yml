@@ -1,4 +1,25 @@
 pl:
   SilverStripe\SiteConfig\SiteConfig:
+    EDITHEADER: 'Kto może edytować strony tego serwisu?'
+    EDIT_PERMISSION: 'Zarządzanie konfiguracją serwisu'
+    EDIT_PERMISSION_HELP: 'Możliwość edycji globalnych ustawień bezpieczeństwa/uprawnień do stron pierwszego poziomu.'
     PLURALNAME: 'Konfiguracje strony'
+    PLURALS:
+      one: 'Konfiguracja strony'
+      few: 'Konfiguracje stron'
+      many: 'Konfiguracje stron {count}'
+      other: 'Konfiguracje stron {count}'
     SINGULARNAME: 'Konfiguracja strony'
+    SITENAMEDEFAULT: 'Nazwa twojego strony'
+    SITETAGLINE: 'Slogan serwisu'
+    SITETITLE: 'Tytuł serwisu'
+    TABACCESS: Dostęp
+    TABMAIN: Główny
+    TAGLINEDEFAULT: 'napisz swój slogan tutaj'
+    TOPLEVELCREATE: 'Kto może edytować strony tego serwisu?'
+    TOPLEVELCREATORGROUPS: 'Twórcy najwyższego poziomu'
+    VIEWHEADER: 'Kto może oglądać strony serwisu?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Ustawienia
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: Edytuj
