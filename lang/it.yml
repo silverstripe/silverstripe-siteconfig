@@ -1,10 +1,22 @@
 it:
   SilverStripe\SiteConfig\SiteConfig:
+    EDITHEADER: 'Chi può modificare le pagine in questo sito?'
+    EDIT_PERMISSION: 'Gestione configurazione sito'
+    EDIT_PERMISSION_HELP: 'Capacità di modificare le impostazioni di accesso generali/i permessi delle pagine di primo livello'
     PLURALNAME: 'Configurazioni Sito'
     PLURALS:
       one: 'Una Configurazione Sito'
       other: '{count} Configurazioni Sito'
     SINGULARNAME: 'Configurazione sito'
+    SITENAMEDEFAULT: 'Nome del tuo Sito'
+    SITETAGLINE: 'Citazione/Slogan Sito'
+    SITETITLE: 'Titolo sito'
+    TABACCESS: Accesso
+    TABMAIN: Principale
+    TAGLINEDEFAULT: 'la tua citazione qui'
+    TOPLEVELCREATE: 'Chi può creare le pagine di primo livello in questo sito?'
+    TOPLEVELCREATORGROUPS: 'Creatori primo livello'
+    VIEWHEADER: 'Chi può vedere le pagine in questo sito?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Impostazioni
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
