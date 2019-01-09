@@ -22,13 +22,13 @@
     },
     "autoload": {
         "psr-4": {
-            "SilverStripe\\SiteConfig\\": "code/",
+            "SilverStripe\\SiteConfig\\": "src/",
             "SilverStripe\\SiteConfig\\Tests\\": "tests/php/"
         }
     },
     "scripts": {
-        "lint": "phpcs code/ tests/",
-        "lint-clean": "phpcbf code/ tests/"
+        "lint": "phpcs src/ tests/",
+        "lint-clean": "phpcbf src/ tests/"
     },
     "extra": {
         "branch-alias": {
