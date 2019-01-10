@@ -12,6 +12,7 @@ sv:
     SITETAGLINE: 'Webbplatsens undertitel/slogan'
     SITETITLE: 'Webbplatsens titel'
     TABACCESS: Behörighet
+    TAGLINEDEFAULT: 'din slogan här'
     TOPLEVELCREATE: 'Vem kan skapa sidor i roten på webbplatsen?'
     VIEWHEADER: 'Vem kan se sidor på den här webbplasen?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:

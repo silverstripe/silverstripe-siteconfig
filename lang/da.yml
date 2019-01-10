@@ -1,13 +1,23 @@
 da:
   SilverStripe\SiteConfig\SiteConfig:
-    EDITHEADER: 'Hvem kan redigere sider på dette websted ?'
-    EDIT_PERMISSION: 'Administrer sideopsætningen'
-    EDIT_PERMISSION_HELP: 'Mulighed for at ændre indstillingerne for global adgang / topniveauside tilladelser.'
-    SITENAMEDEFAULT: 'Dit sidenavn'
-    SITETAGLINE: 'Webstedets Tagline/Slogan'
-    SITETITLE: Sidetitel
+    EDITHEADER: 'Hvem kan ændre sider på dette website?'
+    EDIT_PERMISSION: 'Administrer website konfiguration'
+    EDIT_PERMISSION_HELP: 'Mulighed for at ændre indstillingerne for global adgang / topniveau side tilladelser.'
+    PLURALNAME: 'Website indstillinger'
+    PLURALS:
+      one: 'En side indstilling'
+      other: '{count} Website indstillinger'
+    SINGULARNAME: 'Website indstilling'
+    SITENAMEDEFAULT: 'Dit website navn'
+    SITETAGLINE: 'Website tagline/slogan'
+    SITETITLE: 'Website titel'
     TABACCESS: Adgang
     TABMAIN: Primær
-    TAGLINEDEFAULT: 'din tagline her'
-    TOPLEVELCREATE: 'Hvem kan oprette sider i roden af dette websted ?'
-    VIEWHEADER: 'Hvem kan se sider på dette websted?'
+    TAGLINEDEFAULT: 'Dit slogan her'
+    TOPLEVELCREATE: 'Hvem kan oprette sider i roden af websitet?'
+    TOPLEVELCREATORGROUPS: 'Topniveau forfattere'
+    VIEWHEADER: 'Hvem kan se sider på dette website?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Indstillinger
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: Rediger
