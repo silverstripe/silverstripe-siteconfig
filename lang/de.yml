@@ -4,6 +4,9 @@ de:
     EDIT_PERMISSION: 'Einstellungen der Webseite bearbeiten'
     EDIT_PERMISSION_HELP: 'Zugriff auf globale Einstellungen und Zugriffseinstellungen.'
     PLURALNAME: Seitenkonfigurationen
+    PLURALS:
+      one: 'Eine Seitenkonfiguration'
+      other: '{count} Seitenkonfigurationen'
     SINGULARNAME: Seitenkonfiguration
     SITENAMEDEFAULT: 'Deine Webseite'
     SITETAGLINE: 'Webseite Slogan'
@@ -12,6 +15,7 @@ de:
     TABMAIN: Haupt
     TAGLINEDEFAULT: 'Dein Slogan'
     TOPLEVELCREATE: 'Wer kann Seiten auf der Hauptebene erstellen?'
+    TOPLEVELCREATORGROUPS: Hauptebenen-Ersteller
     VIEWHEADER: 'Wer kann Seiten ansehen auf dieser Webseite?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Einstellungen
