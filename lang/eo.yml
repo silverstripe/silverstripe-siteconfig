@@ -1,4 +1,8 @@
 eo:
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Iu ajn kiu povas aliri al la CMS'
+    EDITONLYTHESE: 'Nur ĉi tiuj grupoj (elektu el la listo)'
+    GroupPlaceholder: 'Alklaki por elekti grupon'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Kiu povas redakti paĝojn en ĉi tiu retejo?'
     EDIT_PERMISSION: 'Agordi konfiguron de la retejo'
