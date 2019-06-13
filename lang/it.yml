@@ -1,4 +1,8 @@
 it:
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Chiunque possa accedere al CMS'
+    EDITONLYTHESE: 'Solo questi gruppi (scegli dalla lista)'
+    GroupPlaceholder: 'Fare clic per selezionare il gruppo'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Chi può modificare le pagine in questo sito?'
     EDIT_PERMISSION: 'Gestione configurazione sito'

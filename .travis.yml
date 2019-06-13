@@ -28,9 +28,9 @@ matrix:
   include:
     - php: 7.1
       env: DB=MYSQL PHPUNIT_TEST=1 PHPCS_TEST=1
-    - php: 7.1
-      env: DB=MYSQL PHPUNIT_COVERAGE_TEST=1
     - php: 7.2
+      env: DB=MYSQL PHPUNIT_COVERAGE_TEST=1
+    - php: 7.3
       env: DB=PGSQL PHPUNIT_TEST=1
     - php: 7.1
       env: DB=MYSQL BEHAT_TEST=1
@@ -42,6 +42,7 @@ before_script:
 # Init PHP
   - phpenv rehash
   - phpenv config-rm xdebug.ini || true
+  - echo 'memory_limit = 2G' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
 # Install composer dependencies
   - composer validate
