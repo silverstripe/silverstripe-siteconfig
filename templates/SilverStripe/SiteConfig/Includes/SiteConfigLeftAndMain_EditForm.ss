@@ -2,8 +2,7 @@
 
 
 	<div class="panel panel--padded panel--scrollable flexbox-area-grow cms-content-fields">
-        <<<<<<< HEAD
-		<% if $Message %>
+        <% if $Message %>
 		<p id="{$FormName}_error" class="alert $AlertType">$Message</p>
 		<% else %>
 		<p id="{$FormName}_error" class="alert $AlertType" style="display: none"></p>
