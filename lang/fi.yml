@@ -1,4 +1,8 @@
 fi:
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Kuka tahansa, joka voi kirjautua CMS-järjestelmään'
+    EDITONLYTHESE: 'Vain nämä ryhmät (valitse listalta)'
+    GroupPlaceholder: 'Napsauta valitaksesi ryhmä'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Kuka voi muokata sivuja tällä sivustolla?'
     EDIT_PERMISSION: 'Hallinnoi sivuston asetuksia'
