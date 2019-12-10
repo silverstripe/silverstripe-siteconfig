@@ -17,7 +17,7 @@ addons:
 
 env:
   global:
-    - COMPOSER_ROOT_VERSION="4.6.x-dev"
+    - COMPOSER_ROOT_VERSION="4.x-dev"
     - DISPLAY=":99"
     - XVFBARGS=":99 -ac -screen 0 1024x768x16"
     - SS_BASE_URL="http://localhost:8080/"
@@ -48,9 +48,9 @@ before_script:
 
 # Install composer dependencies
   - composer validate
-  - composer require silverstripe/recipe-testing:^1 silverstripe/installer:4.6.x-dev --no-update
-  - if [[ $DB == PGSQL ]]; then composer require silverstripe/postgresql:2.4.x-dev --no-update; fi
-  - if [[ $DB == SQLITE ]]; then composer require silverstripe/sqlite3:2.2.x-dev --no-update; fi
+  - composer require silverstripe/recipe-testing:^1 silverstripe/installer:4.x-dev --no-update
+  - if [[ $DB == PGSQL ]]; then composer require silverstripe/postgresql:2.x-dev --no-update; fi
+  - if [[ $DB == SQLITE ]]; then composer require silverstripe/sqlite3:2.x-dev --no-update; fi
   - composer install --prefer-source --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
 
 # Behat bootstrapping
