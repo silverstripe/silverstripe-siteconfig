@@ -13,8 +13,8 @@
         }
     ],
     "require": {
-        "silverstripe/framework": "^4",
-        "silverstripe/admin": "^1",
+        "silverstripe/framework": "^4.5",
+        "silverstripe/admin": "^1.5",
         "silverstripe/vendor-plugin": "^1"
     },
     "require-dev": {
