@@ -1,4 +1,8 @@
 nl:
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Iedereen met toegang tot het CMS'
+    EDITONLYTHESE: 'Alleen deze groepen (kies uit lijst)'
+    GroupPlaceholder: 'Selecteer groep'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Wie mag deze paginas bewerken?'
     EDIT_PERMISSION: 'Aanpassen site configuratie'
