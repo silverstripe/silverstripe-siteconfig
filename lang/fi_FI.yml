@@ -1,0 +1,27 @@
+fi_FI:
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Kuka tahansa, joka voi kirjautua CMS-järjestelmään'
+    EDITONLYTHESE: 'Van nämä ryhmät (valitse listalta)'
+    GroupPlaceholder: 'Napsauta valitaksesi ryhmä'
+  SilverStripe\SiteConfig\SiteConfig:
+    EDITHEADER: 'Kuka voi muokata sivuja sivustolla?'
+    EDIT_PERMISSION: 'Hallitse sivuston asetuksia'
+    EDIT_PERMISSION_HELP: 'Mahdollisuus muokata koko sivuston asetuksia/pääsivujen oikeuksia'
+    PLURALNAME: 'Sivuston asetukset'
+    PLURALS:
+      one: 'Sivuston asetukset'
+      other: '{count} sivuston asetuksia'
+    SINGULARNAME: 'Sivuston asetukset'
+    SITENAMEDEFAULT: 'Sivustosi nimi'
+    SITETAGLINE: 'Sivustosi slogan'
+    SITETITLE: 'Sivuston otsikko'
+    TABACCESS: Pääsy
+    TABMAIN: Päätaso
+    TAGLINEDEFAULT: 'Slogan tähän'
+    TOPLEVELCREATE: 'Kuka voi luoda päätason sivuja?'
+    TOPLEVELCREATORGROUPS: 'Päätason sisällöntuottajat'
+    VIEWHEADER: 'Kuka voi katsoa sivuja?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Asetukset
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: Muokkaa
