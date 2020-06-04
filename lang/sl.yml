@@ -1,13 +1,29 @@
 sl:
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Vsi, ki se lahko prijavijo v urejevalnik'
+    EDITONLYTHESE: 'Samo naslednje skupine (izberite s seznama)'
+    GroupPlaceholder: 'Kliknite za izbiro skupine'
   SilverStripe\SiteConfig\SiteConfig:
-    EDITHEADER: 'Kdo lahko ureja strani na tem spletnem mestu?'
-    EDIT_PERMISSION: 'Upravljanje nastavitev spletnega mesta'
-    EDIT_PERMISSION_HELP: 'Možnost upravljanja z dostopom na najvišji ravni'
-    SITENAMEDEFAULT: 'Naziv vašega spletnega mesta'
-    SITETAGLINE: Slogan
-    SITETITLE: 'Naslov spletnega mesta (title)'
+    EDITHEADER: 'Kdo lahko ureja strani na tem spletišču?'
+    EDIT_PERMISSION: 'Uredite nastavitve za spletišče'
+    EDIT_PERMISSION_HELP: 'Možnost za urejanje nastavitev in pravic za urejanje strani na prvem nivoju.'
+    PLURALNAME: 'Nastavitve spletišča'
+    PLURALS:
+      one: 'Nastavitev spletišča'
+      two: '{count} nastavitvi spletišča'
+      few: '{count} nastavitev spletišča'
+      other: '{count} nastavitev spletišča'
+    SINGULARNAME: 'Nastavitev spletišča'
+    SITENAMEDEFAULT: 'Naziv vašega spletišča'
+    SITETAGLINE: 'Moto ali slogan spletišča'
+    SITETITLE: 'Naslov spletišča'
     TABACCESS: Dostop
-    TABMAIN: Domov
-    TAGLINEDEFAULT: 'sem vpišite slogan'
-    TOPLEVELCREATE: 'Kdo lahko ustvarja glavne strani (na prvem nivoju)?'
-    VIEWHEADER: 'Kdo lahko vidi strani na tem spletnem mestu?'
+    TABMAIN: Osnovno
+    TAGLINEDEFAULT: 'vaš moto ali slogan'
+    TOPLEVELCREATE: 'Kdo lahko ustvarja strani na prvem nivoju?'
+    TOPLEVELCREATORGROUPS: 'Uredniki strani na prvem nivoju'
+    VIEWHEADER: 'Kdo lahko vidi strani na tem spletišču?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Nastavitve
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: Uredi
