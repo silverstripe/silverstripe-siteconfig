@@ -70,6 +70,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         'CMS_ACCESS_LeftAndMain'
     ];
 
+    private static $current_siteconfig;
+
     public function populateDefaults()
     {
         $this->Title = _t(self::class . '.SITENAMEDEFAULT', "Your Site Name");
@@ -269,13 +271,15 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      */
     public static function current_site_config()
     {
-        /** @var SiteConfig $siteConfig */
-        $siteConfig = DataObject::get_one(SiteConfig::class);
-        if ($siteConfig) {
-            return $siteConfig;
+        if (!static::$current_siteconfig) {
+            /** @var SiteConfig $siteConfig */
+            static::$current_siteconfig = SiteConfig::get()->first();
+            if (!static::$current_siteconfig) {
+                self::make_site_config();
+            }
         }
 
-        return self::make_site_config();
+        return static::$current_siteconfig;
     }
 
     /**
@@ -301,10 +305,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      */
     public static function make_site_config()
     {
-        $config = SiteConfig::create();
-        $config->write();
-
-        return $config;
+        self::$current_siteconfig = SiteConfig::create();
+        self::$current_siteconfig->write();
     }
 
     /**
