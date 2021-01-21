@@ -1,5 +1,6 @@
 # SiteConfig
 
+[![Build Status](https://api.travis-ci.com/silverstripe/silverstripe-siteconfig.svg?branch=4)](https://travis-ci.com/silverstripe/silverstripe-siteconfig)
 ![helpfulrobot](https://helpfulrobot.io/silverstripe/siteconfig/badge)
 
 ## Introduction
