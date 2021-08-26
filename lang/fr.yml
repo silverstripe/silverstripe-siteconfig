@@ -1,4 +1,8 @@
 fr:
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Toute personne qui peut se connecter au CMS'
+    EDITONLYTHESE: 'Seulement ces groupes (choisissez dans la liste)'
+    GroupPlaceholder: 'Cliquez pour sélectionner un groupe'
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Qui peut modifier les pages sur ce site ?'
     EDIT_PERMISSION: 'Configuration du site'
@@ -6,7 +10,7 @@ fr:
     PLURALNAME: 'Configurations du site'
     PLURALS:
       one: 'Une config. du site'
-      other: '{count} Configurations du site'
+      other: '{count} configurations du site'
     SINGULARNAME: 'Configuration du site'
     SITENAMEDEFAULT: 'Nom du site'
     SITETAGLINE: 'Slogan ou devise du site'
@@ -20,4 +24,4 @@ fr:
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Réglages
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
-    EDIT: Editer
+    EDIT: Éditer
