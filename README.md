@@ -1,6 +1,6 @@
 # SiteConfig
 
-[![Build Status](https://api.travis-ci.com/silverstripe/silverstripe-siteconfig.svg?branch=4)](https://travis-ci.com/silverstripe/silverstripe-siteconfig)
+[![CI](https://github.com/silverstripe/silverstripe-siteconfig/actions/workflows/ci.yml/badge.svg)](https://github.com/silverstripe/silverstripe-siteconfig/actions/workflows/ci.yml)
 ![helpfulrobot](https://helpfulrobot.io/silverstripe/siteconfig/badge)
 
 ## Introduction
