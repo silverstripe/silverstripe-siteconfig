@@ -1,7 +1,7 @@
 # SiteConfig
 
 [![CI](https://github.com/silverstripe/silverstripe-siteconfig/actions/workflows/ci.yml/badge.svg)](https://github.com/silverstripe/silverstripe-siteconfig/actions/workflows/ci.yml)
-![helpfulrobot](https://helpfulrobot.io/silverstripe/siteconfig/badge)
+[![Silverstripe supported module](https://img.shields.io/badge/silverstripe-supported-0071C4.svg)](https://www.silverstripe.org/software/addons/silverstripe-commercially-supported-module-list/)
 
 ## Introduction
 
@@ -10,7 +10,7 @@ site wide global configuration.
 
 ## Requirements
 
- * SilverStripe 3.2
+ * Silverstripe 3.2
 
 ## Installation
 
@@ -34,7 +34,7 @@ After installation, make sure you rebuild your database through `dev/build`.
 
 ## Development and Contribution ##
 
-If you would like to make changes to the SilverStripe core codebase, we have an extensive [guide to contributing code](http://doc.silverstripe.org/framework/en/misc/contributing/code).
+If you would like to make changes to the Silverstripe core codebase, we have an extensive [guide to contributing code](http://doc.silverstripe.org/framework/en/misc/contributing/code).
 
 ## Links ##
 
