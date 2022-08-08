@@ -31,11 +31,7 @@
         "lint": "vendor/bin/phpcs src/ tests/",
         "lint-clean": "vendor/bin/phpcs code/ tests/"
     },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "5.x-dev"
-        }
-    },
+    "extra": {},
     "license": "BSD-3-Clause",
     "minimum-stability": "dev",
     "prefer-stable": true
