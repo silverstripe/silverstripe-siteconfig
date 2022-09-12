@@ -5,8 +5,8 @@ Feature: Manage global page permissions
 
   Background:
     Given a "page" "Home" with "Content"="<p>Welcome</p>"
-    And a "group" "AUTHOR group" has permissions "Access to 'Pages' section"
-    And a "group" "SECURITY group" has permissions "Access to 'Security' section"
+    And a "group" "AUTHOR" has permissions "Access to 'Pages' section"
+    And a "group" "SECURITY" has permissions "Access to 'Security' section"
     And I am logged in with "ADMIN" permissions
     And I go to "admin/settings"
     And I click the "Access" CMS tab
@@ -24,26 +24,33 @@ Feature: Manage global page permissions
     When I am not logged in
     And I go to the homepage
     Then I should see a log-in form
-    When I am logged in with "AUTHOR" permissions
+    When I am logged in as a member of "AUTHOR" group
     And I go to the homepage
     Then I should see "Welcome"
 
   Scenario: I can limit global view permissions to certain groups
     Given I select "Only these groups (choose from list)" from "Who can view pages on this site?" input group
-    And I select "AUTHOR group" from "Viewer Groups" with javascript
+    And I select "AUTHOR" from "Viewer Groups" with javascript
     And I press the "Save" button
     When I am not logged in
     And I go to the homepage
     Then I should see a log-in form
-    When I am logged in with "SECURITY" permissions
+    When I am logged in as a member of "SECURITY" group
     And I go to the homepage
     Then I will see a "warning" log-in message
     When I am not logged in
-    And I am logged in with "AUTHOR" permissions
+    And I am logged in as a member of "AUTHOR" group
     And I go to the homepage
     Then I should see "Welcome"
 
   Scenario: I can limit global edit permissions to logged-in users
+    Given I am not logged in
+    And I am logged in as a member of "AUTHOR" group
+    And I go to the homepage
+    And I am not logged in
+    And I am logged in with "ADMIN" permissions
+    And I go to "admin/settings"
+    And I click the "Access" CMS tab
     Given I select "Anyone who can log-in to the CMS" from "Who can edit pages on this site?" input group
     And I press the "Save" button
     Then pages should be editable by "AUTHOR"
