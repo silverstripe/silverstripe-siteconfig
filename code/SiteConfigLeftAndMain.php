@@ -10,6 +10,7 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\ORM\CMSPreviewable;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\ValidationResult;
 use SilverStripe\Versioned\RecursivePublishable;
@@ -79,10 +80,15 @@ class SiteConfigLeftAndMain extends LeftAndMain
         $home = Director::absoluteBaseURL();
         $fields->push(new HiddenField('PreviewURL', 'Preview URL', $home));
 
-        // Added in-line to the form, but plucked into different view by LeftAndMain.Preview.js upon load
-        /** @skipUpgrade */
-        $fields->push($navField = new LiteralField('SilverStripeNavigator', $this->getSilverStripeNavigator()));
-        $navField->setAllowHTML(true);
+        if ($siteConfig instanceof CMSPreviewable || $siteConfig->has_extension(CMSPreviewable::class)) {
+            // Added in-line to the form, but plucked into different view by LeftAndMain.Preview.js upon load
+            /** @skipUpgrade */
+            $fields->push($navField = new LiteralField(
+                'SilverStripeNavigator',
+                $this->getSilverStripeNavigator($siteConfig)
+            ));
+            $navField->setAllowHTML(true);
+        }
 
         // Retrieve validator, if one has been setup (e.g. via data extensions).
         if ($siteConfig->hasMethod("getCMSValidator")) {
@@ -121,6 +127,12 @@ class SiteConfigLeftAndMain extends LeftAndMain
         $form->setHTMLID('Form_EditForm');
         $form->loadDataFrom($siteConfig);
         $form->setTemplate($this->getTemplatesWithSuffix('_EditForm'));
+
+
+        // Announce the capability so the frontend can decide whether to allow preview or not.
+        if ($siteConfig instanceof CMSPreviewable || $siteConfig->has_extension(CMSPreviewable::class)) {
+            $form->addExtraClass('cms-previewable');
+        }
 
         // Use <button> to allow full jQuery UI styling
         $actions = $actions->dataFields();
