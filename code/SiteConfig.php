@@ -101,17 +101,20 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         $viewAllGroupsMap = $mapFn(Permission::get_groups_by_permission(['SITETREE_VIEW_ALL', 'ADMIN']));
         $editAllGroupsMap = $mapFn(Permission::get_groups_by_permission(['SITETREE_EDIT_ALL', 'ADMIN']));
 
-        $fields = new FieldList(
-            new TabSet(
+        $fields = FieldList::create(
+            TabSet::create(
                 "Root",
-                $tabMain = new Tab(
+                $tabMain = Tab::create(
                     'Main',
-                    $titleField = new TextField("Title", _t(self::class . '.SITETITLE', "Site title")),
-                    $taglineField = new TextField("Tagline", _t(self::class . '.SITETAGLINE', "Site Tagline/Slogan"))
+                    $titleField = TextField::create("Title", _t(self::class . '.SITETITLE', "Site title")),
+                    $taglineField = TextField::create(
+                        "Tagline",
+                        _t(self::class . '.SITETAGLINE', "Site Tagline/Slogan")
+                    )
                 ),
-                $tabAccess = new Tab(
+                $tabAccess = Tab::create(
                     'Access',
-                    $viewersOptionsField = new OptionsetField(
+                    $viewersOptionsField = OptionsetField::create(
                         "CanViewType",
                         _t(self::class . '.VIEWHEADER', "Who can view pages on this site?")
                     ),
@@ -124,7 +127,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                             'data-placeholder',
                             _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
                         ),
-                    $editorsOptionsField = new OptionsetField(
+                    $editorsOptionsField = OptionsetField::create(
                         "CanEditType",
                         _t(self::class . '.EDITHEADER', "Who can edit pages on this site?")
                     ),
@@ -137,7 +140,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                             'data-placeholder',
                             _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
                         ),
-                    $topLevelCreatorsOptionsField = new OptionsetField(
+                    $topLevelCreatorsOptionsField = OptionsetField::create(
                         "CanCreateTopLevelType",
                         _t(self::class . '.TOPLEVELCREATE', "Who can create pages in the root of the site?")
                     ),
@@ -152,7 +155,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         )
                 )
             ),
-            new HiddenField('ID')
+            HiddenField::create('ID')
         );
 
         $viewersOptionsSource = [];
@@ -238,14 +241,14 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     public function getCMSActions()
     {
         if (Permission::check('ADMIN') || Permission::check('EDIT_SITECONFIG')) {
-            $actions = new FieldList(
+            $actions = FieldList::create(
                 FormAction::create(
                     'save_siteconfig',
                     _t('SilverStripe\\CMS\\Controllers\\CMSMain.SAVE', 'Save')
                 )->addExtraClass('btn-primary font-icon-save')
             );
         } else {
-            $actions = new FieldList();
+            $actions = FieldList::create();
         }
 
         $this->extend('updateCMSActions', $actions);
