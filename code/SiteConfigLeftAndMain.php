@@ -84,12 +84,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
         $fields->push($navField = new LiteralField('SilverStripeNavigator', $this->getSilverStripeNavigator()));
         $navField->setAllowHTML(true);
 
-        // Retrieve validator, if one has been setup (e.g. via data extensions).
-        if ($siteConfig->hasMethod("getCMSValidator")) {
-            $validator = $siteConfig->getCMSValidator();
-        } else {
-            $validator = null;
-        }
+        $validator = $siteConfig->getCMSCompositeValidator();
 
         $actions = $siteConfig->getCMSActions();
         $negotiator = $this->getResponseNegotiator();
