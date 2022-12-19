@@ -1,4 +1,6 @@
 en:
+  SilverStripe\CMS\Controllers\CMSMain:
+    SAVE: Save
   SilverStripe\CMS\Model\SiteTree:
     EDITANYONE: 'Anyone who can log-in to the CMS'
     EDITONLYTHESE: 'Only these groups (choose from list)'

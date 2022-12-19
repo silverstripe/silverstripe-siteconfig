@@ -11,6 +11,7 @@ fr:
     PLURALS:
       one: 'Une config. du site'
       other: '{count} configurations du site'
+      many: '{count} configurations du site'
     SINGULARNAME: 'Configuration du site'
     SITENAMEDEFAULT: 'Nom du site'
     SITETAGLINE: 'Slogan ou devise du site'
