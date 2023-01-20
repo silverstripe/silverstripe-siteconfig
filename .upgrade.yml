@@ -1,6 +1,0 @@
-mappings:
-  SiteConfig: SilverStripe\SiteConfig\SiteConfig
-  SiteConfigLeftAndMain: SilverStripe\SiteConfig\SiteConfigLeftAndMain
-  LeftAndMain: SilverStripe\Admin\LeftAndMain
-  SilverStripeNavigator: SilverStripe\CMS\Controllers\SilverStripeNavigator
-  
