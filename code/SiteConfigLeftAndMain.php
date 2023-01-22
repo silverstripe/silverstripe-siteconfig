@@ -82,7 +82,6 @@ class SiteConfigLeftAndMain extends LeftAndMain
 
         if ($siteConfig instanceof CMSPreviewable || $siteConfig->has_extension(CMSPreviewable::class)) {
             // Added in-line to the form, but plucked into different view by LeftAndMain.Preview.js upon load
-            /** @skipUpgrade */
             $fields->push($navField = new LiteralField(
                 'SilverStripeNavigator',
                 $this->getSilverStripeNavigator($siteConfig)
