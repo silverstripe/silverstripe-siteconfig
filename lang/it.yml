@@ -11,6 +11,7 @@ it:
     PLURALS:
       one: 'Una Configurazione Sito'
       other: '{count} Configurazioni Sito'
+      many: '{count} Configurazioni Sito'
     SINGULARNAME: 'Configurazione sito'
     SITENAMEDEFAULT: 'Nome del tuo Sito'
     SITETAGLINE: 'Citazione/Slogan Sito'

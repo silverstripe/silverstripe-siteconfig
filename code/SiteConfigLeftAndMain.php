@@ -89,12 +89,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
             $navField->setAllowHTML(true);
         }
 
-        // Retrieve validator, if one has been setup (e.g. via data extensions).
-        if ($siteConfig->hasMethod("getCMSValidator")) {
-            $validator = $siteConfig->getCMSValidator();
-        } else {
-            $validator = null;
-        }
+        $validator = $siteConfig->getCMSCompositeValidator();
 
         $actions = $siteConfig->getCMSActions();
         $negotiator = $this->getResponseNegotiator();
