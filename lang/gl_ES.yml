@@ -10,3 +10,5 @@ gl_ES:
     TAGLINEDEFAULT: 'o teu eslogan aquí'
     TOPLEVELCREATE: 'Quen pode crear as páxinas na raíz do sitio?'
     VIEWHEADER: 'Quen pode ver as páxinas neste sitio?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Configuracións

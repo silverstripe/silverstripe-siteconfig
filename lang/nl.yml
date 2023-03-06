@@ -25,3 +25,5 @@ nl:
     MENUTITLE: Instellingen
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
     EDIT: Bewerk
+  SilverStripe\CMS\Controllers\CMSMain:
+    SAVE: Opslaan

@@ -15,6 +15,8 @@ sv:
     TAGLINEDEFAULT: 'din slogan här'
     TOPLEVELCREATE: 'Vem kan skapa sidor i roten på webbplatsen?'
     VIEWHEADER: 'Vem kan se sidor på den här webbplasen?'
+    TABMAIN: Allmänt
+    TOPLEVELCREATORGROUPS: 'Grupper på högsta nivå'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Inställningar
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
