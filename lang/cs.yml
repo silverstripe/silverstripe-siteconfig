@@ -2,3 +2,16 @@ cs:
   SilverStripe\SiteConfig\SiteConfig:
     PLURALNAME: 'Konfigurace webu'
     SINGULARNAME: 'Konfigurace webu'
+    EDITHEADER: 'Kdo může editovat stránky tohoto webu?'
+    EDIT_PERMISSION: 'Správa konfigurace webu'
+    EDIT_PERMISSION_HELP: 'Možnost měnit globální přístupové nastavení/oprávnění pro hlavní stránky.'
+    SITENAMEDEFAULT: 'Název tvého webu'
+    SITETAGLINE: 'Štítek/Slogan webu'
+    SITETITLE: 'Titulek webu'
+    TABACCESS: Přístup
+    TABMAIN: Hlavní
+    TAGLINEDEFAULT: 'Slogan Vašeho webu'
+    TOPLEVELCREATE: 'Kdo může vytvářet stránky v kořenu webu?'
+    VIEWHEADER: 'Kdo může vidět stránky na tomto webu?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Možnosti

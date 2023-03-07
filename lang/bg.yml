@@ -2,5 +2,17 @@ bg:
   SilverStripe\SiteConfig\SiteConfig:
     PLURALNAME: 'Конфигурации на сайта'
     SINGULARNAME: 'Конфигурация на сайта'
+    EDITHEADER: 'Кой може да редактира страници по сайта?'
+    EDIT_PERMISSION: 'Промяна на конфигурацията на сайта'
+    EDIT_PERMISSION_HELP: 'Възможност за редакция на глобалните правила за достъп / правата на страниците, най-високо в йерархията'
+    SITENAMEDEFAULT: 'Име на сайта'
+    SITETAGLINE: 'Подзаглавие на сайта'
+    SITETITLE: 'Заглавие на сайта'
+    TABACCESS: Достъп
+    TABMAIN: Съдържание
+    TAGLINEDEFAULT: Подзаглавие
+    TOPLEVELCREATE: 'Кой може да създава най-високо ниво страници?'
+    TOPLEVELCREATORGROUPS: 'Създатели на страници от най-високо ниво'
+    VIEWHEADER: 'Кой може да достъпи страницата?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Настройки
