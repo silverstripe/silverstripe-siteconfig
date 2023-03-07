@@ -25,3 +25,5 @@ eo:
     MENUTITLE: Agordoj
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
     EDIT: Redakti
+  SilverStripe\CMS\Controllers\CMSMain:
+    SAVE: Konservi
