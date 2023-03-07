@@ -2,6 +2,18 @@ hr:
   SilverStripe\SiteConfig\SiteConfig:
     PLURALNAME: 'Konfiguracije projekta'
     SINGULARNAME: 'Konfiguracija projekta'
+    EDITHEADER: 'Tko može uređivati stranice na ovom projektu?'
+    EDIT_PERMISSION: 'Upravljanje konfiguracijom projekta'
+    EDIT_PERMISSION_HELP: 'Mogućnost uređivanja globalnog pristupa postavki/dozvola vršnih stranica'
+    SITENAMEDEFAULT: 'Vaš projekt'
+    SITETAGLINE: 'Slogan projekta'
+    SITETITLE: 'Naziv projekta'
+    TABACCESS: Pristup
+    TABMAIN: Glavni
+    TAGLINEDEFAULT: 'vaš slogan ovdje'
+    TOPLEVELCREATE: 'Tko može kreirati stranice na ovom projektu?'
+    TOPLEVELCREATORGROUPS: 'Glavni urednici'
+    VIEWHEADER: 'Tko može vidjeti stranice na ovom projektu?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Postavke
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:

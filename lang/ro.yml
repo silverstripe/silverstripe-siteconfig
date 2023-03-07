@@ -2,3 +2,16 @@ ro:
   SilverStripe\SiteConfig\SiteConfig:
     PLURALNAME: 'Configurații Site'
     SINGULARNAME: 'Configurare Site'
+    EDITHEADER: 'Cine poate edita pagini pe acest site?'
+    EDIT_PERMISSION: 'Administrează configurații site'
+    EDIT_PERMISSION_HELP: 'Abilitatea de a edita setări de acces general/permisiuni de pagini nivel-top'
+    SITENAMEDEFAULT: 'Numele Site-ului Tău'
+    SITETAGLINE: 'Slogan Site'
+    SITETITLE: 'Titlul Site-ului'
+    TABACCESS: Acces
+    TABMAIN: Principal
+    TAGLINEDEFAULT: 'sloganul tău aici'
+    TOPLEVELCREATE: 'Cine poate crea pagini în rădăcina site-ului?'
+    VIEWHEADER: 'Cine poate vizualiza paginile acestui site?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Setări

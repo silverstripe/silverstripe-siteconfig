@@ -17,6 +17,8 @@ ru:
     TABMAIN: Основное
     TOPLEVELCREATE: 'Кто может создавать страницы в корне сайта?'
     VIEWHEADER: 'Кто может просматривать страницы на этом сайте?'
+    TAGLINEDEFAULT: 'ваш слоган здесь'
+    TOPLEVELCREATORGROUPS: 'Редакторы страниц корневого уровня'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Настройки
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:

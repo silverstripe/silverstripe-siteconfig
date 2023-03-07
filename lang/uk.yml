@@ -11,3 +11,5 @@ uk:
     TAGLINEDEFAULT: 'тут ваш слоган'
     TOPLEVELCREATE: 'Хто може створювати сторінки верхнього рівня на сайті?'
     VIEWHEADER: 'Хто може переглядати сторінки на цьому сайті?'
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain:
+    MENUTITLE: Налаштування
