@@ -1,10 +1,10 @@
 hr:
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Konfiguracije projekta'
-    SINGULARNAME: 'Konfiguracija projekta'
     EDITHEADER: 'Tko može uređivati stranice na ovom projektu?'
     EDIT_PERMISSION: 'Upravljanje konfiguracijom projekta'
     EDIT_PERMISSION_HELP: 'Mogućnost uređivanja globalnog pristupa postavki/dozvola vršnih stranica'
+    PLURALNAME: 'Konfiguracije projekta'
+    SINGULARNAME: 'Konfiguracija projekta'
     SITENAMEDEFAULT: 'Vaš projekt'
     SITETAGLINE: 'Slogan projekta'
     SITETITLE: 'Naziv projekta'
