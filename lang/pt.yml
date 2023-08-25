@@ -1,10 +1,10 @@
 pt:
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Configurações do site'
-    SINGULARNAME: 'Configurações do site'
     EDITHEADER: 'Quem pode editar páginas neste site?'
     EDIT_PERMISSION: 'Gerir configuração do site'
     EDIT_PERMISSION_HELP: 'Capacidade de editar as configurações de acesso global / permissões da página.'
+    PLURALNAME: 'Configurações do site'
+    SINGULARNAME: 'Configurações do site'
     SITENAMEDEFAULT: 'Nome do site'
     SITETAGLINE: 'Slogan do site'
     SITETITLE: 'Título do site'
