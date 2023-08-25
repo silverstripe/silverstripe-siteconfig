@@ -9,10 +9,10 @@ sl:
     EDIT_PERMISSION_HELP: 'Možnost za urejanje nastavitev in pravic za urejanje strani na prvem nivoju.'
     PLURALNAME: 'Nastavitve spletišča'
     PLURALS:
-      one: 'Nastavitev spletišča'
-      two: '{count} nastavitvi spletišča'
       few: '{count} nastavitev spletišča'
+      one: 'Nastavitev spletišča'
       other: '{count} nastavitev spletišča'
+      two: '{count} nastavitvi spletišča'
     SINGULARNAME: 'Nastavitev spletišča'
     SITENAMEDEFAULT: 'Naziv vašega spletišča'
     SITETAGLINE: 'Moto ali slogan spletišča'

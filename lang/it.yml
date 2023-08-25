@@ -9,9 +9,9 @@ it:
     EDIT_PERMISSION_HELP: 'Capacità di modificare le impostazioni di accesso generali/i permessi delle pagine di primo livello'
     PLURALNAME: 'Configurazioni Sito'
     PLURALS:
+      many: '{count} Configurazioni Sito'
       one: 'Una Configurazione Sito'
       other: '{count} Configurazioni Sito'
-      many: '{count} Configurazioni Sito'
     SINGULARNAME: 'Configurazione sito'
     SITENAMEDEFAULT: 'Nome del tuo Sito'
     SITETAGLINE: 'Citazione/Slogan Sito'

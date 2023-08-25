@@ -1,4 +1,6 @@
 nl:
+  SilverStripe\CMS\Controllers\CMSMain:
+    SAVE: Opslaan
   SilverStripe\CMS\Model\SiteTree:
     EDITANYONE: 'Iedereen met toegang tot het CMS'
     EDITONLYTHESE: 'Alleen deze groepen (kies uit lijst)'
@@ -25,5 +27,3 @@ nl:
     MENUTITLE: Instellingen
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
     EDIT: Bewerk
-  SilverStripe\CMS\Controllers\CMSMain:
-    SAVE: Opslaan

@@ -1,10 +1,10 @@
 th:
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: กำหนดค่าเว็บไซต์
-    SINGULARNAME: กำหนดค่าเว็บไซต์
     EDITHEADER: 'ใครสามารถแก้ไขหน้าเว็บบนเว็บไซต์นี้ได้บ้าง?'
     EDIT_PERMISSION: การจัดการการกำหนดค่าของเว็บไซต์
     EDIT_PERMISSION_HELP: สามารถแก้ไขการตั้งค่าการเข้าถึงระบบโดยรวมได้/แก้ไขสิทธิ์หน้าเว็บในระดับสูงสุดได้
+    PLURALNAME: กำหนดค่าเว็บไซต์
+    SINGULARNAME: กำหนดค่าเว็บไซต์
     SITENAMEDEFAULT: ชื่อเว็บไซต์ของคุณ
     SITETAGLINE: สโลแกนของเว็บไซต์
     SITETITLE: ชื่อเว็บไซต์

@@ -1,10 +1,10 @@
 fa_IR:
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'تنظیمات سایت'
-    SINGULARNAME: 'تنظیم سایت'
     EDITHEADER: 'چه کسی میتواند صفحات را در این سایت ویرایش کند؟'
     EDIT_PERMISSION: 'مدیریت پیکربندی سایت'
     EDIT_PERMISSION_HELP: 'توانایی در ویرایش تنظیمات دسترسی‌های سراسری/مجوزهای بالاترین سطح صفحه'
+    PLURALNAME: 'تنظیمات سایت'
+    SINGULARNAME: 'تنظیم سایت'
     SITENAMEDEFAULT: 'نام سایت شما'
     SITETAGLINE: 'شعار سایت'
     SITETITLE: 'عنوان سایت'
