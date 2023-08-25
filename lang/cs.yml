@@ -1,10 +1,10 @@
 cs:
   SilverStripe\SiteConfig\SiteConfig:
-    PLURALNAME: 'Konfigurace webu'
-    SINGULARNAME: 'Konfigurace webu'
     EDITHEADER: 'Kdo může editovat stránky tohoto webu?'
     EDIT_PERMISSION: 'Správa konfigurace webu'
     EDIT_PERMISSION_HELP: 'Možnost měnit globální přístupové nastavení/oprávnění pro hlavní stránky.'
+    PLURALNAME: 'Konfigurace webu'
+    SINGULARNAME: 'Konfigurace webu'
     SITENAMEDEFAULT: 'Název tvého webu'
     SITETAGLINE: 'Štítek/Slogan webu'
     SITETITLE: 'Titulek webu'

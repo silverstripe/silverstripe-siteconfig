@@ -5,9 +5,9 @@ ru:
     EDIT_PERMISSION_HELP: 'Права на редактирование глобальных настроек доступа и страниц верхнего уровня.'
     PLURALNAME: 'Конфигурации сайта'
     PLURALS:
-      one: 'Конфигурация сайта'
       few: '{count} конфигурации сайта'
       many: '{count} конфигураций сайта'
+      one: 'Конфигурация сайта'
       other: '{count} конфигураций сайта'
     SINGULARNAME: 'Конфигурация сайта'
     SITENAMEDEFAULT: 'Название сайта'
@@ -15,10 +15,10 @@ ru:
     SITETITLE: 'Название сайта'
     TABACCESS: Доступ
     TABMAIN: Основное
-    TOPLEVELCREATE: 'Кто может создавать страницы в корне сайта?'
-    VIEWHEADER: 'Кто может просматривать страницы на этом сайте?'
     TAGLINEDEFAULT: 'ваш слоган здесь'
+    TOPLEVELCREATE: 'Кто может создавать страницы в корне сайта?'
     TOPLEVELCREATORGROUPS: 'Редакторы страниц корневого уровня'
+    VIEWHEADER: 'Кто может просматривать страницы на этом сайте?'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Настройки
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
