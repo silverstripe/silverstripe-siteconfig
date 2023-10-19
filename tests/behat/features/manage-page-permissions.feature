@@ -62,7 +62,7 @@ Feature: Manage global page permissions
     Then I should see "Welcome"
 
   Scenario: I can open global edit permissions to everyone
-    Given I select "Anyone" from "Who can edit pages on this site?" input group
+    Given I select "Anyone who can log-in to the CMS" from "Who can edit pages on this site?" input group
     And I press the "Save" button
     Then pages should be editable by "AUTHOR"
     # "anyone" doesn't override actual permissions
@@ -98,3 +98,77 @@ Feature: Manage global page permissions
     And pages should not be editable by "SECURITY"
     But pages should be editable by "ADMIN"
 
+  Scenario: I should only see member/group fields when I am limiting access to members/groups (View)
+    Given I select "Anyone" from "Who can view pages on this site?" input group
+    # Need to wait a beat after each selection so the animation has time to finish
+    And I wait for 1 second
+    Then I should not see "Viewer Groups"
+    And I should not see "Viewer Users"
+    When I select "Logged-in users" from "Who can view pages on this site?" input group
+    And I wait for 1 second
+    Then I should not see "Viewer Groups"
+    And I should not see "Viewer Users"
+    When I select "Only these groups (choose from list)" from "Who can view pages on this site?" input group
+    And I wait for 1 second
+    Then I should see "Viewer Groups"
+    And I should not see "Viewer Users"
+    When I select "Only these users (choose from list)" from "Who can view pages on this site?" input group
+    And I wait for 1 second
+    Then I should not see "Viewer Groups"
+    And I should see "Viewer Users"
+    When I select "Logged-in users" from "Who can view pages on this site?" input group
+    And I wait for 1 second
+    Then I should not see "Viewer Groups"
+    And I should not see "Viewer Users"
+    # Avoids having a toast which crashes the test
+    When I press the "Save" button
+
+  Scenario: I should only see member/group fields when I am limiting access to members/groups (Edit)
+    Given I select "Anyone who can log-in to the CMS" from "Who can edit pages on this site?" input group
+    # Need to wait a beat after each selection so the animation has time to finish
+    And I wait for 1 second
+    Then I should not see "Editor Groups"
+    And I should not see "Editor Users"
+    When I select "Logged-in users" from "Who can edit pages on this site?" input group
+    And I wait for 1 second
+    Then I should not see "Editor Groups"
+    And I should not see "Editor Users"
+    When I select "Only these groups (choose from list)" from "Who can edit pages on this site?" input group
+    And I wait for 1 second
+    Then I should see "Editor Groups"
+    And I should not see "Editor Users"
+    When I select "Only these users (choose from list)" from "Who can edit pages on this site?" input group
+    And I wait for 1 second
+    Then I should not see "Editor Groups"
+    And I should see "Editor Users"
+    When I select "Anyone who can log-in to the CMS" from "Who can edit pages on this site?" input group
+    And I wait for 1 second
+    Then I should not see "Editor Groups"
+    And I should not see "Editor Users"
+    # Avoids having a toast which crashes the test
+    When I press the "Save" button
+
+  Scenario: I should only see member/group fields when I am limiting access to members/groups (Create)
+    Given I select "Anyone who can log-in to the CMS" from "Who can create pages in the root of the site?" input group
+    # Need to wait a beat after each selection so the animation has time to finish
+    And I wait for 1 second
+    Then I should not see "Top level creator groups"
+    And I should not see "Top level creator users"
+    When I select "Logged-in users" from "Who can create pages in the root of the site?" input group
+    And I wait for 1 second
+    Then I should not see "Top level creator groups"
+    And I should not see "Top level creator users"
+    When I select "Only these groups (choose from list)" from "Who can create pages in the root of the site?" input group
+    And I wait for 1 second
+    Then I should see "Top level creator groups"
+    And I should not see "Top level creator users"
+    When I select "Only these users (choose from list)" from "Who can create pages in the root of the site?" input group
+    And I wait for 1 second
+    Then I should not see "Top level creator groups"
+    And I should see "Top level creator users"
+    When I select "Anyone who can log-in to the CMS" from "Who can create pages in the root of the site?" input group
+    And I wait for 1 second
+    Then I should not see "Top level creator groups"
+    And I should not see "Top level creator users"
+    # Avoids having a toast which crashes the test
+    When I press the "Save" button
