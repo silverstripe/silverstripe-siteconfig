@@ -22,6 +22,7 @@ use SilverStripe\Security\PermissionProvider;
 use SilverStripe\Security\Security;
 use SilverStripe\View\TemplateGlobalProvider;
 use SilverStripe\CMS\Controllers\CMSMain;
+use SilverStripe\Security\InheritedPermissions;
 
 /**
  * SiteConfig
@@ -40,15 +41,18 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     private static $db = [
         "Title" => "Varchar(255)",
         "Tagline" => "Varchar(255)",
-        "CanViewType" => "Enum('Anyone, LoggedInUsers, OnlyTheseUsers', 'Anyone')",
-        "CanEditType" => "Enum('LoggedInUsers, OnlyTheseUsers', 'LoggedInUsers')",
-        "CanCreateTopLevelType" => "Enum('LoggedInUsers, OnlyTheseUsers', 'LoggedInUsers')",
+        "CanViewType" => "Enum('Anyone, LoggedInUsers, OnlyTheseUsers, OnlyTheseMembers', 'Anyone')",
+        "CanEditType" => "Enum('LoggedInUsers, OnlyTheseUsers, OnlyTheseMembers', 'LoggedInUsers')",
+        "CanCreateTopLevelType" => "Enum('LoggedInUsers, OnlyTheseUsers, OnlyTheseMembers', 'LoggedInUsers')",
     ];
 
     private static $many_many = [
         "ViewerGroups" => Group::class,
         "EditorGroups" => Group::class,
         "CreateTopLevelGroups" => Group::class,
+        "ViewerMembers" => Member::class,
+        "EditorMembers" => Member::class,
+        "CreateTopLevelMembers" => Member::class,
     ];
 
     private static $defaults = [
@@ -100,6 +104,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         $groupsMap = $mapFn(Group::get());
         $viewAllGroupsMap = $mapFn(Permission::get_groups_by_permission(['SITETREE_VIEW_ALL', 'ADMIN']));
         $editAllGroupsMap = $mapFn(Permission::get_groups_by_permission(['SITETREE_EDIT_ALL', 'ADMIN']));
+        $membersMap = Member::get()->map('ID', 'Name');
 
         $fields = FieldList::create(
             TabSet::create(
@@ -127,6 +132,11 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                             'data-placeholder',
                             _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
                         ),
+                    $viewerMembersField = ListboxField::create(
+                        "ViewerMembers",
+                        _t(self::class . '.VIEWERMEMBERS', "Viewer Users"),
+                        $membersMap,
+                    ),
                     $editorsOptionsField = OptionsetField::create(
                         "CanEditType",
                         _t(self::class . '.EDITHEADER', "Who can edit pages on this site?")
@@ -140,19 +150,29 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                             'data-placeholder',
                             _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
                         ),
+                    $editorMembersField = ListboxField::create(
+                        "EditorMembers",
+                        _t(self::class . '.EDITORMEMBERS', "Editor Users"),
+                        $membersMap,
+                    ),
                     $topLevelCreatorsOptionsField = OptionsetField::create(
                         "CanCreateTopLevelType",
                         _t(self::class . '.TOPLEVELCREATE', "Who can create pages in the root of the site?")
                     ),
                     $topLevelCreatorsGroupsField = ListboxField::create(
                         "CreateTopLevelGroups",
-                        _t(self::class . '.TOPLEVELCREATORGROUPS', "Top level creators")
+                        _t(self::class . '.TOPLEVELCREATORGROUPS2', "Top level creator groups")
                     )
                         ->setSource($groupsMap)
                         ->setAttribute(
                             'data-placeholder',
                             _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
-                        )
+                        ),
+                    $topLevelCreatorsMembersField = ListboxField::create(
+                        "CreateTopLevelMembers",
+                        _t(self::class . '.TOPLEVELCREATORUSERS', "Top level creator users"),
+                        $membersMap,
+                    )
                 )
             ),
             HiddenField::create('ID')
@@ -167,6 +187,10 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         $viewersOptionsSource["OnlyTheseUsers"] = _t(
             'SilverStripe\\CMS\\Model\\SiteTree.ACCESSONLYTHESE',
             "Only these groups (choose from list)"
+        );
+        $viewersOptionsSource[InheritedPermissions::ONLY_THESE_MEMBERS] = _t(
+            self::class . '.ACCESSONLYTHESEMEMBERS',
+            "Only these users (choose from list)"
         );
         $viewersOptionsField->setSource($viewersOptionsSource);
 
@@ -195,19 +219,53 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             'SilverStripe\\CMS\\Model\\SiteTree.EDITONLYTHESE',
             "Only these groups (choose from list)"
         );
+        $editorsOptionsSource[InheritedPermissions::ONLY_THESE_MEMBERS] = _t(
+            self::class . '.EDITONLYTHESEMEMBERS',
+            "Only these users (choose from list)"
+        );
         $editorsOptionsField->setSource($editorsOptionsSource);
 
         $topLevelCreatorsOptionsField->setSource($editorsOptionsSource);
 
         if (!Permission::check('EDIT_SITECONFIG')) {
-            $fields->makeFieldReadonly($viewersOptionsField);
-            $fields->makeFieldReadonly($viewerGroupsField);
-            $fields->makeFieldReadonly($editorsOptionsField);
-            $fields->makeFieldReadonly($editorGroupsField);
-            $fields->makeFieldReadonly($topLevelCreatorsOptionsField);
-            $fields->makeFieldReadonly($topLevelCreatorsGroupsField);
             $fields->makeFieldReadonly($taglineField);
             $fields->makeFieldReadonly($titleField);
+            // Hide and remove appropriate viewer fields
+            $fields->makeFieldReadonly($viewersOptionsField);
+            if ($this->CanViewType === InheritedPermissions::ONLY_THESE_USERS) {
+                $fields->makeFieldReadonly($viewerGroupsField);
+                $fields->removeByName('ViewerMembers');
+            } elseif ($this->CanViewType === InheritedPermissions::ONLY_THESE_MEMBERS) {
+                $fields->makeFieldReadonly($viewerMembersField);
+                $fields->removeByName('ViewerGroups');
+            } else {
+                $fields->removeByName('ViewerGroups');
+                $fields->removeByName('ViewerMembers');
+            }
+            // Hide and remove appropriate editor fields
+            $fields->makeFieldReadonly($editorsOptionsField);
+            if ($this->CanEditType === InheritedPermissions::ONLY_THESE_USERS) {
+                $fields->makeFieldReadonly($editorGroupsField);
+                $fields->removeByName('EditorMembers');
+            } elseif ($this->CanEditType === InheritedPermissions::ONLY_THESE_MEMBERS) {
+                $fields->makeFieldReadonly($editorMembersField);
+                $fields->removeByName('EditorGroups');
+            } else {
+                $fields->removeByName('EditorGroups');
+                $fields->removeByName('EditorMembers');
+            }
+            // Hide and remove appropriate top-level creator fields
+            $fields->makeFieldReadonly($topLevelCreatorsOptionsField);
+            if ($this->CanCreateTopLevelType === InheritedPermissions::ONLY_THESE_USERS) {
+                $fields->makeFieldReadonly($topLevelCreatorsGroupsField);
+                $fields->removeByName('CreateTopLevelMembers');
+            } elseif ($this->CanCreateTopLevelType === InheritedPermissions::ONLY_THESE_MEMBERS) {
+                $fields->makeFieldReadonly($topLevelCreatorsMembersField);
+                $fields->removeByName('CreateTopLevelGroups');
+            } else {
+                $fields->removeByName('CreateTopLevelGroups');
+                $fields->removeByName('CreateTopLevelMembers');
+            }
         }
 
         if (file_exists(BASE_PATH . '/install.php')) {
@@ -370,6 +428,14 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             return true;
         }
 
+        // check for specific users
+        if ($this->CanViewType === InheritedPermissions::ONLY_THESE_MEMBERS
+            && $member
+            && $this->ViewerMembers()->filter('ID', $member->ID)->count() > 0
+        ) {
+            return true;
+        }
+
         return false;
     }
 
@@ -403,8 +469,16 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             return true;
         }
 
-            // check for specific groups
+        // check for specific groups
         if ($this->CanEditType === 'OnlyTheseUsers' && $member && $member->inGroups($this->EditorGroups())) {
+            return true;
+        }
+
+        // check for specific users
+        if ($this->CanEditType === InheritedPermissions::ONLY_THESE_MEMBERS
+            && $member
+            && $this->EditorMembers()->filter('ID', $member->ID)->count() > 0
+        ) {
             return true;
         }
 
@@ -478,6 +552,14 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         if ($this->CanCreateTopLevelType === 'OnlyTheseUsers'
             && $member
             && $member->inGroups($this->CreateTopLevelGroups())
+        ) {
+            return true;
+        }
+
+        // check for specific users
+        if ($this->CanCreateTopLevelType === InheritedPermissions::ONLY_THESE_MEMBERS
+            && $member
+            && $this->CreateTopLevelMembers()->filter('ID', $member->ID)->count() > 0
         ) {
             return true;
         }
