@@ -6,7 +6,10 @@ en:
     EDITONLYTHESE: 'Only these groups (choose from list)'
     GroupPlaceholder: 'Click to select group'
   SilverStripe\SiteConfig\SiteConfig:
+    ACCESSONLYTHESEMEMBERS: 'Only these users (choose from list)'
     EDITHEADER: 'Who can edit pages on this site?'
+    EDITONLYTHESEMEMBERS: 'Only these users (choose from list)'
+    EDITORMEMBERS: 'Editor Users'
     EDIT_PERMISSION: 'Manage site configuration'
     EDIT_PERMISSION_HELP: 'Ability to edit global access settings/top-level page permissions.'
     PLURALNAME: 'Site Configs'
@@ -22,6 +25,9 @@ en:
     TAGLINEDEFAULT: 'your tagline here'
     TOPLEVELCREATE: 'Who can create pages in the root of the site?'
     TOPLEVELCREATORGROUPS: 'Top level creators'
+    TOPLEVELCREATORGROUPS2: 'Top level creator groups'
+    TOPLEVELCREATORUSERS: 'Top level creator users'
+    VIEWERMEMBERS: 'Viewer Users'
     VIEWHEADER: 'Who can view pages on this site?'
     db_AccentColor: 'Accent color'
     db_AllChangesEnabled: 'All changes enabled'
@@ -65,8 +71,11 @@ en:
     many_many_ContentReviewGroups: 'Content review groups'
     many_many_ContentReviewUsers: 'Content review users'
     many_many_CreateTopLevelGroups: 'Create top level groups'
+    many_many_CreateTopLevelMembers: 'Create top level members'
     many_many_EditorGroups: 'Editor groups'
+    many_many_EditorMembers: 'Editor members'
     many_many_ViewerGroups: 'Viewer groups'
+    many_many_ViewerMembers: 'Viewer members'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Settings
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
