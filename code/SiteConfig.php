@@ -31,9 +31,9 @@ use SilverStripe\CMS\Controllers\CMSMain;
  * @property string CanViewType Type of restriction used for view permissions.
  * @property string CanEditType Type of restriction used for edit permissions.
  * @property string CanCreateTopLevelType Type of restriction used for creation of root-level pages.
- * @method ManyManyList ViewerGroups() List of groups that can view SiteConfig.
- * @method ManyManyList EditorGroups() List of groups that can edit SiteConfig.
- * @method ManyManyList CreateTopLevelGroups() List of groups that can create root-level pages.
+ * @method ManyManyList<Group> CreateTopLevelGroups()
+ * @method ManyManyList<Group> EditorGroups()
+ * @method ManyManyList<Group> ViewerGroups()
  */
 class SiteConfig extends DataObject implements PermissionProvider, TemplateGlobalProvider
 {
