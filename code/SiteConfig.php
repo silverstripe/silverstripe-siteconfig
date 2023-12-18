@@ -22,6 +22,7 @@ use SilverStripe\Security\PermissionProvider;
 use SilverStripe\Security\Security;
 use SilverStripe\View\TemplateGlobalProvider;
 use SilverStripe\CMS\Controllers\CMSMain;
+use SilverStripe\Forms\SearchableMultiDropdownField;
 use SilverStripe\Security\InheritedPermissions;
 
 /**
@@ -104,7 +105,6 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         $groupsMap = $mapFn(Group::get());
         $viewAllGroupsMap = $mapFn(Permission::get_groups_by_permission(['SITETREE_VIEW_ALL', 'ADMIN']));
         $editAllGroupsMap = $mapFn(Permission::get_groups_by_permission(['SITETREE_EDIT_ALL', 'ADMIN']));
-        $membersMap = Member::get()->map('ID', 'Name');
 
         $fields = FieldList::create(
             TabSet::create(
@@ -132,11 +132,13 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                             'data-placeholder',
                             _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
                         ),
-                    $viewerMembersField = ListboxField::create(
+                    $viewerMembersField = SearchableMultiDropdownField::create(
                         "ViewerMembers",
                         _t(self::class . '.VIEWERMEMBERS', "Viewer Users"),
-                        $membersMap,
-                    ),
+                        Member::get()
+                    )
+                        ->setIsLazyLoaded(true)
+                        ->setUseSearchContext(true),
                     $editorsOptionsField = OptionsetField::create(
                         "CanEditType",
                         _t(self::class . '.EDITHEADER', "Who can edit pages on this site?")
@@ -150,11 +152,13 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                             'data-placeholder',
                             _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
                         ),
-                    $editorMembersField = ListboxField::create(
+                    $editorMembersField = SearchableMultiDropdownField::create(
                         "EditorMembers",
                         _t(self::class . '.EDITORMEMBERS', "Editor Users"),
-                        $membersMap,
-                    ),
+                        Member::get(),
+                    )
+                        ->setIsLazyLoaded(true)
+                        ->setUseSearchContext(true),
                     $topLevelCreatorsOptionsField = OptionsetField::create(
                         "CanCreateTopLevelType",
                         _t(self::class . '.TOPLEVELCREATE', "Who can create pages in the root of the site?")
@@ -168,11 +172,13 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                             'data-placeholder',
                             _t('SilverStripe\\CMS\\Model\\SiteTree.GroupPlaceholder', 'Click to select group')
                         ),
-                    $topLevelCreatorsMembersField = ListboxField::create(
+                    $topLevelCreatorsMembersField = SearchableMultiDropdownField::create(
                         "CreateTopLevelMembers",
                         _t(self::class . '.TOPLEVELCREATORUSERS', "Top level creator users"),
-                        $membersMap,
+                        Member::get()
                     )
+                        ->setIsLazyLoaded(true)
+                        ->setUseSearchContext(true)
                 )
             ),
             HiddenField::create('ID')

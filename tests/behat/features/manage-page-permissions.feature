@@ -48,7 +48,9 @@ Feature: Manage global page permissions
 
   Scenario: I can limit global view permissions to certain members
     Given I select "Only these users (choose from list)" from "Who can view pages on this site?" input group
-    And I select "AUTHOR" from "Viewer Users" with javascript
+    And I fill in "Form_EditForm_ViewerMembers__input" with "author"
+    And I wait for 3 seconds
+    And I press the "Enter" key globally
     And I press the "Save" button
     When I am not logged in
     And I go to the homepage
@@ -92,7 +94,9 @@ Feature: Manage global page permissions
 
   Scenario: I can limit global edit permissions to certain members
     Given I select "Only these users (choose from list)" from "Who can edit pages on this site?" input group
-    And I select "ADMIN" from "Editor Users" with javascript
+    And I fill in "Form_EditForm_EditorMembers__input" with "admin"
+    And I wait for 3 seconds
+    And I press the "Enter" key globally
     And I press the "Save" button
     Then pages should not be editable by "AUTHOR"
     And pages should not be editable by "SECURITY"
