@@ -93,7 +93,6 @@ class SiteConfigLeftAndMain extends LeftAndMain
 
         $actions = $siteConfig->getCMSActions();
         $negotiator = $this->getResponseNegotiator();
-        /** @var Form $form */
         $form = Form::create(
             $this,
             'EditForm',
