@@ -336,7 +336,6 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
      */
     public static function current_site_config()
     {
-        /** @var SiteConfig $siteConfig */
         $siteConfig = DataObject::get_one(SiteConfig::class);
         if (!$siteConfig) {
             $siteConfig = self::make_site_config();
