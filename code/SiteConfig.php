@@ -36,6 +36,9 @@ use SilverStripe\Security\InheritedPermissions;
  * @method ManyManyList<Group> CreateTopLevelGroups()
  * @method ManyManyList<Group> EditorGroups()
  * @method ManyManyList<Group> ViewerGroups()
+ * @method ManyManyList<Member> CreateTopLevelMembers()
+ * @method ManyManyList<Member> EditorMembers()
+ * @method ManyManyList<Member> ViewerMembers()
  */
 class SiteConfig extends DataObject implements PermissionProvider, TemplateGlobalProvider
 {
