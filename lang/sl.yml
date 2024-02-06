@@ -1,4 +1,6 @@
 sl:
+  SilverStripe\CMS\Controllers\CMSMain:
+    SAVE: Shrani
   SilverStripe\CMS\Model\SiteTree:
     EDITANYONE: 'Vsi, ki se lahko prijavijo v urejevalnik'
     EDITONLYTHESE: 'Samo naslednje skupine (izberite s seznama)'
@@ -21,8 +23,17 @@ sl:
     TABMAIN: Osnovno
     TAGLINEDEFAULT: 'vaš moto ali slogan'
     TOPLEVELCREATE: 'Kdo lahko ustvarja strani na prvem nivoju?'
-    TOPLEVELCREATORGROUPS: 'Uredniki strani na prvem nivoju'
+    TOPLEVELCREATORGROUPS: 'Uredništvo prvega nivoja'
+    TOPLEVELCREATORGROUPS2: 'Skupine vrhovnih urednikov'
+    TOPLEVELCREATORUSERS: 'Vrhovni uredniki'
+    VIEWERMEMBERS: Ogledovalci
     VIEWHEADER: 'Kdo lahko vidi strani na tem spletišču?'
+    has_one_Subsite: Podspletišče
+    many_many_ContentReviewGroups: 'Skupine redaktorjev'
+    many_many_ContentReviewUsers: Redaktorji
+    many_many_CreateTopLevelGroups: 'Ustvari vrhovne skupine'
+    many_many_CreateTopLevelMembers: 'Ustvari vrhovne uporabnike'
+    many_many_ViewerMembers: Ogledovalci
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Nastavitve
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:

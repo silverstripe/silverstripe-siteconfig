@@ -6,7 +6,10 @@ eo:
     EDITONLYTHESE: 'Nur ĉi tiuj grupoj (elektu el la listo)'
     GroupPlaceholder: 'Alklaki por elekti grupon'
   SilverStripe\SiteConfig\SiteConfig:
+    ACCESSONLYTHESEMEMBERS: 'Nur ĉi tiuj grupoj (elektu el la listo)'
     EDITHEADER: 'Kiu povas redakti paĝojn en ĉi tiu retejo?'
+    EDITONLYTHESEMEMBERS: 'Nur ĉi tiuj grupoj (elektu el la listo)'
+    EDITORMEMBERS: 'Redaktantaj uzantoj'
     EDIT_PERMISSION: 'Agordi konfiguron de la retejo'
     EDIT_PERMISSION_HELP: 'Eblo agordi ĉieajn alirajn agordojn/supronivelajn paĝajn permesojn.'
     PLURALNAME: 'Retejaj agordaroj'
@@ -22,6 +25,9 @@ eo:
     TAGLINEDEFAULT: 'jen via slogano'
     TOPLEVELCREATE: 'Kiu povas krei paĝojn en la radiko de la retejo?'
     TOPLEVELCREATORGROUPS: 'Supranivelaj kreintoj'
+    TOPLEVELCREATORGROUPS2: 'Supronivelaj grupoj de kreintoj'
+    TOPLEVELCREATORUSERS: 'Supronivelaj kreantaj uzantoj'
+    VIEWERMEMBERS: 'Vidantaj uzantoj'
     VIEWHEADER: 'Kiu povas vidigi paĝojn en ĉi tiu retejo?'
     db_AccentColor: 'Emfaza koloro'
     db_AllChangesEnabled: 'Enŝaltis ĉiujn ŝanĝojn'
@@ -65,8 +71,11 @@ eo:
     many_many_ContentReviewGroups: 'Enhavokontrolaj grupoj'
     many_many_ContentReviewUsers: 'Enhavokontrolaj uzantoj'
     many_many_CreateTopLevelGroups: 'Krei supronivelajn grupojn'
+    many_many_CreateTopLevelMembers: 'Krei supronivelajn membrojn'
     many_many_EditorGroups: 'Grupoj de redaktantoj'
+    many_many_EditorMembers: 'Redaktantaj membroj'
     many_many_ViewerGroups: 'Grupoj de vidigantoj'
+    many_many_ViewerMembers: 'Vidantaj membroj'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Agordoj
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
