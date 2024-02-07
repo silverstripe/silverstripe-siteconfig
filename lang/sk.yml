@@ -1,9 +1,23 @@
 sk:
+  SilverStripe\CMS\Controllers\CMSMain:
+    SAVE: Uložiť
+  SilverStripe\CMS\Model\SiteTree:
+    EDITANYONE: 'Každý, kto sa môže prihlásiť do CMS'
+    EDITONLYTHESE: 'Iba tieto skupiny (vyberte zo zoznamu)'
+    GroupPlaceholder: 'Kliknutím vyberte skupinu'
   SilverStripe\SiteConfig\SiteConfig:
+    ACCESSONLYTHESEMEMBERS: 'Iba títo používatelia (vyberte zo zoznamu)'
     EDITHEADER: 'Kto môže editovať stránky na tomto webe?'
+    EDITONLYTHESEMEMBERS: 'Iba títo používatelia (vyberte zo zoznamu)'
+    EDITORMEMBERS: Upravovatelia
     EDIT_PERMISSION: 'Spravovať konfiguráciu webu'
-    EDIT_PERMISSION_HELP: 'Možnosť meniť globálne prístupové nastavenia/právomoci pre hlavné stránky.'
+    EDIT_PERMISSION_HELP: 'Možnosť meniť globálne prístupové nastavenia/oprávnenia pre hlavné stránky.'
     PLURALNAME: 'Konfigurácie webu'
+    PLURALS:
+      few: '{count} konfigurácie webu'
+      many: '{count} konfigurácií webu'
+      one: 'Konfigurácia webu'
+      other: '{count} konfigurácií webu'
     SINGULARNAME: 'Konfigurácia webu'
     SITENAMEDEFAULT: 'Názov vášho webu'
     SITETAGLINE: 'Slogan stránky'
@@ -13,6 +27,58 @@ sk:
     TAGLINEDEFAULT: 'váš citát sem'
     TOPLEVELCREATE: 'Kto môže vytvárať koreňové stránky webu?'
     TOPLEVELCREATORGROUPS: 'Tvorcovia najvyššej úrovne'
+    TOPLEVELCREATORGROUPS2: 'Skupiny tvorcov najvyššej úrovne'
+    TOPLEVELCREATORUSERS: 'Tvorcovia najvyššej úrovne'
+    VIEWERMEMBERS: Prezerači
     VIEWHEADER: 'Kto môže vidieť stránky na tomto webe?'
+    db_AccentColor: 'Hlavný farebný odtieň'
+    db_AllChangesEnabled: 'Všetky zmeny povolené'
+    db_CanCreateTopLevelType: 'Môže vytvoriť typ najvyššej úrovne'
+    db_CanEditType: 'Môže upravovať typ'
+    db_CanViewType: 'Môže zobraziť typ'
+    db_CarouselBackground: 'Kolotočové pozadie'
+    db_EmptySearch: 'Prázdne vyhľadávanie'
+    db_FacebookURL: 'Facebook URL'
+    db_FooterBackground: 'Pozadie pätičky'
+    db_FooterLogoDescription: 'Popis loga v pätičke'
+    db_FooterLogoLink: 'Odkaz na logo v pätičke'
+    db_FooterLogoSecondaryDescription: 'Sekundárny popis loga v pätičke'
+    db_FooterLogoSecondaryLink: 'Sekundárny odkaz na logo v pätičke'
+    db_GACode: 'GA kód'
+    db_HeaderBackground: 'Pozadie hlavičky'
+    db_MFAGracePeriodExpires: 'Uplynie odkladná lehota MFA'
+    db_MFARequired: 'Vyžaduje sa MFA'
+    db_MainFontFamily: 'Hlavná rodina písma'
+    db_NavigationBarBackground: 'Pozadie navigačného panela'
+    db_NoSearchResults: 'Žiadne výsledky vyhľadávania'
+    db_ReviewBody: 'Telo správy'
+    db_ReviewFrom: 'Správa od'
+    db_ReviewPeriodDays: 'Dni kontrolného obdobia'
+    db_ReviewSubject: 'Predmet správy'
+    db_Tagline: Slogan
+    db_TextLinkColor: 'Farba textových odkazov'
+    db_Title: Názov
+    db_TwitterUsername: 'Používateľské meno na Twitteri'
+    has_one_AppleTouchIcon114: 'Dotyková ikona Apple 114'
+    has_one_AppleTouchIcon144: 'Dotyková ikona Apple 144'
+    has_one_AppleTouchIcon57: 'Dotyková ikona Apple 57'
+    has_one_AppleTouchIcon72: 'Dotyková ikona Apple 72'
+    has_one_FavIcon: 'Ikona obľúbenej položky'
+    has_one_FooterLogo: 'Logo v pätičke'
+    has_one_FooterLogoRetina: 'Logo v pätičke retina'
+    has_one_FooterLogoSecondary: 'Sekundárne logo v pätičke'
+    has_one_Logo: Logo
+    has_one_LogoRetina: 'Logo retina'
+    has_one_Subsite: Podstránka
+    many_many_ContentReviewGroups: 'Skupiny kontroly obsahu'
+    many_many_ContentReviewUsers: 'Používatelia kontroly obsahu'
+    many_many_CreateTopLevelGroups: 'Vytvorte skupiny najvyššej úrovne'
+    many_many_CreateTopLevelMembers: 'Vytvorte členov najvyššej úrovne'
+    many_many_EditorGroups: 'Skupiny upravovateľov'
+    many_many_EditorMembers: 'Členovia upravovateľov'
+    many_many_ViewerGroups: 'Skupiny prezeračov'
+    many_many_ViewerMembers: 'Členovia prezeračov'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Nastavenia
+  SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
+    EDIT: Upraviť
