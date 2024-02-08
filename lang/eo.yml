@@ -57,10 +57,6 @@ eo:
     db_TextLinkColor: 'Koloro de teksta ligilo'
     db_Title: Titolo
     db_TwitterUsername: Twitter-salutnomo
-    has_one_AppleTouchIcon114: 'Apple touch icon114'
-    has_one_AppleTouchIcon144: 'Apple touch icon144'
-    has_one_AppleTouchIcon57: 'Apple touch icon57'
-    has_one_AppleTouchIcon72: 'Apple touch icon72'
     has_one_FavIcon: 'Favorataj bildsimboloj'
     has_one_FooterLogo: 'Paĝopieda bildsimbolo'
     has_one_FooterLogoRetina: 'Paĝopieda bildsimbolo retina'
