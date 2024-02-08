@@ -38,7 +38,6 @@ sk:
     db_CanViewType: 'Môže zobraziť typ'
     db_CarouselBackground: 'Kolotočové pozadie'
     db_EmptySearch: 'Prázdne vyhľadávanie'
-    db_FacebookURL: 'Facebook URL'
     db_FooterBackground: 'Pozadie pätičky'
     db_FooterLogoDescription: 'Popis loga v pätičke'
     db_FooterLogoLink: 'Odkaz na logo v pätičke'
@@ -67,8 +66,6 @@ sk:
     has_one_FooterLogo: 'Logo v pätičke'
     has_one_FooterLogoRetina: 'Logo v pätičke retina'
     has_one_FooterLogoSecondary: 'Sekundárne logo v pätičke'
-    has_one_Logo: Logo
-    has_one_LogoRetina: 'Logo retina'
     has_one_Subsite: Podstránka
     many_many_ContentReviewGroups: 'Skupiny kontroly obsahu'
     many_many_ContentReviewUsers: 'Používatelia kontroly obsahu'
