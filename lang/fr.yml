@@ -6,7 +6,7 @@ fr:
   SilverStripe\SiteConfig\SiteConfig:
     EDITHEADER: 'Qui peut modifier les pages sur ce site ?'
     EDIT_PERMISSION: 'Configuration du site'
-    EDIT_PERMISSION_HELP: 'Capacité d''édition des paramètres d''accès global et permissions des pages de premier niveau.'
+    EDIT_PERMISSION_HELP: "Capacité d'édition des paramètres d'accès global et permissions des pages de premier niveau."
     PLURALNAME: 'Configurations du site'
     PLURALS:
       many: '{count} configurations du site'

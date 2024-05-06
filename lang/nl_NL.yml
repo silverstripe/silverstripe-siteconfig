@@ -11,8 +11,8 @@ nl_NL:
     TABACCESS: Toegang
     TABMAIN: Hoofd
     TAGLINEDEFAULT: 'jouw slagzin hier'
-    TOPLEVELCREATE: 'Wie kan pagina''s op het hoogste niveau van de site aanmaken?'
+    TOPLEVELCREATE: "Wie kan pagina's op het hoogste niveau van de site aanmaken?"
     TOPLEVELCREATORGROUPS: 'Hoogste niveau auteurs'
-    VIEWHEADER: 'Wie kan pagina''s op de site bekijken?'
+    VIEWHEADER: "Wie kan pagina's op de site bekijken?"
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Instellingen
