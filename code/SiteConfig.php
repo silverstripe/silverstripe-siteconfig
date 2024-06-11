@@ -277,20 +277,6 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             }
         }
 
-        if (file_exists(BASE_PATH . '/install.php')) {
-            $fields->addFieldToTab(
-                'Root.Main',
-                LiteralField::create(
-                    'InstallWarningHeader',
-                    '<div class="alert alert-warning">' . _t(
-                        'SilverStripe\\CMS\\Model\\SiteTree.REMOVE_INSTALL_WARNING',
-                        'Warning: You should remove install.php from this SilverStripe install for security reasons.'
-                    ) . '</div>'
-                ),
-                'Title'
-            );
-        }
-
         $tabMain->setTitle(_t(self::class . '.TABMAIN', "Main"));
         $tabAccess->setTitle(_t(self::class . '.TABACCESS', "Access"));
         $this->extend('updateCMSFields', $fields);
