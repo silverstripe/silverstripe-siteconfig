@@ -80,8 +80,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
 
     public function populateDefaults()
     {
-        $this->Title = _t(self::class . '.SITENAMEDEFAULT', "Your Site Name");
-        $this->Tagline = _t(self::class . '.TAGLINEDEFAULT', "your tagline here");
+        $this->Title = _t(SiteConfig::class . '.SITENAMEDEFAULT', "Your Site Name");
+        $this->Tagline = _t(SiteConfig::class . '.TAGLINEDEFAULT', "your tagline here");
 
         // Allow these defaults to be overridden
         parent::populateDefaults();
@@ -114,17 +114,17 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                 "Root",
                 $tabMain = Tab::create(
                     'Main',
-                    $titleField = TextField::create("Title", _t(self::class . '.SITETITLE', "Site title")),
+                    $titleField = TextField::create("Title", _t(SiteConfig::class . '.SITETITLE', "Site title")),
                     $taglineField = TextField::create(
                         "Tagline",
-                        _t(self::class . '.SITETAGLINE', "Site Tagline/Slogan")
+                        _t(SiteConfig::class . '.SITETAGLINE', "Site Tagline/Slogan")
                     )
                 ),
                 $tabAccess = Tab::create(
                     'Access',
                     $viewersOptionsField = OptionsetField::create(
                         "CanViewType",
-                        _t(self::class . '.VIEWHEADER', "Who can view pages on this site?")
+                        _t(SiteConfig::class . '.VIEWHEADER', "Who can view pages on this site?")
                     ),
                     $viewerGroupsField = ListboxField::create(
                         "ViewerGroups",
@@ -137,14 +137,14 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         ),
                     $viewerMembersField = SearchableMultiDropdownField::create(
                         "ViewerMembers",
-                        _t(self::class . '.VIEWERMEMBERS', "Viewer Users"),
+                        _t(SiteConfig::class . '.VIEWERMEMBERS', "Viewer Users"),
                         Member::get()
                     )
                         ->setIsLazyLoaded(true)
                         ->setUseSearchContext(true),
                     $editorsOptionsField = OptionsetField::create(
                         "CanEditType",
-                        _t(self::class . '.EDITHEADER', "Who can edit pages on this site?")
+                        _t(SiteConfig::class . '.EDITHEADER', "Who can edit pages on this site?")
                     ),
                     $editorGroupsField = ListboxField::create(
                         "EditorGroups",
@@ -157,18 +157,18 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         ),
                     $editorMembersField = SearchableMultiDropdownField::create(
                         "EditorMembers",
-                        _t(self::class . '.EDITORMEMBERS', "Editor Users"),
+                        _t(SiteConfig::class . '.EDITORMEMBERS', "Editor Users"),
                         Member::get(),
                     )
                         ->setIsLazyLoaded(true)
                         ->setUseSearchContext(true),
                     $topLevelCreatorsOptionsField = OptionsetField::create(
                         "CanCreateTopLevelType",
-                        _t(self::class . '.TOPLEVELCREATE', "Who can create pages in the root of the site?")
+                        _t(SiteConfig::class . '.TOPLEVELCREATE', "Who can create pages in the root of the site?")
                     ),
                     $topLevelCreatorsGroupsField = ListboxField::create(
                         "CreateTopLevelGroups",
-                        _t(self::class . '.TOPLEVELCREATORGROUPS2', "Top level creator groups")
+                        _t(SiteConfig::class . '.TOPLEVELCREATORGROUPS2', "Top level creator groups")
                     )
                         ->setSource($groupsMap)
                         ->setAttribute(
@@ -177,7 +177,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         ),
                     $topLevelCreatorsMembersField = SearchableMultiDropdownField::create(
                         "CreateTopLevelMembers",
-                        _t(self::class . '.TOPLEVELCREATORUSERS', "Top level creator users"),
+                        _t(SiteConfig::class . '.TOPLEVELCREATORUSERS', "Top level creator users"),
                         Member::get()
                     )
                         ->setIsLazyLoaded(true)
@@ -198,7 +198,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             "Only these groups (choose from list)"
         );
         $viewersOptionsSource[InheritedPermissions::ONLY_THESE_MEMBERS] = _t(
-            self::class . '.ACCESSONLYTHESEMEMBERS',
+            SiteConfig::class . '.ACCESSONLYTHESEMEMBERS',
             "Only these users (choose from list)"
         );
         $viewersOptionsField->setSource($viewersOptionsSource);
@@ -229,7 +229,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             "Only these groups (choose from list)"
         );
         $editorsOptionsSource[InheritedPermissions::ONLY_THESE_MEMBERS] = _t(
-            self::class . '.EDITONLYTHESEMEMBERS',
+            SiteConfig::class . '.EDITONLYTHESEMEMBERS',
             "Only these users (choose from list)"
         );
         $editorsOptionsField->setSource($editorsOptionsSource);
@@ -291,8 +291,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
             );
         }
 
-        $tabMain->setTitle(_t(self::class . '.TABMAIN', "Main"));
-        $tabAccess->setTitle(_t(self::class . '.TABACCESS', "Access"));
+        $tabMain->setTitle(_t(SiteConfig::class . '.TABMAIN', "Main"));
+        $tabAccess->setTitle(_t(SiteConfig::class . '.TABACCESS', "Access"));
         $this->extend('updateCMSFields', $fields);
 
         return $fields;
@@ -341,7 +341,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     {
         $siteConfig = DataObject::get_one(SiteConfig::class);
         if (!$siteConfig) {
-            $siteConfig = self::make_site_config();
+            $siteConfig = SiteConfig::make_site_config();
         }
 
         static::singleton()->extend('updateCurrentSiteConfig', $siteConfig);
@@ -359,7 +359,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         $config = DataObject::get_one(SiteConfig::class);
 
         if (!$config) {
-            self::make_site_config();
+            SiteConfig::make_site_config();
 
             DB::alteration_message("Added default site config", "created");
         }
@@ -514,13 +514,13 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     {
         return [
             'EDIT_SITECONFIG' => [
-                'name' => _t(self::class . '.EDIT_PERMISSION', 'Manage site configuration'),
+                'name' => _t(SiteConfig::class . '.EDIT_PERMISSION', 'Manage site configuration'),
                 'category' => _t(
                     'SilverStripe\\Security\\Permission.PERMISSIONS_CATEGORY',
                     'Roles and access permissions'
                 ),
                 'help' => _t(
-                    self::class . '.EDIT_PERMISSION_HELP',
+                    SiteConfig::class . '.EDIT_PERMISSION_HELP',
                     'Ability to edit global access settings/top-level page permissions.'
                 ),
                 'sort' => 400
