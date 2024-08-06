@@ -1,10 +1,14 @@
 de:
+  SilverStripe\CMS\Controllers\CMSMain:
+    SAVE: Speichern
   SilverStripe\CMS\Model\SiteTree:
     EDITANYONE: 'Jeder, der sich in das CMS einloggen kann'
     EDITONLYTHESE: 'Nur diese Gruppen (bitte auswählen)'
     GroupPlaceholder: 'Klicken, um Gruppe auszuwählen'
   SilverStripe\SiteConfig\SiteConfig:
+    ACCESSONLYTHESEMEMBERS: 'Nur diese Nutzer (bitte auswählen)'
     EDITHEADER: 'Wer kann Seiten auf dieser Website bearbeiten?'
+    EDITONLYTHESEMEMBERS: 'Nur diese Nutzer (bitte auswählen)'
     EDIT_PERMISSION: 'Einstellungen der Webseite bearbeiten'
     EDIT_PERMISSION_HELP: 'Zugriff auf globale Einstellungen und Zugriffseinstellungen.'
     PLURALNAME: Seitenkonfigurationen
@@ -20,7 +24,36 @@ de:
     TAGLINEDEFAULT: 'Dein Slogan'
     TOPLEVELCREATE: 'Wer kann Seiten auf der Hauptebene erstellen?'
     TOPLEVELCREATORGROUPS: Hauptebenen-Ersteller
+    TOPLEVELCREATORGROUPS2: Hauptebenen-Erstellergruppen
+    TOPLEVELCREATORUSERS: Hauptebenen-Ersteller
     VIEWHEADER: 'Wer kann Seiten ansehen auf dieser Webseite?'
+    db_AccentColor: Akzentfarbe
+    db_AllChangesEnabled: 'Alle Änderungen aktiviert'
+    db_CanCreateTopLevelType: 'Kann Typ der obersten Ebene erstellen'
+    db_CanEditType: 'Kann Typ bearbeiten'
+    db_CanViewType: 'Kann Typ anzeigen'
+    db_CarouselBackground: Karussell-Hintergrund
+    db_EmptySearch: 'Leere Suche'
+    db_FacebookURL: Facebook-URL
+    db_FooterBackground: 'Footer Hintergrund'
+    db_FooterLogoDescription: 'Footer Logo Beschreibung'
+    db_FooterLogoLink: 'Footer Logo Link'
+    db_FooterLogoSecondaryDescription: 'Footer Logo sekundäre Beschreibung'
+    db_FooterLogoSecondaryLink: 'Footer Logo sekundärer Link'
+    db_HeaderBackground: 'Header Hintergrund'
+    db_MFAGracePeriodExpires: 'MFA-Schonfrist läuft ab'
+    db_MFARequired: 'MFA erforderlich'
+    db_MainFontFamily: Hauptschriftfamilie
+    db_NavigationBarBackground: 'Hintergrund der Navigationsleiste'
+    db_NoSearchResults: 'Keine Suchergebnisse'
+    db_TextLinkColor: 'Farbe des Textlinks'
+    db_Title: Titel
+    db_TwitterUsername: 'Twitter Benutzername'
+    has_one_FooterLogo: 'Footer Logo'
+    has_one_FooterLogoRetina: 'Footer Logo Retina'
+    has_one_FooterLogoSecondary: 'Sekundäres Footer Logo'
+    has_one_LogoRetina: 'Logo Retina'
+    has_one_Subsite: Untertitel
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Einstellungen
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
