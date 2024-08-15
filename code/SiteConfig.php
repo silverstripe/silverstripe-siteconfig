@@ -309,10 +309,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         return $actions;
     }
 
-    /**
-     * @return string
-     */
-    public function CMSEditLink()
+    public function CMSEditLink(): ?string
     {
         return SiteConfigLeftAndMain::singleton()->Link();
     }
