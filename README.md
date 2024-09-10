@@ -16,7 +16,7 @@ composer require silverstripe/siteconfig
 
 ## Configuration
 
-After installation, make sure you rebuild your database through `dev/build`.
+After installation, make sure you rebuild your database by running `sake db:build --flush`.
 
 ## Development and Contribution
 
