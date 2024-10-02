@@ -10,7 +10,7 @@
 		<fieldset>
 			<% if $Legend %><legend>$Legend</legend><% end_if %>
 			<% loop $Fields %>
-				$FieldHolder
+				$renderFieldHolder
 			<% end_loop %>
 			<div class="clear"><!-- --></div>
 		</fieldset>
@@ -20,7 +20,7 @@
 		<% if $Actions %>
 		 <div class="btn-toolbar">
 			<% loop $Actions %>
-				$Field
+				$renderField
 			<% end_loop %>
 			<% if $Controller.LinkPreview %>
 				<a href="$Controller.LinkPreview" class="cms-preview-toggle-link ss-ui-button" data-icon="preview">
