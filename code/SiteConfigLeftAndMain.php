@@ -13,7 +13,7 @@ use SilverStripe\Model\List\ArrayList;
 use SilverStripe\ORM\CMSPreviewable;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Core\Validation\ValidationResult;
-use SilverStripe\Versioned\RecursivePublishable;
+use SilverStripe\Versioned\Staged\RecursivePublishable;
 use SilverStripe\Model\ArrayData;
 use SilverStripe\View\Requirements;
 
