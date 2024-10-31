@@ -5,6 +5,7 @@ namespace SilverStripe\SiteConfig;
 use SilverStripe\Admin\LeftAndMain;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Director;
+use SilverStripe\Dev\Deprecation;
 use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HiddenField;
@@ -46,6 +47,7 @@ class SiteConfigLeftAndMain extends LeftAndMain
 
     /**
      * @var string
+     * @deprecated 5.4.0 Will be renamed to model_class
      */
     private static $tree_class = SiteConfig::class;
 
@@ -147,9 +149,11 @@ class SiteConfigLeftAndMain extends LeftAndMain
      * @param array $data
      * @param Form $form
      * @return String
+     * @deprecated 5.4.0 Will be replaced with save()
      */
     public function save_siteconfig($data, $form)
     {
+        Deprecation::noticeWithNoReplacment('5.4.0', 'Will be replaced with save()');
         $data = $form->getData();
         $siteConfig = DataObject::get_by_id(SiteConfig::class, $data['ID']);
         $form->saveInto($siteConfig);
@@ -163,7 +167,6 @@ class SiteConfigLeftAndMain extends LeftAndMain
         );
         return $form->forTemplate();
     }
-
 
     public function Breadcrumbs($unlinked = false)
     {
