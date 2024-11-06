@@ -2,12 +2,9 @@
 
 namespace SilverStripe\SiteConfig;
 
-use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\HiddenField;
 use SilverStripe\Forms\ListboxField;
-use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\TabSet;
@@ -21,7 +18,6 @@ use SilverStripe\Security\Permission;
 use SilverStripe\Security\PermissionProvider;
 use SilverStripe\Security\Security;
 use SilverStripe\View\TemplateGlobalProvider;
-use SilverStripe\CMS\Controllers\CMSMain;
 use SilverStripe\Forms\SearchableMultiDropdownField;
 use SilverStripe\Security\InheritedPermissions;
 
@@ -284,31 +280,6 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         return $fields;
     }
 
-    /**
-     * Get the actions that are sent to the CMS.
-     *
-     * In your extensions: updateEditFormActions($actions)
-     *
-     * @return FieldList
-     */
-    public function getCMSActions()
-    {
-        if (Permission::check('ADMIN') || Permission::check('EDIT_SITECONFIG')) {
-            $actions = FieldList::create(
-                FormAction::create(
-                    'save_siteconfig',
-                    _t('SilverStripe\\CMS\\Controllers\\CMSMain.SAVE', 'Save')
-                )->addExtraClass('btn-primary font-icon-save')
-            );
-        } else {
-            $actions = FieldList::create();
-        }
-
-        $this->extend('updateCMSActions', $actions);
-
-        return $actions;
-    }
-
     public function CMSEditLink(): ?string
     {
         return SiteConfigLeftAndMain::singleton()->Link();
@@ -317,18 +288,13 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
     /**
      * Get the current sites SiteConfig, and creates a new one through
      * {@link make_site_config()} if none is found.
-     *
-     * @return SiteConfig
      */
-    public static function current_site_config()
+    public static function current_site_config(): SiteConfig
     {
         $siteConfig = DataObject::get_one(SiteConfig::class);
         if (!$siteConfig) {
             $siteConfig = SiteConfig::make_site_config();
         }
-
-        static::singleton()->extend('updateCurrentSiteConfig', $siteConfig);
-
         return $siteConfig;
     }
 
@@ -488,6 +454,15 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         }
 
         return Permission::checkMember($member, "EDIT_SITECONFIG");
+    }
+
+    public function canDelete($member = null)
+    {
+        $extended = $this->extendedCan(__FUNCTION__, $member);
+        if ($extended !== null) {
+            return $extended;
+        }
+        return false;
     }
 
     /**
