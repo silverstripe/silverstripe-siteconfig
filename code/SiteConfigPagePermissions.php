@@ -16,7 +16,7 @@ class SiteConfigPagePermissions implements DefaultPermissionChecker
      * @param Member $member
      * @return bool
      */
-    public function canEdit(Member $member = null)
+    public function canEdit(?Member $member = null)
     {
         return SiteConfig::current_site_config()->canEditPages($member);
     }
@@ -27,7 +27,7 @@ class SiteConfigPagePermissions implements DefaultPermissionChecker
      * @param Member $member
      * @return bool
      */
-    public function canView(Member $member = null)
+    public function canView(?Member $member = null)
     {
         return SiteConfig::current_site_config()->canViewPages($member);
     }
@@ -38,7 +38,7 @@ class SiteConfigPagePermissions implements DefaultPermissionChecker
      * @param Member $member
      * @return bool
      */
-    public function canDelete(Member $member = null)
+    public function canDelete(?Member $member = null)
     {
         // Same as canEdit
         return $this->canEdit($member);
@@ -50,7 +50,7 @@ class SiteConfigPagePermissions implements DefaultPermissionChecker
      * @param Member $member
      * @return bool
      */
-    public function canCreate(Member $member = null)
+    public function canCreate(?Member $member = null)
     {
         return SiteConfig::current_site_config()->canCreateTopLevel();
     }
