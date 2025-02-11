@@ -78,6 +78,8 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
         'CMS_ACCESS_LeftAndMain'
     ];
 
+    private static bool $require_sudo_mode = true;
+
     public function populateDefaults()
     {
         $this->Title = _t(SiteConfig::class . '.SITENAMEDEFAULT', "Your Site Name");

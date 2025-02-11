@@ -4,7 +4,8 @@ Feature: Manage global page permissions
   In order to set good defaults and avoid repeating myself on each page
 
   Background:
-    Given a "page" "Home" with "Content"="<p>Welcome</p>"
+    Given I add an extension "SilverStripe\FrameworkTest\SudoMode\ActivateSudoModeServiceExtension" to the "SilverStripe\Security\SudoMode\SudoModeService" class
+    And a "page" "Home" with "Content"="<p>Welcome</p>"
     And a "group" "AUTHOR" has permissions "Access to 'Pages' section"
     And a "group" "SECURITY" has permissions "Access to 'Security' section"
     # Have to supply an email address like this for "I am logged in as a member of <name> group" to find this user

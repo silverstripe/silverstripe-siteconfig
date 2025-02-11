@@ -138,6 +138,9 @@ class SiteConfigLeftAndMain extends LeftAndMain
             }
         }
 
+        // Require sudo mode for the edit form
+        $form->requireSudoMode();
+
         $this->extend('updateEditForm', $form);
 
         return $form;
