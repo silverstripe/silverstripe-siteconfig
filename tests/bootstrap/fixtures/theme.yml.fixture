@@ -3,5 +3,5 @@ Name: mysite
 ---
 SilverStripe\View\SSViewer:
   themes:
-    - 'simple'
+    - 'startup-theme'
     - '$default'
