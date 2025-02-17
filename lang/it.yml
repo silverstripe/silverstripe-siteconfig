@@ -1,10 +1,15 @@
 it:
+  SilverStripe\CMS\Controllers\CMSMain:
+    SAVE: Salva
   SilverStripe\CMS\Model\SiteTree:
     EDITANYONE: 'Chiunque possa accedere al CMS'
     EDITONLYTHESE: 'Solo questi gruppi (scegli dalla lista)'
     GroupPlaceholder: 'Cliccare per selezionare il gruppo'
   SilverStripe\SiteConfig\SiteConfig:
+    ACCESSONLYTHESEMEMBERS: 'Solo questi utenti (scegli dalla lista)'
     EDITHEADER: 'Chi può modificare le pagine in questo sito?'
+    EDITONLYTHESEMEMBERS: 'Solo questi utenti (scegli dalla lista)'
+    EDITORMEMBERS: 'Utenti Editori'
     EDIT_PERMISSION: 'Gestione configurazione sito'
     EDIT_PERMISSION_HELP: 'Capacità di modificare le impostazioni di accesso generali/i permessi delle pagine di primo livello'
     PLURALNAME: 'Configurazioni Sito'
@@ -21,7 +26,50 @@ it:
     TAGLINEDEFAULT: 'la tua citazione qui'
     TOPLEVELCREATE: 'Chi può creare le pagine di primo livello in questo sito?'
     TOPLEVELCREATORGROUPS: 'Creatori primo livello'
+    TOPLEVELCREATORGROUPS2: 'Gruppi di creatori di primo livello'
+    TOPLEVELCREATORUSERS: 'Utenti creatori di primo livello'
+    VIEWERMEMBERS: 'Utenti Visualizzatori'
     VIEWHEADER: 'Chi può vedere le pagine in questo sito?'
+    db_AccentColor: 'Colore di base'
+    db_AllChangesEnabled: 'Tutte le modifiche abilitate'
+    db_CanCreateTopLevelType: 'Può creare tipi di primo livello'
+    db_CanEditType: 'Può modificare il tipo'
+    db_CanViewType: 'Può vedere il tipo'
+    db_CarouselBackground: 'Sfondo carosello'
+    db_EmptySearch: 'Ricerca vuota'
+    db_FacebookURL: 'URL Facebook'
+    db_FooterBackground: 'Sfondo piè di pagina'
+    db_FooterLogoDescription: 'Descrizione logo piè di pagina'
+    db_FooterLogoLink: 'Link al logo piè di pagina'
+    db_FooterLogoSecondaryDescription: 'Descrizione secondaria logo piè di pagina'
+    db_FooterLogoSecondaryLink: 'Link secondario al logo piè di pagina'
+    db_GACode: 'Codice GA'
+    db_HeaderBackground: 'Sfondo intestazione'
+    db_MFAGracePeriodExpires: 'Tempo di proroga MFA scaduto'
+    db_MFARequired: 'Richiesta MFA'
+    db_MainFontFamily: 'Famiglia font principale'
+    db_NavigationBarBackground: 'Sfondo barra di navigazione'
+    db_NoSearchResults: 'Ricerca senza risultati'
+    db_ReviewBody: 'Corpo revisione'
+    db_ReviewFrom: 'Revisione da'
+    db_ReviewPeriodDays: 'Giorni periodo di revisione'
+    db_ReviewSubject: 'Soggetto revisione'
+    db_Tagline: Slogan
+    db_TextLinkColor: 'Colore testo del link'
+    db_Title: Titolo
+    db_TwitterUsername: 'Utente twitter'
+    has_one_FooterLogo: 'Logo piè di pagina'
+    has_one_FooterLogoRetina: 'Logo retina piè di pagina'
+    has_one_FooterLogoSecondary: 'Logo secondario piè di pagina'
+    has_one_Subsite: Sottotitolo
+    many_many_ContentReviewGroups: 'Gruppi di revisione contenuti'
+    many_many_ContentReviewUsers: 'Utenti di revisione contenuti'
+    many_many_CreateTopLevelGroups: 'Crea gruppi di primo livello'
+    many_many_CreateTopLevelMembers: 'Crea membri di primo livello'
+    many_many_EditorGroups: 'Gruppi editori'
+    many_many_EditorMembers: 'Membri editori'
+    many_many_ViewerGroups: 'Gruppi visualizzatori'
+    many_many_ViewerMembers: 'Membri visualizzatori'
   SilverStripe\SiteConfig\SiteConfigLeftAndMain:
     MENUTITLE: Impostazioni
   SilverStripe\SiteConfig\SiteConfigLeftAndMain_SilverStripeNavigator:
