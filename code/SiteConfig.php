@@ -136,8 +136,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         _t(SiteConfig::class . '.VIEWERMEMBERS', "Viewer Users"),
                         Member::get()
                     )
-                        ->setIsLazyLoaded(true)
-                        ->setUseSearchContext(true),
+                        ->setIsLazyLoaded(true),
                     $editorsOptionsField = OptionsetField::create(
                         "CanEditType",
                         _t(SiteConfig::class . '.EDITHEADER', "Who can edit pages on this site?")
@@ -156,8 +155,7 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         _t(SiteConfig::class . '.EDITORMEMBERS', "Editor Users"),
                         Member::get(),
                     )
-                        ->setIsLazyLoaded(true)
-                        ->setUseSearchContext(true),
+                        ->setIsLazyLoaded(true),
                     $topLevelCreatorsOptionsField = OptionsetField::create(
                         "CanCreateTopLevelType",
                         _t(SiteConfig::class . '.TOPLEVELCREATE', "Who can create pages in the root of the site?")
@@ -177,7 +175,6 @@ class SiteConfig extends DataObject implements PermissionProvider, TemplateGloba
                         Member::get()
                     )
                         ->setIsLazyLoaded(true)
-                        ->setUseSearchContext(true)
                 )
             ),
             HiddenField::create('ID')
