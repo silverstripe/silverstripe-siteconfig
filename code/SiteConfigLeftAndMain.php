@@ -149,11 +149,11 @@ class SiteConfigLeftAndMain extends LeftAndMain
      * @param array $data
      * @param Form $form
      * @return String
-     * @deprecated 5.4.0 Will be replaced with save()
+     * @deprecated 5.4.0 Will be replaced with save() in a future major release
      */
     public function save_siteconfig($data, $form)
     {
-        Deprecation::noticeWithNoReplacment('5.4.0', 'Will be replaced with save()');
+        Deprecation::noticeWithNoReplacment('5.4.0', 'Will be replaced with save() in a future major release');
         $data = $form->getData();
         $siteConfig = DataObject::get_by_id(SiteConfig::class, $data['ID']);
         $form->saveInto($siteConfig);
