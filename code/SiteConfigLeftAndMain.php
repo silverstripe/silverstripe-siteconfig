@@ -22,6 +22,8 @@ class SiteConfigLeftAndMain extends SingleRecordAdmin
         'EDIT_SITECONFIG',
     ];
 
+    private static bool $skip_permission_generation = true;
+
     public function init()
     {
         parent::init();
